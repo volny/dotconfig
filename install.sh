@@ -11,6 +11,10 @@ fi
 xargs brew install < brew/brewlist
 xargs brew cask install < brew/brewcasklist
 
+# install font
+brew tap caskroom/fonts
+brew cask install font-hack-nerd-font
+
 # GIT
 
 ln -sf ~/.config/git/gitconfig ~/.gitconfig

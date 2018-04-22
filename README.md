@@ -12,7 +12,7 @@ Defaults for getting up to speed with neovim, tmux, zsh, git, javascript
 This repos is designed to be installed as the `~/.config` directory. If you already have that dir move it out of the way by doing something like `mv ~/.config ~/.config_old`. You can later merge it's contents back together.
 
 - `git clone --recursive git@github.com:volny/dotconfig.git .config`. The `recursive` flag is needed to fetch [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) as a submodule.
-- open `~/.config/git/gitconfig` in your editor of choice and swap out my credentials for yours
+- open `~/.config/git/gitconfig` in your editor of choice and swap out my credentials for yours. You might also want to go through the lists in `brew/` and remove/add applications to be installed
 - run `./install.sh`
 
 ## Todo

@@ -1,14 +1,17 @@
 
-# brew
+# install homebrew
 
-# TODO
+echo -n "Do you want to install Homebrew? Answer no if you already have it. (y/n)? "
+read installBrew
 
-# xargs brew install < brew/list
-# xargs brew cask install < brew/caskList
+if [ "$installBrew" != "${installBrew#[Yy]}" ] ;then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
-# iterm2
+# install apps via homebrew
 
-# TODO
+xargs brew install < brew/brewlist
+xargs brew cask install < brew/brewcasklist
 
 # git
 
@@ -52,6 +55,10 @@ ln -sf ~/.config/tmux/tmux.conf ~/.tmux.conf
 ln -sf ~/.config/tmux/tmux.conf.local ~/.tmux.conf.local
 
 # nvim
+
+# TODO
+
+# iterm2
 
 # TODO
 

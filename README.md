@@ -1,6 +1,6 @@
 # Development Environment Configuration
 
-Defaults for getting up to speed with neovim, tmux, zsh, git, javascript
+Defaults for getting up and running with neovim, tmux, zsh, git, javascript development.
 
 ## Requirements
 
@@ -14,8 +14,3 @@ This repos is designed to be installed as the `~/.config` directory. If you alre
 - `git clone --recursive git@github.com:volny/dotconfig.git .config`. The `recursive` flag is needed to fetch [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) as a submodule.
 - open `~/.config/git/gitconfig` in your editor of choice and swap out my credentials for yours. You might also want to go through the lists in `brew/` and remove/add applications to be installed
 - run `./install.sh`
-
-## Todo
-
-- install a powerline font or make sure one is installed
-- sync iterm2 settings

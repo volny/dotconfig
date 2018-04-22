@@ -17,7 +17,5 @@ This repos is designed to be installed as the `~/.config` directory. If you alre
 
 ## Todo
 
-- Install `brew` and iterate over brew-lists (must have yarn, neovim, tmux, ag to proceed)
 - install a powerline font or make sure one is installed
-- automate this. Download vim-plug into nvim's autoload dir: `curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`. source `init.vim` and run `:PlugInstall`, `:UpdateRemotePlugins`
 - sync iterm2 settings

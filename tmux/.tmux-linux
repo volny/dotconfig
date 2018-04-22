@@ -1,0 +1,4 @@
+# on dumb terminals use control-space
+set -g prefix C-Space
+bind C-Space send-prefix
+

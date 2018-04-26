@@ -65,17 +65,27 @@ let g:deoplete#enable_at_startup = 1
 
 Plug 'morhetz/gruvbox'
 
-Plug 'pangloss/vim-javascript'
-" Plug 'othree/yajs.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-let g:vim_jsx_pretty_colorful_config = 1 " default 0
-" Plug 'mxw/vim-jsx'
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 1
-let g:jsx_ext_required = 0
+" commented out to try wmonk's syntax config
+"Plug 'pangloss/vim-javascript'
+"" Plug 'othree/yajs.vim'
+"Plug 'maxmellon/vim-jsx-pretty'
+"let g:vim_jsx_pretty_colorful_config = 1 " default 0
+"" Plug 'mxw/vim-jsx'
+"let g:javascript_plugin_jsdoc = 1
+"let g:javascript_plugin_flow = 1
+"let g:jsx_ext_required = 0
+"Plug 'hail2u/vim-css3-syntax'
+"Plug 'styled-components/vim-styled-components'
 
-Plug 'hail2u/vim-css3-syntax'
-Plug 'styled-components/vim-styled-components'
+Plug 'flowtype/vim-flow'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'wavded/vim-stylus'
+Plug 'moll/vim-node'
+Plug 'neoclide/vim-jsx-improve'
+Plug 'othree/yajs.vim'
+Plug 'slashmili/alchemist.vim'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'

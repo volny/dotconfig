@@ -19,7 +19,6 @@ alias badge="tput bel"
 # find . -name .gitattributes | map dirname
 alias map="xargs -n1"
 
-alias cl="clear"
 alias md="mkdir"
 
 alias updateVim="vim +BundleInstall! +BundleClean +qall"
@@ -27,9 +26,7 @@ alias updateVim="vim +BundleInstall! +BundleClean +qall"
 # https://github.com/github/hub
 #alias git=hub
 
-# warn before using npm
-# alias npm="confirm && npm $@"
-
 # require silver searcher ignore globally
 alias ag='ag --ignore-dir ~/.config/ag/ignore'
+
 alias e='exit'

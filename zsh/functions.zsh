@@ -3,19 +3,19 @@ function cd() {
   ls -a;
 }
 
+function v() {
+  if [ $# -eq 0 ]; then
+    nvim;
+  else
+    nvim "$@";
+  fi;
+}
+
 function o() {
   if [ $# -eq 0 ]; then
     open .;
   else
     open "$@";
-  fi;
-}
-
-function a() {
-  if [ $# -eq 0 ]; then
-    atom .;
-  else
-    atom "$@";
   fi;
 }
 
@@ -122,18 +122,4 @@ function json() {
   else # pipe
     python -mjson.tool | pygmentize -l javascript;
   fi;
-}
-
-# prompt user before executing command
-# use like this: `alias npm="confirm && npm $@"`
-confirm() {
-  read -q "response?do you really want to use npm?"
-  case "$response" in
-    [yY][eE][sS]|[yY])
-      true
-      ;;
-    *)
-      false
-      ;;
-  esac
 }

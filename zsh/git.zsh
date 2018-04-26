@@ -1,5 +1,5 @@
 
-#  TODO: just an idea: just as entering a dir triggers `ls` ...
+# IDEA: just as entering a dir triggers `ls` ...
 # ... entering any git command triggers a `gs` :)
 
 #   http://defunkt.github.com/hub/

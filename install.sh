@@ -49,6 +49,10 @@ ln -sf ~/.config/zsh/zshrc.zsh ~/.zshrc
 ln -sf ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ~/.zsh-autosuggestions
 ln -sf ~/.config/zsh/keybindings.zsh ~/.keybindings
 
+# change shell to zsh
+echo $(which zsh) >> /etc/shells
+chsh -s $(which zsh)
+
 # JAVASCRIPT
 
 ln -sf ~/.config/javascript/editorconfig ~/.editorconfig
@@ -75,5 +79,7 @@ nvim -E -c PlugInstall -c UpdateRemotePlugins -c qall
 
 # ITERM2
 
-# TODO
-
+# Specify the preferences directory
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.config/iterm"
+# Tell iTerm2 to use the custom preferences in the directory
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true

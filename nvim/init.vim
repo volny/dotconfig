@@ -60,32 +60,16 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'Shougo/deoplete.nvim'
 let g:deoplete#enable_at_startup = 1
 
-" Plug 'chriskempson/base16-vim'
-" colorscheme base16-default-dark
-
 Plug 'morhetz/gruvbox'
 
-" commented out to try wmonk's syntax config
-"Plug 'pangloss/vim-javascript'
-"" Plug 'othree/yajs.vim'
-"Plug 'maxmellon/vim-jsx-pretty'
-"let g:vim_jsx_pretty_colorful_config = 1 " default 0
-"" Plug 'mxw/vim-jsx'
-"let g:javascript_plugin_jsdoc = 1
-"let g:javascript_plugin_flow = 1
-"let g:jsx_ext_required = 0
-"Plug 'hail2u/vim-css3-syntax'
-"Plug 'styled-components/vim-styled-components'
-
+" syntax
 Plug 'flowtype/vim-flow'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'Quramy/vim-js-pretty-template'
-Plug 'wavded/vim-stylus'
 Plug 'moll/vim-node'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'othree/yajs.vim'
-Plug 'slashmili/alchemist.vim'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -113,45 +97,33 @@ let g:airline#extensions#ale#enabled = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_fixers = { 'javascript': ['prettier', 'eslint','prettier-eslint'], 'json': ['prettier'], 'css': ['prettier'], 'scss': ['prettier'] }
-"let g:ale_linters = {'javascript': ['prettier']}
-"let g:ale_fix_on_save = 1
+let g:ale_linters = {'javascript': ['prettier']}
+let g:ale_fix_on_save = 1
 
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 Plug 'honza/vim-snippets'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
 
-Plug 'scrooloose/nerdtree'
-nnoremap <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let g:NERDTreeDirArrowExpandable = " " " <-- (just the right) invisible space
-let g:NERDTreeDirArrowCollapsible= " " " <-- (just the right) invisible space
-
-Plug 'Xuyuanp/nerdtree-git-plugin'
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
+" requirement for ranger
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
+" don't use default keymapping (<leader>f)
+let g:ranger_map_keys = 0
+nnoremap <C-n> :Ranger<CR>
 
 Plug 'ctrlpvim/ctrlp.vim'
-" open with shift-tab (map in iterm)
-"let g:ctrlp_map = <Space>b
 nnoremap <Space>j :CtrlP<CR>
-" switch open buffers with ctrl-tab
+" open buffers
 nnoremap <Space>f :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore = {
    \ 'dir':  '\v[\/](\.git|_site|dist|node_modules)$',
@@ -167,9 +139,6 @@ let g:ctrlp_prompt_mappings = {
    \ }
 
 Plug 'jiangmiao/auto-pairs'
-
-" NOTE DON'T USE EMMET-VIM EVER AGAIN. IT BREAKS THINGS
-" Plug 'mattn/emmet-vim'
 
 Plug 'scrooloose/nerdcommenter'
 " Add spaces after comment delimiters by default
@@ -187,10 +156,6 @@ Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
 " start counting buffers at 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-" gruvbox sets airline theme automatcally so disabled for now
-" let g:airline_theme='base16'
-" let g:airline_theme='tomorrow'
-" show tabline/bufferline only if more than 1 tab/buffer
 " only show bufferline if more than 1 open buffer
 let g:airline#extensions#tabline#buffer_min_count = 2
 let airline#extensions#tabline#tabs_label = 0
@@ -207,33 +172,16 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " let g:airline#extensions#tabline#buffer_idx_mode = 1
 " don't show the buffer number (that :ls number)
 let g:airline#extensions#tabline#buffer_nr_show = 0
-
 " use the patched font
 let g:airline_powerline_fonts = 1
 
-" NOTE TEST before re-enabling indentline - it caused severe issues
-" with auto-indentation and were it drops off the curser on newline
 " Plug 'Yggdroot/indentLine'
-" let g:indentLine_char = '│' " <-- this is the real full-height vertical bar 🎉
+" let g:indentLine_char = '│'
 " let g:indentLine_char = '┆'
 
-
 Plug 'ryanoasis/vim-devicons'
-
 let g:WebDevIconsOS = 'Darwin'
-
-" devicons for nerdtree disabled because I'm tired of fixing brackets issues
-let g:webdevicons_enable_nerdtree = 0
-"let g:webdevicons_conceal_nerdtree_brackets = 1
-"let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-"let g:WebDevIconsNerdTreeAfterGlyphPadding = " " " <-- (just the right) invisible space
-""fix syntax matching issues (concealing brackets)
-"if exists('g:loaded_webdevicons')
-"   call webdevicons#refresh()
-"endif
-
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
-
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_ctrlp = 1
@@ -244,7 +192,7 @@ Plug 'haya14busa/incsearch.vim'
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-" YES I want to clear highlight when I do anything other than n/N
+" clear highlight when I do anything other than n/N
 let g:incsearch#auto_nohlsearch = 1
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
@@ -292,7 +240,7 @@ call plug#end()
 set termguicolors
 set background=dark
 
-" sadly this needs to live here, outside the plug#end
+" sadly this needs to be here, outside the plug#end
 colorscheme gruvbox
 
 " set vim background color
@@ -304,19 +252,16 @@ set cursorline
 highlight CursorLine guibg=#0d0d0d guifg=None
 
 " no tilde for empty lines
-autocmd VimEnter * highlight EndOfBuffer guibg=bg guifg=bg
+" autocmd VimEnter * highlight EndOfBuffer guibg=bg guifg=bg
+autocmd VimEnter * highlight EndOfBuffer guibg=#282828 guifg=#282828
 
 " nvim supports mode-dependent cursor shape built-in
-"let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 
 " set invisible chars = `:help listchars` to see options
 set list lcs=tab:▸\ ,trail:·,nbsp:_
 
-" STYLE COLUMNS
-
-" do this on VimEnter Event (after plugins have loaded) because colorscheme fucks it up
-" https://stackoverflow.com/questions/6821033/vim-how-to-run-a-command-immediately-when-starting-vim
+" do this on VimEnter Event (after plugins have loaded) because colorscheme overrides it
 autocmd VimEnter * highlight clear LineNr |
 autocmd VimEnter * highlight clear SignColumn |
 autocmd VimEnter * highlight LineNR guifg=#585858 guibg=None |
@@ -327,8 +272,6 @@ autocmd VimEnter * highlight VertSplit guibg=None guifg=#282828
 set fillchars+=vert:│
 " use no separator (the empty space at EOL is significant, obviously)
 " set fillchars+=vert:\ 
-
-" don't hide things from me, like the quotes in JSON
 
 " ==================================================
 " SETTINGS
@@ -350,6 +293,7 @@ set undofile
 
 " CUSTOM script to execute Obsession session with timestamp
 " autocmd VimEnter * execute "Obsession" . "~/.config/nvim/sessions/" . strftime('%Y%m%d%H%M%S') . ".vim"
+
 " ==================================================
 " CONVENIENCE
 " ==================================================
@@ -376,8 +320,6 @@ set smartcase
 " allows buffers to be hidden
 set hidden
 
-" Display a line at column 80 to indicate lines that are too long
-"set colorcolumn=80
 " wrap lines
 set wrap linebreak
 
@@ -428,6 +370,9 @@ set scrolloff=2
 
 " eol means the same in visual as in normal mode
 vnoremap $ $h
+
+" no need for shift to enter command
+nnoremap ; :
 
 " ==================================================
 " FUNCTIONALITY
@@ -493,6 +438,7 @@ nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
 function! ThatFunc()
   %!python -m json.tool
   setlocal ft=json
+  " TODO
   " want: gg=G
   " how to execute command over every line?
 endfunction

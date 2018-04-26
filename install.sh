@@ -30,7 +30,7 @@ ln -sf ~/.config/git/gitignore ~/.config/ag/ignore
 ln -sf ~/.config/zsh/aliases.zsh ~/.aliases
 ln -sf ~/.config/zsh/functions.zsh ~/.functions
 ln -sf ~/.config/zsh/git.zsh ~/.git-zsh-config
-ln -sf ~/.config/zsh/prompt.zsh ~/.prompt
+ln -sf ~/.config/zsh/blox-zsh-theme/blox.zsh ~/.prompt
 ln -sf ~/.config/zsh/zlogin.zsh ~/.zlogin
 ln -sf ~/.config/zsh/zlogout.zsh ~/.zlogout
 ln -sf ~/.config/zsh/zpreztorc.zsh ~/.zpreztorc

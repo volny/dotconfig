@@ -1,19 +1,28 @@
 # HOMEBREW
 
-echo -n "Do you want to install Homebrew? Answer no if you already have it. (y/n)? "
-read installBrew
+read -p "
+Do you want to install command line and GUI apps with Homebrew?
+[y/N]: " -r Install_Apps
+Install_Apps=${Install_Apps:-n}
+if [[ "$Install_Apps" =~ ^(y|Y)$ ]]; then
+  echo -e "\033[1m\033[34m==> Installing brew\033[0m"
+  if [[ $(which brew) == "/usr/local/bin/brew" ]]
+  then
+      echo "Brew installed already, skipping"
+  else
+      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
 
-if [ "$installBrew" != "${installBrew#[Yy]}" ] ;then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo -e "\033[1m\033[34m==> Installing command line apps\033[0m"
+  xargs brew install < ~/.config/brew/brewlist
+
+  echo -e "\033[1m\033[34m==> Installing GUI apps\033[0m"
+  xargs brew cask install < ~/.config/brew/brewcasklist
+
+  echo -e "\033[1m\033[34m==> Installing fonts\033[0m"
+  brew tap caskroom/fonts
+  brew cask install font-hack-nerd-font
 fi
-
-# install apps
-xargs brew install < brew/brewlist
-xargs brew cask install < brew/brewcasklist
-
-# install font
-brew tap caskroom/fonts
-brew cask install font-hack-nerd-font
 
 # GIT
 

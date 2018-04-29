@@ -68131,6 +68131,8 @@
 	<true/>
 	<key>DimOnlyText</key>
 	<true/>
+	<key>DisableWindowSizeSnap</key>
+	<true/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>HideActivityIndicator</key>
@@ -68139,6 +68141,8 @@
 	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
+	<key>NSFontPanelAttributes</key>
+	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/.config/iterm</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -68180,11 +68184,11 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>653 463 886 280 0 0 1440 877 </string>
+	<string>552 96 888 513 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>444 338 796 473 0 0 1440 900 </string>
+	<string>476 440 1018 447 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>405 426 650 451 0 0 1440 900 </string>
+	<string>63 430 640 447 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1666 -81 730 476 1440 -180 1920 1080 </string>
 	<key>New Bookmarks</key>
@@ -68976,6 +68980,10 @@
 	<integer>1</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
+	<key>TerminalMargin</key>
+	<integer>0</integer>
+	<key>TerminalVMargin</key>
+	<integer>-2</integer>
 	<key>WordCharacters</key>
 	<string> </string>
 	<key>findIgnoreCase_iTerm</key>

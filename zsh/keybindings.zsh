@@ -1,6 +1,8 @@
+# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
+
 bindkey -v
 
-# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
+# readline
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
 bindkey '^h' backward-delete-char
@@ -9,3 +11,6 @@ bindkey '^r' history-incremental-search-backward
 bindkey '^e' end-of-line
 bindkey '^a' beginning-of-line
 bindkey '^f' forward-word
+
+# overwrite the standard behavior of crtl-l for multiline prompt
+bindkey -s '^l' 'clear\n'

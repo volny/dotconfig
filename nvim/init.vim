@@ -223,10 +223,10 @@ let g:startify_change_to_dir = 0
 
 " Distraction-free toggle
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-let g:limelight_conceal_guifg = '#757575'
+" Plug 'junegunn/limelight.vim'
+" autocmd! User GoyoEnter Limelight
+" autocmd! User GoyoLeave Limelight!
+" let g:limelight_conceal_guifg = '#757575'
 
 nnoremap <Space>wd :Goyo<CR>
 
@@ -244,16 +244,16 @@ set background=dark
 colorscheme gruvbox
 
 " set vim background color
-"autocmd VimEnter * highlight Normal guibg=#1d2021
+" autocmd VimEnter * highlight Normal guibg=#1d2021
 autocmd VimEnter * highlight Normal guibg=None
 
 " highlight current Line
-set cursorline
-highlight CursorLine guibg=#0d0d0d guifg=None
+" set cursorline
+" highlight CursorLine guibg=#0d0d0d guifg=None
 
 " no tilde for empty lines
 " autocmd VimEnter * highlight EndOfBuffer guibg=bg guifg=bg
-autocmd VimEnter * highlight EndOfBuffer guibg=#282828 guifg=#282828
+autocmd VimEnter * highlight EndOfBuffer guibg=None guifg=#282828
 
 " nvim supports mode-dependent cursor shape built-in
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50

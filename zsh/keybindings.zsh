@@ -13,4 +13,5 @@ bindkey '^a' beginning-of-line
 bindkey '^f' forward-word
 
 # overwrite the standard behavior of crtl-l for multiline prompt
-bindkey -s '^l' 'clear\n'
+# deprecated bc ctrl-h/j/k/l is used for vim-tmux-nav
+# bindkey -s '^l' 'clear\n'

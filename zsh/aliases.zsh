@@ -30,3 +30,5 @@ alias updateVim="vim +BundleInstall! +BundleClean +qall"
 alias ag='ag --ignore-dir ~/.config/ag/ignore'
 
 alias e='exit'
+
+alias cl='clear'

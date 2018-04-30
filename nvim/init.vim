@@ -121,6 +121,8 @@ Plug 'francoiscabrol/ranger.vim'
 let g:ranger_map_keys = 0
 nnoremap <C-n> :Ranger<CR>
 
+Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'ctrlpvim/ctrlp.vim'
 nnoremap <Space>j :CtrlP<CR>
 " open buffers

@@ -77,13 +77,6 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubuserc
 # install vim plugins
 nvim -E -c PlugInstall -c UpdateRemotePlugins -c qall
 
-# RANGER
-
-if (command -v ranger); then
-  # create default ranger config files
-  ranger --copy-config=all
-fi
-
 # ITERM2
 
 # Specify the preferences directory

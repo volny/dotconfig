@@ -21,18 +21,10 @@ inoremap jk <Esc>
 set timeoutlen=1000 ttimeoutlen=0
 
 " ==================================================
-" WINDOW KEYBINDINGS
+" BUFFER / WINDOW KEYBINDINGS
 " ==================================================
 
 nnoremap <Space>w <C-w>
-" TODO disabled because it interferes with typing
-"tnoremap <Space>w <C-\><C-n><C-w>
-"inoremap <Space>w <Esc><C-w>
-"vnoremap <Space>w <Esc><C-w>
-
-" ==================================================
-" BUFFER KEYBINDINGS
-" ==================================================
 
 " Toggle between last buffer
 nnoremap <Tab> :b#<CR>
@@ -57,9 +49,12 @@ autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
 " ==================================================
 
 call plug#begin('~/.config/nvim/plugged')
+
+" code completion
 Plug 'Shougo/deoplete.nvim'
 let g:deoplete#enable_at_startup = 1
 
+" colorscheme
 Plug 'morhetz/gruvbox'
 
 " syntax
@@ -70,7 +65,10 @@ Plug 'Quramy/vim-js-pretty-template'
 Plug 'moll/vim-node'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'othree/yajs.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'alexlafroscia/postcss-syntax.vim'
 
+" tim pope
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -100,6 +98,7 @@ let g:ale_fixers = { 'javascript': ['prettier', 'eslint','prettier-eslint'], 'js
 let g:ale_linters = {'javascript': ['prettier']}
 let g:ale_fix_on_save = 1
 
+" snippets
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
@@ -114,12 +113,8 @@ Plug 'honza/vim-snippets'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
 
-" requirement for ranger
-Plug 'rbgrouleff/bclose.vim'
-Plug 'francoiscabrol/ranger.vim'
-" don't use default keymapping (<leader>f)
-let g:ranger_map_keys = 0
-nnoremap <C-n> :Ranger<CR>
+" make netrw usable
+Plug 'tpope/vim-vinegar'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -292,6 +287,41 @@ set directory=$HOME/.config/nvim/swaps
 " Save undo history here
 set undodir =$HOME/.config/nvim/undo
 set undofile
+
+" Netrw settings
+" netrw reference: https://gist.github.com/t-mart/610795fcf7998559ea80
+" tree view by default
+let g:netrw_liststyle = 3
+" no tutorial (show with `I`)
+let g:netrw_banner = 0
+" Use `trash` and allow netrw to remove non-empty local directories
+let g:netrw_localrmdir='trash'
+" fix decade old netrw bug
+autocmd FileType netrw setl bufhidden=delete
+" netrw should be 25% of width
+let g:netrw_winsize = 25
+" allow `Lex` to toggle netrw
+let g:NetrwIsOpen=0
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i 
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Lexplore
+    endif
+endfunction
+" netrw at my old nerdtree keybinding
+nnoremap <C-n> :call ToggleNetrw()<CR>
+" ctrl-m for full-screen netrw
+nnoremap <C-m> :E<CR>
+
 
 " CUSTOM script to execute Obsession session with timestamp
 " autocmd VimEnter * execute "Obsession" . "~/.config/nvim/sessions/" . strftime('%Y%m%d%H%M%S') . ".vim"

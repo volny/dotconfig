@@ -406,6 +406,9 @@ vnoremap $ $h
 " no need for shift to enter command
 nnoremap ; :
 
+" save - :W means :w
+command! W :w
+
 " ==================================================
 " FUNCTIONALITY
 " ==================================================

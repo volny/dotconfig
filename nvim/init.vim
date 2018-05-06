@@ -12,16 +12,17 @@ function! GetRunningOS()
 endfunction
 let os=GetRunningOS()
 
-" ==================================================
-" VARIOUS
-" ==================================================
+" TODO switch this out for `which python`
+" if (os == "linux")
+"   let g:python_host_prog  = '/usr/bin/python'
+"   let g:python3_host_prog = '/usr/bin/python3'
+" elseif (os == "mac")
+"   let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python_host_prog  = '/usr/local/bin/python'
+" endif
 
-inoremap jk <Esc>
-
-set timeoutlen=1000 ttimeoutlen=0
-
 " ==================================================
-" BUFFER / WINDOW KEYBINDINGS
+" BUFFER / WINDOW
 " ==================================================
 
 nnoremap <Space>w <C-w>
@@ -112,9 +113,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 Plug 'honza/vim-snippets'
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
-
-" make netrw usable
-Plug 'tpope/vim-vinegar'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -220,6 +218,7 @@ let g:startify_change_to_dir = 0
 
 " Distraction-free toggle
 Plug 'junegunn/goyo.vim'
+" TODO I want limelight, but not for markdown
 " Plug 'junegunn/limelight.vim'
 " autocmd! User GoyoEnter Limelight
 " autocmd! User GoyoLeave Limelight!
@@ -274,6 +273,8 @@ set fillchars+=vert:│
 " SETTINGS
 " ==================================================
 
+set timeoutlen=1000 ttimeoutlen=0
+
 " Make tabs two spaces wide
 set tabstop=2
 set shiftwidth=2
@@ -288,47 +289,23 @@ set directory=$HOME/.config/nvim/swaps
 set undodir =$HOME/.config/nvim/undo
 set undofile
 
-" Netrw settings
-" netrw reference: https://gist.github.com/t-mart/610795fcf7998559ea80
-" tree view by default
-let g:netrw_liststyle = 3
-" no tutorial (show with `I`)
-let g:netrw_banner = 0
-" Use `trash` and allow netrw to remove non-empty local directories
-let g:netrw_localrmdir='trash'
-" fix decade old netrw bug
-autocmd FileType netrw setl bufhidden=delete
-" netrw should be 25% of width
-let g:netrw_winsize = 25
-" allow `Lex` to toggle netrw
-let g:NetrwIsOpen=0
-function! ToggleNetrw()
-    if g:NetrwIsOpen
-        let i = bufnr("$")
-        while (i >= 1)
-            if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i 
-            endif
-            let i-=1
-        endwhile
-        let g:NetrwIsOpen=0
-    else
-        let g:NetrwIsOpen=1
-        silent Lexplore
-    endif
-endfunction
-" netrw at my old nerdtree keybinding
-nnoremap <C-n> :call ToggleNetrw()<CR>
-" ctrl-m for full-screen netrw
-nnoremap <C-m> :E<CR>
-
-
-" CUSTOM script to execute Obsession session with timestamp
+" save session with timestamp
 " autocmd VimEnter * execute "Obsession" . "~/.config/nvim/sessions/" . strftime('%Y%m%d%H%M%S') . ".vim"
+autocmd VimEnter * execute "Obsession"
 
 " ==================================================
 " CONVENIENCE
 " ==================================================
+
+inoremap jk <Esc>
+
+" no need for shift to enter command
+nnoremap ; :
+" but I still want to go to the next match on line
+nnoremap : ;
+
+" save - :W means :w
+command! W :w
 
 " make all file-related tasks search down subfolders
 set path+=**
@@ -403,12 +380,6 @@ set scrolloff=2
 " eol means the same in visual as in normal mode
 vnoremap $ $h
 
-" no need for shift to enter command
-nnoremap ; :
-
-" save - :W means :w
-command! W :w
-
 " ==================================================
 " FUNCTIONALITY
 " ==================================================
@@ -419,6 +390,7 @@ command! W :w
 " https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use ag over grep
+  " weirdly ag has a different syntax between macos/linux (?)
   if (os == "linux")
     set grepprg=ag\ --nogroup\ --nocolor\ --path-to-agignore\ ~/.config/ag/.ignore
   elseif (os == "mac")
@@ -470,6 +442,8 @@ endfunction
 nmap <silent> <Leader>l :call ToggleList("Location List", 'l')<CR>
 nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
 
+" :Json command to format and highlight
+
 function! ThatFunc()
   %!python -m json.tool
   setlocal ft=json
@@ -479,14 +453,3 @@ function! ThatFunc()
 endfunction
 command! Json call ThatFunc()
 
-" ==================================================
-" NEOVIM
-" ==================================================
-
-if (os == "linux")
-let g:python_host_prog  = '/usr/bin/python'
-  let g:python3_host_prog = '/usr/bin/python3'
-elseif (os == "mac")
-  let g:python3_host_prog = '/usr/local/bin/python3'
-let g:python_host_prog  = '/usr/local/bin/python'
-endif

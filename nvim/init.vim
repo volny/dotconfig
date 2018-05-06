@@ -28,19 +28,19 @@ let os=GetRunningOS()
 nnoremap <Space>w <C-w>
 
 " Toggle between last buffer
-nnoremap <Tab> :b#<CR>
+nnoremap <Tab> ;b#<CR>
 
 " open a new empty buffer (replaces `:tabnew`)
-nnoremap <Space>bn :enew<CR>
+nnoremap <Space>bn ;enew<CR>
 " Close the current buffer and move to the previous one
 " TODO if there's only one buffer I want to leave vim
-nnoremap Q :bp<BAR>bd#<CR>
+nnoremap Q ;bp<BAR>bd#<CR>
 "nnoremap q :q<CR>
-nnoremap <Space>qQ :qall<CR>
+nnoremap <Space>qQ ;qall<CR>
 
 " next and previous buffer
-nnoremap <Space>[ :bp<CR>
-nnoremap <Space>] :bn<CR>
+nnoremap <Space>[ ;bp<CR>
+nnoremap <Space>] ;bn<CR>
 
 " a new buffer without filetype (:enew) is assumed to be markdown
 autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
@@ -117,9 +117,9 @@ Plug 'epilande/vim-react-snippets'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'ctrlpvim/ctrlp.vim'
-nnoremap <Space>j :CtrlP<CR>
+nnoremap <Space>j ;CtrlP<CR>
 " open buffers
-nnoremap <Space>f :CtrlPBuffer<CR>
+nnoremap <Space>f ;CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore = {
    \ 'dir':  '\v[\/](\.git|_site|dist|node_modules)$',
    \ 'file': '\v\.(exe|so|dll)$',
@@ -224,7 +224,7 @@ Plug 'junegunn/goyo.vim'
 " autocmd! User GoyoLeave Limelight!
 " let g:limelight_conceal_guifg = '#757575'
 
-nnoremap <Space>wd :Goyo<CR>
+nnoremap <Space>wd ;Goyo<CR>
 
 call plug#end()
 
@@ -304,8 +304,8 @@ nnoremap ; :
 " but I still want to go to the next match on line
 nnoremap : ;
 
-" save - :W means :w
-command! W :w
+" save - W means w
+command! W ;w
 
 " make all file-related tasks search down subfolders
 set path+=**
@@ -405,10 +405,10 @@ else
 endif
 
 " bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap K ;grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind \ (backward slash) to grep shortcut
 command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
+nnoremap \ ;Ag<SPACE>
 
 " toggle quickfix and location lists with <Leader>q/l
 " http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
@@ -439,8 +439,8 @@ function! ToggleList(bufname, pfx)
   endif
 endfunction
 
-nmap <silent> <Leader>l :call ToggleList("Location List", 'l')<CR>
-nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
+nmap <silent> <Leader>l ;call ToggleList("Location List", 'l')<CR>
+nmap <silent> <Leader>q ;call ToggleList("Quickfix List", 'c')<CR>
 
 " :Json command to format and highlight
 

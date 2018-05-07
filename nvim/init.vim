@@ -28,19 +28,19 @@ let os=GetRunningOS()
 nnoremap <Space>w <C-w>
 
 " Toggle between last buffer
-nnoremap <Tab> ;b#<CR>
+nnoremap <Tab> :b#<CR>
 
 " open a new empty buffer (replaces `:tabnew`)
-nnoremap <Space>bn ;enew<CR>
+nnoremap <Space>bn :enew<CR>
 " Close the current buffer and move to the previous one
 " TODO if there's only one buffer I want to leave vim
-nnoremap Q ;bp<BAR>bd#<CR>
+nnoremap Q :bp<BAR>bd#<CR>
 "nnoremap q :q<CR>
-nnoremap <Space>qQ ;qall<CR>
+nnoremap <Space>qQ :qall<CR>
 
 " next and previous buffer
-nnoremap <Space>[ ;bp<CR>
-nnoremap <Space>] ;bn<CR>
+nnoremap <Space>[ :bp<CR>
+nnoremap <Space>] :bn<CR>
 
 " a new buffer without filetype (:enew) is assumed to be markdown
 autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
@@ -68,6 +68,12 @@ Plug 'neoclide/vim-jsx-improve'
 Plug 'othree/yajs.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'alexlafroscia/postcss-syntax.vim'
+
+Plug 'tpope/vim-markdown'
+" highlight markdown code blocks
+let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'scss', 'sh', 'vim', 'zsh']
+
+let g:markdown_syntax_conceal = 0
 
 " tim pope
 Plug 'tpope/vim-repeat'
@@ -117,9 +123,9 @@ Plug 'epilande/vim-react-snippets'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'ctrlpvim/ctrlp.vim'
-nnoremap <Space>j ;CtrlP<CR>
+nnoremap <Space>j :CtrlP<CR>
 " open buffers
-nnoremap <Space>f ;CtrlPBuffer<CR>
+nnoremap <Space>f :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore = {
    \ 'dir':  '\v[\/](\.git|_site|dist|node_modules)$',
    \ 'file': '\v\.(exe|so|dll)$',
@@ -224,7 +230,7 @@ Plug 'junegunn/goyo.vim'
 " autocmd! User GoyoLeave Limelight!
 " let g:limelight_conceal_guifg = '#757575'
 
-nnoremap <Space>wd ;Goyo<CR>
+nnoremap <Space>wd :Goyo<CR>
 
 call plug#end()
 
@@ -291,7 +297,7 @@ set undofile
 
 " save session with timestamp
 " autocmd VimEnter * execute "Obsession" . "~/.config/nvim/sessions/" . strftime('%Y%m%d%H%M%S') . ".vim"
-autocmd VimEnter * execute "Obsession"
+autocmd VimEnter * execute "Obsession" . "~/.config/nvim/sessions/"
 
 " ==================================================
 " CONVENIENCE
@@ -305,7 +311,7 @@ nnoremap ; :
 nnoremap : ;
 
 " save - W means w
-command! W ;w
+command! W :w
 
 " make all file-related tasks search down subfolders
 set path+=**
@@ -405,10 +411,10 @@ else
 endif
 
 " bind K to grep word under cursor
-nnoremap K ;grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind \ (backward slash) to grep shortcut
 command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ ;Ag<SPACE>
+nnoremap \ :Ag<SPACE>
 
 " toggle quickfix and location lists with <Leader>q/l
 " http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
@@ -439,10 +445,11 @@ function! ToggleList(bufname, pfx)
   endif
 endfunction
 
+" TODO unclear why I need `;call`, but everywhere else `:command` still works even after ;/: swapping
 nmap <silent> <Leader>l ;call ToggleList("Location List", 'l')<CR>
 nmap <silent> <Leader>q ;call ToggleList("Quickfix List", 'c')<CR>
 
-" :Json command to format and highlight
+" Json command to format and highlight
 
 function! ThatFunc()
   %!python -m json.tool

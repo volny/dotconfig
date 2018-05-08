@@ -32,7 +32,7 @@ function gcn() {
 alias gca='git commit --amend'
 alias gcan='git commit --amend -n'
 
-alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
+alias gd='git diff'
 
 alias gco='git checkout'
 

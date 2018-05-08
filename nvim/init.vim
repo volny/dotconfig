@@ -297,7 +297,7 @@ set undofile
 
 " save session with timestamp
 " autocmd VimEnter * execute "Obsession" . "~/.config/nvim/sessions/" . strftime('%Y%m%d%H%M%S') . ".vim"
-autocmd VimEnter * execute "Obsession" . "~/.config/nvim/sessions/"
+autocmd VimEnter * silent execute "Obsession" . "~/.config/nvim/sessions/"
 
 " ==================================================
 " CONVENIENCE

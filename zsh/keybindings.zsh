@@ -14,10 +14,12 @@ bindkey '^e' end-of-line
 bindkey '^a' beginning-of-line
 bindkey '^f' forward-word
 
-bindkey -M viins 'jk' vi-cmd-mode
+# actually I wanted this to be `gg`, but that seems not to be possible
+bindkey '^s' clear-screen -s 'clear^M'
+# would be nice to run `clear-screen` first, then `clear^M`, for mulitline prompt
+# bindkey -s '^s' 'clear^M'
 
-# TODO make this work
-# bindkey -s 'gg' 'clear'
+bindkey -M viins 'jk' vi-cmd-mode
 
 # show which vim mode we are in
 precmd() {

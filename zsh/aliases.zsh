@@ -32,3 +32,6 @@ alias ag='ag --ignore-dir ~/.config/ag/ignore'
 alias e='exit'
 
 alias cl='clear'
+
+# don't use finder to trash files bc it will leave DS_Store files everywhere
+alias trash='trash -a'

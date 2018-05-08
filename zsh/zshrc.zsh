@@ -11,8 +11,6 @@ autoload -Uz compinit
 compinit
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-
-# https://github.com/mathiasbynens/dotfiles
 source "${ZDOTDIR:-$HOME}/.aliases"
 source "${ZDOTDIR:-$HOME}/.functions"
 source "${ZDOTDIR:-$HOME}/.git-zsh-config"

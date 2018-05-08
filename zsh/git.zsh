@@ -9,6 +9,7 @@ alias ga.="git add ."
 
 alias gp='git push'
 alias gpo="git push origin"
+alias gpfo="git push -f origin"
 alias gpom="git push origin master"
 alias gpfom="git push -f origin master"
 alias gpao="git push --all origin"
@@ -24,13 +25,13 @@ alias gbdm"git branch -r --merged | sed '/develop\|master\|HEAD\|upstream/d' |  
 
 alias gs='git status -sb'
 
-alias gc='git commit -m'
+alias gc='git commit --cleanup=scissors -m'
 # don't validate commit
 function gcn() {
-  git commit -m "$1" -n
+  git commit --cleanup=scissors -m "$1" -n
 }
-alias gca='git commit --amend'
-alias gcan='git commit --amend -n'
+alias gca='git commit --cleanup=scissors --amend'
+alias gcan='git commit --cleanup=scissors --amend -n'
 
 alias gd='git diff'
 
@@ -40,6 +41,9 @@ alias grb='git rebase'
 alias grbi='git rebase -i'
 alias grba='git rebase -abort'
 alias grbc='git rebase -continue'
+
+alias gm='git merge'
+alias gma='git merge --abort'
 
 # clone and cd
 function gcl() {
@@ -54,7 +58,8 @@ alias gld="git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(
 
 alias grv='git remote -v'
 
-function gpl() {
+alias gpl='git pull --all'
+function gpls() {
   git pull "$@";
   git submodule foreach git pull origin master "$@";
 }

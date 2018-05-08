@@ -39,8 +39,9 @@ nnoremap <Space>qQ :qall<CR>
 nnoremap <Space>[ :bp<CR>
 nnoremap <Space>] :bn<CR>
 
-" a new buffer without filetype (:enew) is assumed to be markdown
-autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
+" a new buffer without filetype (:enew) is assumed to be markdown (disabled because of too many wrong positives)
+" autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
+nnoremap <Space>md :set ft=markdown<CR>
 
 " ==================================================
 " PLUGINS
@@ -391,7 +392,7 @@ vnoremap $ $h
 
 " https://robots.thoughtbot.com/faster-grepping-in-vim
 " Use ag over grep
-set grepprg=ag\ --nogroup\ --nocolor\
+set grepprg=ag\ --nogroup\ --nocolor\ --path-to-ignore\ ~/.agignore
 " Use ag in CtrlP for listing files
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " ag is fast enough that CtrlP doesn't need to cache

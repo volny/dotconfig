@@ -12,16 +12,8 @@ if [[ "$Install_Apps" =~ ^(y|Y)$ ]]; then
   else
       /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
-
-  echo -e "\033[1m\033[34m==> Installing command line apps\033[0m"
-  xargs brew install < ~/.config/brew/brewlist
-
-  echo -e "\033[1m\033[34m==> Installing GUI apps\033[0m"
-  xargs brew cask install < ~/.config/brew/brewcasklist
-
-  echo -e "\033[1m\033[34m==> Installing fonts\033[0m"
-  brew tap caskroom/fonts
-  brew cask install font-hack-nerd-font
+  echo -e "\033[1m\033[34m==> Installing brew formulas\033[0m"
+  brew bundle --file=~/.config/Brewfile
 fi
 
 # GIT

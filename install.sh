@@ -83,6 +83,13 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubuserc
 # install vim plugins
 nvim -E -c PlugInstall -c UpdateRemotePlugins -c qall
 
+# dependencies for nvim (confirm with `nvim -c checkhealth` that all is ok)
+# NOTE needs `gem`, `python@2` and `python@3` from brew, `neovim` from yarn
+pip2 install --user --upgrade neovim
+pip3 install --user --upgrade neovim
+gem install neovim
+# yarn global add neovim
+
 # ITERM2
 
 # Specify the preferences directory

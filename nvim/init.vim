@@ -12,14 +12,11 @@ function! GetRunningOS()
 endfunction
 let os=GetRunningOS()
 
-" TODO switch this out for `which python`
-" if (os == "linux")
-"   let g:python_host_prog  = '/usr/bin/python'
-"   let g:python3_host_prog = '/usr/bin/python3'
-" elseif (os == "mac")
-"   let g:python3_host_prog = '/usr/local/bin/python3'
-" let g:python_host_prog  = '/usr/local/bin/python'
-" endif
+" TODO replace this with (`which python`)
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python'
+" this is required for yarn install
+let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 
 " ==================================================
 " BUFFER / WINDOW

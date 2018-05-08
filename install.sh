@@ -32,7 +32,7 @@ ln -sf ~/.config/git/gitignore ~/.gitignore
 # AG
 
 # agignore = gitignore
-ln -sf ~/.config/git/gitignore ~/.config/ag/ignore
+ln -sf ~/.config/git/gitignore ~/.agignore
 
 # ZSH
 

@@ -21,14 +21,6 @@ alias map="xargs -n1"
 
 alias md="mkdir"
 
-alias updateVim="vim +BundleInstall! +BundleClean +qall"
-
-# https://github.com/github/hub
-#alias git=hub
-
-# require silver searcher ignore globally
-alias ag='ag --ignore-dir ~/.config/ag/ignore'
-
 alias e='exit'
 
 alias cl='clear'

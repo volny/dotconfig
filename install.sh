@@ -69,6 +69,12 @@ cd ~/.config/yarn/global && yarn
 ln -sf ~/.config/tmux/tmux.conf ~/.tmux.conf
 ln -sf ~/.config/tmux/tmux.conf.local ~/.tmux.conf.local
 
+# install tmux plugins
+tmux start-server
+tmux new-session -d
+~/.config/tmux/plugins/tpm/scripts/install_plugins.sh
+tmux kill-server
+
 # NVIM
 
 # install vim-plug

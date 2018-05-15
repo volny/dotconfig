@@ -180,11 +180,23 @@ let g:airline_powerline_fonts = 1
 
 Plug 'ryanoasis/vim-devicons'
 let g:WebDevIconsOS = 'Darwin'
+
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
+
 let g:webdevicons_enable_ctrlp = 1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
+
+" for concealing nerdtree brackets
+if exists('g:loaded_webdevicons')
+    call webdevicons#refresh()
+endif
 
 Plug 'haya14busa/incsearch.vim'
 " use incsearch.vim rather than built-in
@@ -229,6 +241,32 @@ Plug 'junegunn/goyo.vim'
 " let g:limelight_conceal_guifg = '#757575'
 
 nnoremap <Space>wd :Goyo<CR>
+
+Plug 'scrooloose/nerdtree'
+" toggle NerdTree with ctrl-n
+nnoremap <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let g:NERDTreeDirArrowExpandable = " " " <-- (just the right) invisible space
+let g:NERDTreeDirArrowCollapsible= " " " <-- (just the right) invisible space
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" show ignored paths in nerdtree (should actually be greyed out)
+" let g:NERDTreeShowIgnoredStatus = 1
+" TODO find a way to display NERDFont patched font icons here (already done for 'modified')
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
 

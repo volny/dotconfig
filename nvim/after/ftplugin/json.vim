@@ -1,1 +1,1 @@
-autocmd BufWinEnter,WinEnter * setlocal conceallevel=0
+" autocmd BufWinEnter,WinEnter * setlocal conceallevel=0

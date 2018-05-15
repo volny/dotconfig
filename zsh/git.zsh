@@ -39,7 +39,7 @@ alias gco='git checkout'
 
 alias grb='git rebase'
 alias grbi='git rebase -i'
-alias grba='git rebase -abort'
+alias grba='git rebase --abort'
 alias grbc='git rebase -continue'
 
 alias gm='git merge'

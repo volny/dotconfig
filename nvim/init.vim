@@ -248,22 +248,24 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = " " " <-- (just the right) invisible space
 let g:NERDTreeDirArrowCollapsible= " " " <-- (just the right) invisible space
+" no help string
+let NERDTreeMinimalUI=1
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" show ignored paths in nerdtree (should actually be greyed out)
+" show ignored paths in nerdtree (-> should actually be greyed out)
 " let g:NERDTreeShowIgnoredStatus = 1
-" TODO find a way to display NERDFont patched font icons here (already done for 'modified')
+" those symbols need a nerdfont to display (http://nerdfonts.com/?set=nf-oct-#cheat-sheet)
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
+    \ "Modified"  : "⚡",
+    \ "Staged"    : "",
+    \ "Untracked" : "六",
+    \ "Renamed"   : "",
+    \ "Unmerged"  : "",
+    \ "Deleted"   : "",
+    \ "Dirty"     : "",
     \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
+    \ 'Ignored'   : '',
+    \ "Unknown"   : ""
     \ }
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

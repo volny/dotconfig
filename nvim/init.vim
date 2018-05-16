@@ -54,7 +54,9 @@ Plug 'Shougo/deoplete.nvim'
 let g:deoplete#enable_at_startup = 1
 
 " colorscheme
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+" Plug 'nanotech/jellybeans.vim'
+Plug 'whatyouhide/vim-gotham'
 
 " syntax
 Plug 'flowtype/vim-flow'
@@ -280,8 +282,11 @@ call plug#end()
 set termguicolors
 set background=dark
 
-" sadly this needs to be here, outside the plug#end
-colorscheme gruvbox
+" TODO colorscheme gruvbox
+" colorscheme jellybeans
+colorscheme gotham
+"visual selection: reverse colors rather than change bg
+hi Visual gui=reverse
 
 " set vim background color
 " autocmd VimEnter * highlight Normal guibg=#1d2021

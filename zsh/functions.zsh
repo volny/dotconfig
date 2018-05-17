@@ -1,3 +1,8 @@
+
+function killonport() {
+  lsof -ti tcp:"$@" -sTCP:LISTEN | xargs kill
+}
+
 function cd() {
   builtin cd "$@";
   ls -a;

@@ -28,6 +28,9 @@ ln -sf ~/.config/git/gitignore ~/.agignore
 
 # ZSH
 
+# install sorin-ionescu/prezto
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
 ln -sf ~/.config/zsh/aliases.zsh ~/.aliases
 ln -sf ~/.config/zsh/functions.zsh ~/.functions
 ln -sf ~/.config/zsh/git.zsh ~/.git-zsh-config

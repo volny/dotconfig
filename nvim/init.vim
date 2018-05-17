@@ -81,21 +81,15 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-obsession'
 
 Plug 'airblade/vim-gitgutter'
 " leave the signcolumn styling alone
 let g:gitgutter_override_sign_column_highlight = 0
-autocmd VimEnter * highlight GitGutterAdd guibg=None
-autocmd VimEnter * highlight GitGutterChange guibg=None
-autocmd VimEnter * highlight GitGutterDelete guibg=None
-autocmd VimEnter * highlight GitGutterChangeDelete guibg=None
 
 Plug 'w0rp/ale'
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '➜'
-autocmd VimEnter * highlight ALEErrorSign guifg=#ab4642 guibg=None |
-autocmd VimEnter * highlight ALEWarningSign guifg=#f7ca88 guibg=None |
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 " keybindings for navigating between errors
@@ -288,17 +282,9 @@ colorscheme gotham
 "visual selection: reverse colors rather than change bg
 hi Visual gui=reverse
 
-" set vim background color
-" autocmd VimEnter * highlight Normal guibg=#1d2021
-autocmd VimEnter * highlight Normal guibg=None
-
 " highlight current Line
 " set cursorline
 " highlight CursorLine guibg=#0d0d0d guifg=None
-
-" no tilde for empty lines
-" autocmd VimEnter * highlight EndOfBuffer guibg=bg guifg=bg
-autocmd VimEnter * highlight EndOfBuffer guibg=None guifg=#282828
 
 " nvim supports mode-dependent cursor shape built-in
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
@@ -306,13 +292,6 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 " set invisible chars = `:help listchars` to see options
 set list lcs=tab:▸\ ,trail:·,nbsp:_
 
-" do this on VimEnter Event (after plugins have loaded) because colorscheme overrides it
-autocmd VimEnter * highlight clear LineNr |
-autocmd VimEnter * highlight clear SignColumn |
-autocmd VimEnter * highlight LineNR guifg=#585858 guibg=None |
-autocmd VimEnter * highlight CursorLineNR guifg=#f8f8f8 guibg=None |
-" vertical split separator
-autocmd VimEnter * highlight VertSplit guibg=None guifg=#282828
 " use the *real* full-height vertical bar to make solid lines ✨
 set fillchars+=vert:│
 " use no separator (the empty space at EOL is significant, obviously)
@@ -340,7 +319,7 @@ set undofile
 
 " save session with timestamp
 " autocmd VimEnter * execute "Obsession" . "~/.config/nvim/sessions/" . strftime('%Y%m%d%H%M%S') . ".vim"
-autocmd VimEnter * silent execute "Obsession" . "~/.config/nvim/sessions/"
+" autocmd VimEnter * silent execute "Obsession" . "~/.config/nvim/sessions/"
 
 " ==================================================
 " CONVENIENCE

@@ -19,9 +19,12 @@ alias gb="git branch"
 alias gba="git branch -a"
 alias gbd="git branch -d"
 alias gbD="git branch -D"
+alias gpd="git push --delete"
+alias gpod="git push origin --delete"
 # remove fully merged branches both locally and on remote origin
 # https://superuser.com/questions/7448/can-the-output-of-one-command-be-piped-to-two-other-commands
-alias gbdm"git branch -r --merged | sed '/develop\|master\|HEAD\|upstream/d' |  sed 's/.*\///' | tee >(xargs git push --delete origin) >(xargs git branch -d)"
+alias gbdml='git branch --merged | egrep -v "(^\*|master|dev|develop|development|staging|production)" | xargs -n 1 git branch -d'
+alias gbdmo='git branch -r --merged | egrep -v "(^\*|master|dev|develop|development|staging|production)" | sed "s/origin\///" | xargs -n 1 git push --delete origin'
 
 alias gs='git status -sb'
 

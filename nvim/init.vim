@@ -1,6 +1,6 @@
 function! GetRunningOS()
   if has("win32")
-    return "win"
+return "win"
   endif
   if has("unix")
     if system('uname')=~'Darwin'
@@ -346,12 +346,22 @@ autocmd VimEnter * silent execute "Obsession" . "~/.config/nvim/sessions/"
 " CONVENIENCE
 " ==================================================
 
-inoremap jk <Esc>
-
 " no need for shift to enter command
 nnoremap ; :
+vnoremap ; :
 " but I still want to go to the next match on line
-nnoremap : ;
+" disabled for now as it interferes with `:call` and is confuses new users
+" nnoremap : ;
+" vnoremap : ;
+
+" repeat last command
+nmap <Space>. :<C-P><CR>
+" indent lines with a single '<' or '>'
+" this requires unbinding of unimpaired `>p` in `after/plugin`
+nnoremap > >>_
+nnoremap < <<_
+
+inoremap jk <Esc>
 
 " save - W means w
 command! W :w
@@ -478,8 +488,8 @@ function! ToggleList(bufname, pfx)
 endfunction
 
 " TODO unclear why I need `;call`, but everywhere else `:command` still works even after ;/: swapping
-nmap <silent> <Leader>l ;call ToggleList("Location List", 'l')<CR>
-nmap <silent> <Leader>q ;call ToggleList("Quickfix List", 'c')<CR>
+nmap <silent> <Leader>l :call ToggleList("Location List", 'l')<CR>
+nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
 
 " Json command to format and highlight
 

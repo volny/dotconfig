@@ -1,3 +1,6 @@
+# ask for password upfront
+sudo -v
+
 # HOMEBREW
 
 read -p "
@@ -76,7 +79,9 @@ tmux kill-server
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # install vim plugins
-nvim -E -c PlugInstall -c UpdateRemotePlugins -c qall
+nvim -E -c PlugInstall -c qall
+# vim needs to restart and run UpdateRemotePlugins
+nvim -E -c UpdateRemotePlugins -c qall
 
 # dependencies for nvim (confirm with `nvim -c checkhealth` that all is ok)
 # NOTE needs `gem`, `python@2` and `python@3` from brew, `neovim` from yarn

@@ -50,6 +50,8 @@ ln -sf ~/.config/zsh/keybindings.zsh ~/.keybindings
 # change shell to zsh
 echo $(which zsh) >> /etc/shells
 chsh -s $(which zsh)
+# macos needs a special invitation on some systems
+sudo dscl . -create /Users/$USER UserShell $(which zsh)
 
 # JAVASCRIPT
 

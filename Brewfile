@@ -45,8 +45,8 @@ cask "slack"
 cask "transmission"
 cask "visual-studio-code"
 cask "vlc"
-mas "Bear", id: 1091189122
 tap "caskroom/fonts"
 cask "font-hack-nerd-font"
 cask "font-profont-nerd-font"
 cask "font-ubuntumono-nerd-font"
+mas "Bear", id: 1091189122

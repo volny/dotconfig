@@ -2,9 +2,8 @@
 
 " needed because I want to indent lines with a single '<' or '>'
 " unmap binding from vim-unimpaired (it's loaded later)
-nunmap >p
-nunmap >P
-nunmap <p
-nunmap <P
-
-
+" still needs VimEnter for some reason
+au VimEnter * nunmap >p
+au VimEnter * nunmap >P
+au VimEnter * nunmap <p
+au VimEnter * nunmap <P

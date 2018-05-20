@@ -42,7 +42,7 @@ ln -sf ~/.config/zsh/zshenv.zsh ~/.zshenv
 ln -sf ~/.config/zsh/zshrc.zsh ~/.zshrc
 
 # change shell to zsh
-sudo echo $(which zsh) >> /etc/shells
+# echo $(which zsh) >> /etc/shells
 # chsh -s $(which zsh)
 sudo dscl . -create /Users/$USER UserShell $(which zsh)
 

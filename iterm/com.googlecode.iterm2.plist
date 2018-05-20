@@ -68184,13 +68184,13 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>552 96 888 513 0 0 1440 900 </string>
+	<string>466 363 888 379 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>476 440 1018 447 0 0 1440 900 </string>
+	<string>251 393 796 473 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>63 430 640 447 0 0 1440 877 </string>
+	<string>63 434 640 443 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1666 -81 730 476 1440 -180 1920 1080 </string>
+	<string>798 0 640 877 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -68395,13 +68395,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.14901960784313725</real>
+				<real>0.070588235294117646</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.14901960784313725</real>
+				<real>0.070588235294117646</real>
 				<key>Red Component</key>
-				<real>0.14901960784313725</real>
+				<real>0.070588235294117646</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>

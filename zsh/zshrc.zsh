@@ -10,14 +10,17 @@ zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
 compinit
 
+# source zpresto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-source "${ZDOTDIR:-$HOME}/.aliases"
-source "${ZDOTDIR:-$HOME}/.functions"
-source "${ZDOTDIR:-$HOME}/.git-zsh-config"
-source "${ZDOTDIR:-$HOME}/.keybindings"
-# https://github.com/zsh-users/zsh-autosuggestions
-source "${ZDOTDIR:-$HOME}/.zsh-autosuggestions"
+# source the blox prompt + customizations
 source "${ZDOTDIR:-$HOME}/.prompt"
+# https://github.com/zsh-users/zsh-autosuggestions
+source "${ZDOTDIR:-$HOME}/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# custom config
+source "${ZDOTDIR:-$HOME}/.config/zsh/aliases.zsh"
+source "${ZDOTDIR:-$HOME}/.config/zsh/functions.zsh"
+source "${ZDOTDIR:-$HOME}/.config/zsh/git.zsh"
+source "${ZDOTDIR:-$HOME}/.config/zsh/keybindings.zsh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -34,18 +34,14 @@ ln -sf ~/.config/git/gitignore ~/.agignore
 # install sorin-ionescu/prezto
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-ln -sf ~/.config/zsh/aliases.zsh ~/.aliases
-ln -sf ~/.config/zsh/functions.zsh ~/.functions
-ln -sf ~/.config/zsh/git.zsh ~/.git-zsh-config
-ln -sf ~/.config/zsh/blox-zsh-theme/blox.zsh ~/.prompt
+# ln -sf ~/.config/zsh/blox-zsh-theme/blox.zsh ~/.prompt
+
 ln -sf ~/.config/zsh/zlogin.zsh ~/.zlogin
 ln -sf ~/.config/zsh/zlogout.zsh ~/.zlogout
 ln -sf ~/.config/zsh/zpreztorc.zsh ~/.zpreztorc
 ln -sf ~/.config/zsh/zprofile.zsh ~/.zprofile
 ln -sf ~/.config/zsh/zshenv.zsh ~/.zshenv
 ln -sf ~/.config/zsh/zshrc.zsh ~/.zshrc
-ln -sf ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ~/.zsh-autosuggestions
-ln -sf ~/.config/zsh/keybindings.zsh ~/.keybindings
 
 # change shell to zsh
 echo $(which zsh) >> /etc/shells

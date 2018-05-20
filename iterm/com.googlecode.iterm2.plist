@@ -69091,7 +69091,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>466 363 888 379 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>390 368 918 381 0 0 1440 900 </string>
+	<string>209 375 918 381 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>63 434 640 443 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -69304,13 +69304,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.081408724188804626</real>
+				<real>0.20000000000000001</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.065630555152893066</real>
+				<real>0.20000000000000001</real>
 				<key>Red Component</key>
-				<real>0.05402718111872673</real>
+				<real>0.20000000000000001</real>
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
@@ -69332,13 +69332,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.063433781266212463</real>
+				<real>0.070588235294117646</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.051114607602357864</real>
+				<real>0.070588235294117646</real>
 				<key>Red Component</key>
-				<real>0.040207445621490479</real>
+				<real>0.070588235294117646</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>

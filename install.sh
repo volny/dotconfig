@@ -42,16 +42,11 @@ ln -sf ~/.config/zsh/zshenv.zsh ~/.zshenv
 ln -sf ~/.config/zsh/zshrc.zsh ~/.zshrc
 
 # change shell to zsh
-echo $(which zsh) >> /etc/shells
-chsh -s $(which zsh)
-# macos needs a special invitation on some systems
+sudo echo $(which zsh) >> /etc/shells
+# chsh -s $(which zsh)
 sudo dscl . -create /Users/$USER UserShell $(which zsh)
 
 # JAVASCRIPT
-
-# install node
-nvm install lts/carbon
-nvm install stable
 
 ln -sf ~/.config/javascript/editorconfig ~/.editorconfig
 ln -sf ~/.config/javascript/prettierignore ~/.prettierignore

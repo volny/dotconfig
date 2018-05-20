@@ -13,7 +13,7 @@ compinit
 # source zpresto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 # source the blox prompt + customizations
-source "${ZDOTDIR:-$HOME}/.prompt"
+source "${ZDOTDIR:-$HOME}/.config/zsh/prompt.zsh"
 # https://github.com/zsh-users/zsh-autosuggestions
 source "${ZDOTDIR:-$HOME}/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # custom config

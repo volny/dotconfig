@@ -7,3 +7,6 @@
 [submodule "zsh/blox-zsh-theme"]
 	path = zsh/blox-zsh-theme
 	url = git@github.com:yardnsm/blox-zsh-theme.git
+[submodule "zsh-nvm"]
+	path = zsh/zsh-nvm
+	url = git@github.com:lukechilds/zsh-nvm.git

@@ -34,8 +34,6 @@ ln -sf ~/.config/git/gitignore ~/.agignore
 # install sorin-ionescu/prezto
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-# ln -sf ~/.config/zsh/blox-zsh-theme/blox.zsh ~/.prompt
-
 ln -sf ~/.config/zsh/zlogin.zsh ~/.zlogin
 ln -sf ~/.config/zsh/zlogout.zsh ~/.zlogout
 ln -sf ~/.config/zsh/zpreztorc.zsh ~/.zpreztorc
@@ -51,13 +49,9 @@ sudo dscl . -create /Users/$USER UserShell $(which zsh)
 
 # JAVASCRIPT
 
-# install nvm (script from https://github.com/creationix/nvm)
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 # install node
 nvm install lts/carbon
 nvm install stable
-# use lts to be safe for new
-nvm use lts/carbon
 
 ln -sf ~/.config/javascript/editorconfig ~/.editorconfig
 ln -sf ~/.config/javascript/prettierignore ~/.prettierignore

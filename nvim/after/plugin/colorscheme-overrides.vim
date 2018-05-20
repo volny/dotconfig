@@ -1,5 +1,5 @@
 " remove background color
-highlight Normal guibg=None
+" highlight Normal guibg=None
 " remove it from gitgutter too
 highlight GitGutterAdd guibg=None
 highlight GitGutterChange guibg=None
@@ -8,8 +8,8 @@ highlight GitGutterChangeDelete guibg=None
 " nicer symbol colors for Ale
 highlight ALEErrorSign guifg=#ab4642 guibg=None |
 highlight ALEWarningSign guifg=#f7ca88 guibg=None |
-" no tilde for empty lines (out-of-the-box in gotham)
-" autocmd VimEnter * highlight EndOfBuffer guibg=bg guifg=bg
+" no tilde for empty lines
+highlight EndOfBuffer guibg=bg guifg=bg
 " autocmd VimEnter * highlight EndOfBuffer guibg=None guifg=#282828
 
 " nice line numbers and sign-column
@@ -18,4 +18,4 @@ highlight clear SignColumn |
 highlight LineNR guifg=#585858 guibg=None |
 highlight CursorLineNR guifg=#f8f8f8 guibg=None |
 " vertical split separator - None
-highlight VertSplit guibg=None guifg=#282828
+" highlight VertSplit guibg=None guifg=#282828

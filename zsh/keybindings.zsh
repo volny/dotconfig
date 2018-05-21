@@ -14,9 +14,8 @@ bindkey '^e' end-of-line
 bindkey '^a' beginning-of-line
 bindkey '^f' forward-word
 
-# actually I wanted this to be `gg`, but that seems not to be possible
-bindkey '^s' clear-screen -s 'clear^M'
-# would be nice to run `clear-screen` first, then `clear^M`, for mulitline prompt
-# bindkey -s '^s' 'clear^M'
+# bindkey '^s' clear-screen
+# ok, so that's a hack - use vi bindings
+bindkey -s '^s' 'jkddiclear^M'
 
 bindkey -M viins 'jk' vi-cmd-mode

@@ -38,6 +38,8 @@ alias gbD="git branch -D"
 # https://superuser.com/questions/7448/can-the-output-of-one-command-be-piped-to-two-other-commands
 alias gbdml='git branch --merged | egrep -v "(^\*|master|dev|develop|development|staging|production)" | xargs -n 1 git branch -d'
 alias gbdmo='git branch -r --merged | egrep -v "(^\*|master|dev|develop|development|staging|production)" | sed "s/origin\///" | xargs -n 1 git push --delete origin'
+# update list of branches
+alias gub="git remote update origin --prune && echo '\nNew Branch List:\n' &&git branch --all"
 
 # ---------- STATUS ----------
 alias gs='git status -sb'

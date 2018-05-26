@@ -1,4 +1,3 @@
-
 function killonport() {
   lsof -ti tcp:"$@" -sTCP:LISTEN | xargs kill
 }

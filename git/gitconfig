@@ -9,7 +9,7 @@
 [web]
   browser = google-chrome
 [push]
-  default = matching
+  default = current
 [color]
   ui = auto
 [diff]

@@ -22,5 +22,6 @@ source "${ZDOTDIR:-$HOME}/.config/zsh/zsh-nvm/zsh-nvm.plugin.zsh"
 # custom config
 source "${ZDOTDIR:-$HOME}/.config/zsh/aliases.zsh"
 source "${ZDOTDIR:-$HOME}/.config/zsh/functions.zsh"
-source "${ZDOTDIR:-$HOME}/.config/zsh/git.zsh"
 source "${ZDOTDIR:-$HOME}/.config/zsh/keybindings.zsh"
+source "${ZDOTDIR:-$HOME}/.config/zsh/git.zsh"
+source "${ZDOTDIR:-$HOME}/.config/zsh/docker.zsh"

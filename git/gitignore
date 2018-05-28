@@ -19,6 +19,9 @@ typings/
 .env
 .next
 
+*.js.map
+*.min.*
+
 # Compiled source #
 ###################
 *.com

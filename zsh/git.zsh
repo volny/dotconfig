@@ -29,6 +29,11 @@ function gpls() {
   git submodule foreach git pull origin master "$@";
 }
 
+# ---------- FETCH ----------
+alias gf='git fetch'
+alias gfa='git fetch --all'
+alias gfo='git fetch origin'
+
 # ---------- BRANCH ----------
 alias gb="git branch"
 alias gba="git branch -a"
@@ -79,9 +84,10 @@ function gcl() {
 }
 
 # ---------- LOG ----------
+alias glog='git log --graph -n 30'
 alias gl='git log --pretty=oneline -n 20 --graph --abbrev-commit'
-# show me all commits
-alias gla='git log --pretty=oneline --graph --abbrev-commit'
+# show me all commits 
+alias gla='git log --graph'
 # show me details
 alias gld="git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"
 

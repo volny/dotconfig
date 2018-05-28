@@ -14,6 +14,10 @@
   ui = auto
 [diff]
   tool = vimdiff
+[log]
+  date = relative
+[format]
+  pretty = format:%h %Cblue%ad%Creset %ae %Cgreen%s%Creset
 [difftool]
   prompt = false
 [github]

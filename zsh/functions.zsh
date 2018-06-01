@@ -1,3 +1,17 @@
+# my ip on the network
+function ip() {
+  ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+  echo $ip
+}
+
+# use silver-searcher to search for file names (respects .agignore!)
+function agf() {
+  ag $2 -l -g $1
+}
+
+alias agf='ag -l -g'
+
+
 function killonport() {
   lsof -ti tcp:"$@" -sTCP:LISTEN | xargs kill
 }
@@ -29,20 +43,34 @@ function mcd() {
 }
 
 function tre() {
-  tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+  if [ $# -eq 2 ] ; then
+    tree -aC -L "$1" -I '.git|node_modules|bower_components' --dirsfirst "$2" | less -FRNX;
+  else
+    tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$1" | less -FRNX;
+  fi
 }
 
-function tre2() {
-  tree -aC -L 2 -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+# alias l is created by zpresto
+unalias l 2>/dev/null
+function l() {
+  tree -aC -L 1 -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
-function tre3() {
-  tree -aC -L 3 -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
-}
-
-function tre4() {
-  tree -aC -L 4 -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
-}
+# function tre() {
+#   tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+# }
+#
+# function tre2() {
+#   tree -aC -L 2 -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+# }
+#
+# function tre3() {
+#   tree -aC -L 3 -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+# }
+#
+# function tre4() {
+#   tree -aC -L 4 -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+# }
 
 # Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`

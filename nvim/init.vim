@@ -88,16 +88,43 @@ Plug 'airblade/vim-gitgutter'
 let g:gitgutter_override_sign_column_highlight = 0
 
 Plug 'w0rp/ale'
+" keep the sign gutter open
+let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '➜'
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 " keybindings for navigating between errors
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-let g:ale_fixers = { 'javascript': ['prettier', 'eslint','prettier-eslint'], 'json': ['prettier'], 'css': ['prettier'], 'scss': ['prettier'] }
-let g:ale_linters = {'javascript': ['prettier']}
-let g:ale_fix_on_save = 1
+nmap <silent> <Space>ap <Plug>(ale_previous_wrap)
+nmap <silent> <Space>an <Plug>(ale_next_wrap)
+nmap <silent> <Space>af <Plug>(ale_fix)
+" toggle ale_fix_on_save
+function! ToggleFix()
+  if g:ale_fix_on_save == 0
+    let g:ale_fix_on_save = 1
+    echom('Ale fix-on-save turned on')
+  else
+    let g:ale_fix_on_save = 0
+    echom('Ale fix-on-save turned off')
+  endif
+endfunction
+nmap <silent> <Space>aF ;call ToggleFix()<CR>
+
+let g:ale_fixers = {
+      \  'javascript': ['prettier-eslint', 'prettier', 'eslint'],
+      \  'json': ['prettier'],
+      \  'css': ['prettier'],
+      \  'scss': ['prettier'],
+      \  'less': ['prettier'],
+      \  'typescript': ['prettier'],
+      \  'graphql': ['prettier'],
+      \  'markdown': ['prettier'],
+\}
+
+" try prettier-eslint first, as `prettier` ignores my eslintrc
+let g:ale_linters = {'javascript': ['prettier-eslint', 'prettier', 'eslint']}
+
+let g:ale_completion_enabled = 1
 
 " snippets
 Plug 'SirVer/ultisnips'
@@ -251,20 +278,21 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " show ignored paths in nerdtree (-> should actually be greyed out)
 " let g:NERDTreeShowIgnoredStatus = 1
 " those symbols need a nerdfont to display (http://nerdfonts.com/?set=nf-oct-#cheat-sheet)
+
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "⚡",
-    \ "Staged"    : "",
+    \ "Modified"  : "✗",
+    \ "Staged"    : "",
     \ "Untracked" : "六",
     \ "Renamed"   : "",
     \ "Unmerged"  : "",
     \ "Deleted"   : "",
-    \ "Dirty"     : "",
+    \ "Dirty"     : "➜",
     \ "Clean"     : "✔︎",
     \ 'Ignored'   : '',
     \ "Unknown"   : ""
     \ }
 
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
 
@@ -467,8 +495,8 @@ function! ToggleList(bufname, pfx)
 endfunction
 
 " TODO unclear why I need `;call`, but everywhere else `:command` still works even after ;/: swapping
-nmap <silent> <Leader>l :call ToggleList("Location List", 'l')<CR>
-nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
+nmap <silent> <Leader>l ;call ToggleList("Location List", 'l')<CR>
+nmap <silent> <Leader>q ;call ToggleList("Quickfix List", 'c')<CR>
 
 " Json command to format and highlight
 

@@ -19,3 +19,9 @@ highlight LineNR guifg=#585858 guibg=None |
 highlight CursorLineNR guifg=#f8f8f8 guibg=None |
 " vertical split separator - None
 " highlight VertSplit guibg=None guifg=#282828
+
+" no ugly Error highlighting
+" highlight Error NONE
+" highlight ErrorMsg NONE
+highlight SpellBad NONE
+highlight SpellCap NONE

@@ -59,7 +59,6 @@ let g:deoplete#enable_at_startup = 1
 Plug 'whatyouhide/vim-gotham'
 
 " syntax
-Plug 'flowtype/vim-flow'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'Quramy/vim-js-pretty-template'
@@ -68,12 +67,27 @@ Plug 'neoclide/vim-jsx-improve'
 Plug 'othree/yajs.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'alexlafroscia/postcss-syntax.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'jparise/vim-graphql'
 
 Plug 'tpope/vim-markdown'
 " highlight markdown code blocks
 let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'scss', 'sh', 'vim', 'zsh']
 
 let g:markdown_syntax_conceal = 0
+
+if executable('flow-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'flow-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+        \ 'whitelist': ['javascript'],
+        \ })
+else
+  echom 'Missing binary flow-language-server'
+endif
+
+Plug 'editorconfig/editorconfig-vim'
 
 " tim pope
 Plug 'tpope/vim-repeat'
@@ -95,8 +109,8 @@ let g:ale_sign_warning = '➜'
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 " keybindings for navigating between errors
-nmap <silent> <Space>ap <Plug>(ale_previous_wrap)
 nmap <silent> <Space>an <Plug>(ale_next_wrap)
+nmap <silent> <Space>aN <Plug>(ale_previous_wrap)
 nmap <silent> <Space>af <Plug>(ale_fix)
 " toggle ale_fix_on_save
 function! ToggleFix()
@@ -108,7 +122,8 @@ function! ToggleFix()
     echom('Ale fix-on-save turned off')
   endif
 endfunction
-nmap <silent> <Space>aF ;call ToggleFix()<CR>
+nmap <silent> <Space>aF :call ToggleFix()<CR>
+nmap <silent> <Space>ad <Plug>(ale_go_to_definition)
 
 let g:ale_fixers = {
       \  'javascript': ['prettier-eslint', 'prettier', 'eslint'],
@@ -495,8 +510,8 @@ function! ToggleList(bufname, pfx)
 endfunction
 
 " TODO unclear why I need `;call`, but everywhere else `:command` still works even after ;/: swapping
-nmap <silent> <Leader>l ;call ToggleList("Location List", 'l')<CR>
-nmap <silent> <Leader>q ;call ToggleList("Quickfix List", 'c')<CR>
+nmap <silent> <Leader>l :call ToggleList("Location List", 'l')<CR>
+nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
 
 " Json command to format and highlight
 

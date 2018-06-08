@@ -23,5 +23,7 @@ highlight CursorLineNR guifg=#f8f8f8 guibg=None |
 " no ugly Error highlighting
 " highlight Error NONE
 " highlight ErrorMsg NONE
-highlight SpellBad NONE
-highlight SpellCap NONE
+" highlight SpellBad NONE
+" highlight SpellCap NONE
+highlight SpellBad guibg=#303030
+highlight SpellCap guibg=#303030

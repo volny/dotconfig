@@ -59,16 +59,21 @@ let g:deoplete#enable_at_startup = 1
 Plug 'whatyouhide/vim-gotham'
 
 " syntax
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'neoclide/vim-jsx-improve'
+let g:vim_jsx_pretty_colorful_config = 1
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'Quramy/vim-js-pretty-template'
 Plug 'moll/vim-node'
-Plug 'neoclide/vim-jsx-improve'
-Plug 'othree/yajs.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'alexlafroscia/postcss-syntax.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
+" this is an unmaintained fork of vim-jsx-pretty - better options for tsx highlighing?
+" Plug 'aanari/vim-tsx-pretty'
 
 Plug 'tpope/vim-markdown'
 " highlight markdown code blocks
@@ -76,16 +81,49 @@ let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json
 
 let g:markdown_syntax_conceal = 0
 
-if executable('flow-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'flow-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
-        \ 'whitelist': ['javascript'],
-        \ })
-else
-  echom 'Missing binary flow-language-server'
-endif
+" this, even though an official plugin, leaves much to be desired, mainly lsp integration. Doesn't come close to the wonderful `leafgarland/typescript-vim`. The authors themselves [said](https://github.com/flowtype/vim-flow/issues/71) that the way forward is LSP
+" https://github.com/flowtype/flow-language-server
+" https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Flow
+Plug 'flowtype/vim-flow'
+" don't show quickfix
+" let g:flow#showquickfix = 0
+" dont' show quickfix if there's no errors
+let g:flow#autoclose = 1
+
+" Language server protocol support for JS (via flow)
+"more available, see <https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Flow>
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" if executable('flow-language-server')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'flow-language-server',
+"         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio']},
+"         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+"         \ 'whitelist': ['javascript'],
+"         \ })
+" else
+"   echom 'Missing binary flow-language-server'
+" endif
+
+"Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
+"" (Optional) Multi-entry selection UI.
+"Plug 'junegunn/fzf'
+"" required for 'autozimu/LanguageClient-neovim'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"" Required for operations modifying multiple buffers like rename.
+"set hidden
+"
+"let g:LanguageClient_serverCommands = {
+"    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+"    \ 'javascript': ['flow-language-server'],
+"    \ }
+"
+"" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+"" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -122,7 +160,7 @@ function! ToggleFix()
     echom('Ale fix-on-save turned off')
   endif
 endfunction
-nmap <silent> <Space>aF :call ToggleFix()<CR>
+nmap <silent> <Space>aF ;call ToggleFix()<CR>
 nmap <silent> <Space>ad <Plug>(ale_go_to_definition)
 
 let g:ale_fixers = {
@@ -338,7 +376,7 @@ set list lcs=tab:▸\ ,trail:·,nbsp:_
 " use the *real* full-height vertical bar to make solid lines ✨
 set fillchars+=vert:│
 " use no separator (the empty space at EOL is significant, obviously)
-" set fillchars+=vert:\ 
+" set fillchars+=vert:\
 
 " ==================================================
 " SETTINGS
@@ -373,8 +411,8 @@ nnoremap ; :
 vnoremap ; :
 " but I still want to go to the next match on line
 " disabled for now as it interferes with `:call` and is confuses new users
-" nnoremap : ;
-" vnoremap : ;
+nnoremap : ;
+vnoremap : ;
 
 " repeat last command
 nmap <Space>. :<C-P><CR>
@@ -510,8 +548,8 @@ function! ToggleList(bufname, pfx)
 endfunction
 
 " TODO unclear why I need `;call`, but everywhere else `:command` still works even after ;/: swapping
-nmap <silent> <Leader>l :call ToggleList("Location List", 'l')<CR>
-nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
+nmap <silent> <Leader>l ;call ToggleList("Location List", 'l')<CR>
+nmap <silent> <Leader>q ;call ToggleList("Quickfix List", 'c')<CR>
 
 " Json command to format and highlight
 

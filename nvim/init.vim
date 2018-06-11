@@ -50,7 +50,7 @@ nnoremap <Space>md :set ft=markdown<CR>
 call plug#begin('~/.config/nvim/plugged')
 
 " code completion
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 
 " colorscheme
@@ -75,57 +75,30 @@ Plug 'jparise/vim-graphql'
 " this is an unmaintained fork of vim-jsx-pretty - better options for tsx highlighing?
 " Plug 'aanari/vim-tsx-pretty'
 
+" this is the official plugin, but I don't see what it actually does for me - it provides neither lsp nor syntax
+" Plug 'flowtype/vim-flow'
+" don't show quickfix
+" let g:flow#showquickfix = 0
+" dont' show quickfix if there's no errors
+" let g:flow#autoclose = 1
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+" https://github.com/flowtype/flow-language-server
+" requires `yarn global add flow-language-server` -> dockerize!
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['flow-language-server', '--stdio'],
+    \ }
+
+Plug 'editorconfig/editorconfig-vim'
+
 Plug 'tpope/vim-markdown'
 " highlight markdown code blocks
 let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'scss', 'sh', 'vim', 'zsh']
 
 let g:markdown_syntax_conceal = 0
-
-" this, even though an official plugin, leaves much to be desired, mainly lsp integration. Doesn't come close to the wonderful `leafgarland/typescript-vim`. The authors themselves [said](https://github.com/flowtype/vim-flow/issues/71) that the way forward is LSP
-" https://github.com/flowtype/flow-language-server
-" https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Flow
-Plug 'flowtype/vim-flow'
-" don't show quickfix
-" let g:flow#showquickfix = 0
-" dont' show quickfix if there's no errors
-let g:flow#autoclose = 1
-
-" Language server protocol support for JS (via flow)
-"more available, see <https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Flow>
-" Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
-" if executable('flow-language-server')
-"     au User lsp_setup call lsp#register_server({
-"         \ 'name': 'flow-language-server',
-"         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio']},
-"         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
-"         \ 'whitelist': ['javascript'],
-"         \ })
-" else
-"   echom 'Missing binary flow-language-server'
-" endif
-
-"Plug 'autozimu/LanguageClient-neovim', {
-"    \ 'branch': 'next',
-"    \ 'do': 'bash install.sh',
-"    \ }
-"" (Optional) Multi-entry selection UI.
-"Plug 'junegunn/fzf'
-"" required for 'autozimu/LanguageClient-neovim'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"" Required for operations modifying multiple buffers like rename.
-"set hidden
-"
-"let g:LanguageClient_serverCommands = {
-"    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-"    \ 'javascript': ['flow-language-server'],
-"    \ }
-"
-"" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-"" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-Plug 'editorconfig/editorconfig-vim'
 
 " tim pope
 Plug 'tpope/vim-repeat'
@@ -146,7 +119,8 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '➜'
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
-" keybindings for navigating between errors
+" NOTE some of these keybindings are overridden in ftplugin/js because we're using LanguageClient instead of Ale
+" for some reason `nnoremap` doesn't work with these
 nmap <silent> <Space>an <Plug>(ale_next_wrap)
 nmap <silent> <Space>aN <Plug>(ale_previous_wrap)
 nmap <silent> <Space>af <Plug>(ale_fix)
@@ -175,9 +149,13 @@ let g:ale_fixers = {
 \}
 
 " try prettier-eslint first, as `prettier` ignores my eslintrc
-let g:ale_linters = {'javascript': ['prettier-eslint', 'prettier', 'eslint']}
-
+let g:ale_linters = {'javascript': ['flow', 'prettier-eslint', 'prettier', 'eslint']}
 let g:ale_completion_enabled = 1
+
+let g:ale_statusline_format = ['X %d', '? %d', '']
+" %linter% is the name of the linter that provided the message
+" %s is the error or warning message
+let g:ale_echo_msg_format = '%linter% says %s'
 
 " snippets
 Plug 'SirVer/ultisnips'

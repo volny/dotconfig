@@ -42,7 +42,7 @@ alias gbD="git branch -D"
 # remove fully merged branches both locally and on remote origin
 # https://superuser.com/questions/7448/can-the-output-of-one-command-be-piped-to-two-other-commands
 alias gbdml='git branch --merged | egrep -v "(^\*|master|dev|develop|development|staging|production)" | xargs -n 1 git branch -d'
-alias gbdmo='git branch -r --merged | egrep -v "(^\*|master|dev|develop|development|staging|production)" | sed "s/origin\///" | xargs -n 1 git push --delete origin'
+# alias gbdmo='git branch -r --merged | egrep -v "(^\*|master|dev|develop|development|staging|production)" | sed "s/origin\///" | xargs -n 1 git push --delete origin'
 # update list of branches
 alias gub="git remote update origin --prune && echo '\nNew Branch List:\n' &&git branch --all"
 
@@ -86,7 +86,7 @@ function gcl() {
 # ---------- LOG ----------
 alias glog='git log --graph -n 30'
 alias gl='git log --pretty=oneline -n 20 --graph --abbrev-commit'
-# show me all commits 
+# show me all commits
 alias gla='git log --graph'
 # show me details
 alias gld="git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"

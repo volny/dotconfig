@@ -50,7 +50,7 @@ nnoremap <Space>md :set ft=markdown<CR>
 call plug#begin('~/.config/nvim/plugged')
 
 " code completion
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 
 " colorscheme
@@ -59,35 +59,46 @@ let g:deoplete#enable_at_startup = 1
 Plug 'whatyouhide/vim-gotham'
 
 " syntax
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'neoclide/vim-jsx-improve'
+let g:vim_jsx_pretty_colorful_config = 1
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'Quramy/vim-js-pretty-template'
 Plug 'moll/vim-node'
-Plug 'neoclide/vim-jsx-improve'
-Plug 'othree/yajs.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'alexlafroscia/postcss-syntax.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
+" this is an unmaintained fork of vim-jsx-pretty - better options for tsx highlighing?
+" Plug 'aanari/vim-tsx-pretty'
+
+" this is the official plugin, but I don't see what it actually does for me - it provides neither lsp nor syntax
+" Plug 'flowtype/vim-flow'
+" don't show quickfix
+" let g:flow#showquickfix = 0
+" dont' show quickfix if there's no errors
+" let g:flow#autoclose = 1
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+" https://github.com/flowtype/flow-language-server
+" requires `yarn global add flow-language-server` -> dockerize!
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['flow-language-server', '--stdio'],
+    \ }
+
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'tpope/vim-markdown'
 " highlight markdown code blocks
 let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'scss', 'sh', 'vim', 'zsh']
 
 let g:markdown_syntax_conceal = 0
-
-if executable('flow-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'flow-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
-        \ 'whitelist': ['javascript'],
-        \ })
-else
-  echom 'Missing binary flow-language-server'
-endif
-
-Plug 'editorconfig/editorconfig-vim'
 
 " tim pope
 Plug 'tpope/vim-repeat'
@@ -108,7 +119,8 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '➜'
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
-" keybindings for navigating between errors
+" NOTE some of these keybindings are overridden in ftplugin/js because we're using LanguageClient instead of Ale
+" for some reason `nnoremap` doesn't work with these
 nmap <silent> <Space>an <Plug>(ale_next_wrap)
 nmap <silent> <Space>aN <Plug>(ale_previous_wrap)
 nmap <silent> <Space>af <Plug>(ale_fix)
@@ -122,7 +134,7 @@ function! ToggleFix()
     echom('Ale fix-on-save turned off')
   endif
 endfunction
-nmap <silent> <Space>aF :call ToggleFix()<CR>
+nmap <silent> <Space>aF ;call ToggleFix()<CR>
 nmap <silent> <Space>ad <Plug>(ale_go_to_definition)
 
 let g:ale_fixers = {
@@ -137,9 +149,13 @@ let g:ale_fixers = {
 \}
 
 " try prettier-eslint first, as `prettier` ignores my eslintrc
-let g:ale_linters = {'javascript': ['prettier-eslint', 'prettier', 'eslint']}
-
+let g:ale_linters = {'javascript': ['flow', 'prettier-eslint', 'prettier', 'eslint']}
 let g:ale_completion_enabled = 1
+
+let g:ale_statusline_format = ['X %d', '? %d', '']
+" %linter% is the name of the linter that provided the message
+" %s is the error or warning message
+let g:ale_echo_msg_format = '%linter% says %s'
 
 " snippets
 Plug 'SirVer/ultisnips'
@@ -297,7 +313,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✗",
     \ "Staged"    : "",
-    \ "Untracked" : "六",
+    \ "Untracked" : "六",
     \ "Renamed"   : "",
     \ "Unmerged"  : "",
     \ "Deleted"   : "",
@@ -338,7 +354,7 @@ set list lcs=tab:▸\ ,trail:·,nbsp:_
 " use the *real* full-height vertical bar to make solid lines ✨
 set fillchars+=vert:│
 " use no separator (the empty space at EOL is significant, obviously)
-" set fillchars+=vert:\ 
+" set fillchars+=vert:\
 
 " ==================================================
 " SETTINGS
@@ -373,8 +389,8 @@ nnoremap ; :
 vnoremap ; :
 " but I still want to go to the next match on line
 " disabled for now as it interferes with `:call` and is confuses new users
-" nnoremap : ;
-" vnoremap : ;
+nnoremap : ;
+vnoremap : ;
 
 " repeat last command
 nmap <Space>. :<C-P><CR>
@@ -510,8 +526,8 @@ function! ToggleList(bufname, pfx)
 endfunction
 
 " TODO unclear why I need `;call`, but everywhere else `:command` still works even after ;/: swapping
-nmap <silent> <Leader>l :call ToggleList("Location List", 'l')<CR>
-nmap <silent> <Leader>q :call ToggleList("Quickfix List", 'c')<CR>
+nmap <silent> <Leader>l ;call ToggleList("Location List", 'l')<CR>
+nmap <silent> <Leader>q ;call ToggleList("Quickfix List", 'c')<CR>
 
 " Json command to format and highlight
 
@@ -523,4 +539,3 @@ function! ThatFunc()
   " how to execute command over every line?
 endfunction
 command! Json call ThatFunc()
-

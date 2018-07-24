@@ -13,6 +13,6 @@
     "eslint-plugin-react": "^7.8.2",
     "neovim": "^4.0.1",
     "prettier": "^1.12.1",
-    "serve": "^6.5.7"
+    "serve": "^9.3.0"
   }
 }

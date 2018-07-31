@@ -8,6 +8,8 @@ BLOX_SEG__LOWER_LEFT=( symbol )
 # TODO vi-mode is set below, but should be set here as a 'block'
 BLOX_SEG__LOWER_RIGHT=( )
 
+BLOX_BLOCK__SYMBOL_SYMBOL=λ
+
 # show which vim mode we are in
 precmd() {
   RPROMPT=""

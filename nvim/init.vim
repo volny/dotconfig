@@ -88,6 +88,8 @@ Plug 'alexlafroscia/postcss-syntax.vim'
 " dont' show quickfix if there's no errors
 " let g:flow#autoclose = 1
 
+Plug 'posva/vim-vue/', { 'for': 'vue' }
+
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -210,29 +212,30 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Enable the list of buffers in Airline
+" " Plug 'vim-airline/vim-airline-themes'
+" " Enable the list of buffers in Airline
 let g:airline#extensions#tabline#enabled = 1
-" start counting buffers at 1
+" " start counting buffers at 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-" only show bufferline if more than 1 open buffer
-let g:airline#extensions#tabline#buffer_min_count = 2
+" " only show bufferline if more than 1 open buffer
+" let g:airline#extensions#tabline#buffer_min_count = 2
 let airline#extensions#tabline#tabs_label = 0
 let airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#show_tab_nr = 0
+" let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#fnamecollapse = 1
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#buffers_label = ''
-let g:airline#extensions#tabline#tabs_label = ''
-" Just show the file name
+" let g:airline#extensions#tabline#show_tab_type = 0
+" let g:airline#extensions#tabline#buffers_label = ''
+" let g:airline#extensions#tabline#tabs_label = ''
+" " Just show the file name
 let g:airline#extensions#tabline#fnamemod = ':t'
-" show that little number in front
+" " show that little number in front
 " let g:airline#extensions#tabline#buffer_idx_mode = 1
-" don't show the buffer number (that :ls number)
-let g:airline#extensions#tabline#buffer_nr_show = 0
-" use the patched font
-let g:airline_powerline_fonts = 1
+" " don't show the buffer number (that :ls number)
+" let g:airline#extensions#tabline#buffer_nr_show = 0
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" " use the patched font
+" let g:airline_powerline_fonts = 1
 
 " Plug 'Yggdroot/indentLine'
 " let g:indentLine_char = '│'
@@ -302,7 +305,7 @@ Plug 'junegunn/goyo.vim'
 
 nnoremap <Space>wd :Goyo<CR>
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " toggle NerdTree with ctrl-n
 nnoremap <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
@@ -346,6 +349,7 @@ set background=dark
 " colorscheme jellybeans
 " colorscheme gotham
 colorscheme tender
+let g:airline_theme = 'tender'
 
 "visual selection: reverse colors rather than change bg
 hi Visual gui=reverse
@@ -412,6 +416,9 @@ inoremap jk <Esc>
 
 " save - W means w
 command! W :w
+
+" suspend with zz
+noremap <silent> ZZ :suspend<CR>
 
 " make all file-related tasks search down subfolders
 set path+=**

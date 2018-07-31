@@ -5,10 +5,9 @@ function ip() {
 }
 
 # use silver-searcher to search for file names (respects .agignore!)
-function agf() {
-  ag $2 -l -g $1
-}
-
+#function agf() {
+#  ag $2 -l -g $1
+#}
 alias agf='ag -l -g'
 
 
@@ -152,6 +151,6 @@ function json() {
   if [ -t 0 ]; then # argument
     python -mjson.tool <<< "$*" | pygmentize -l javascript;
   else # pipe
-    python -mjson.tool | pygmentize -l javascript;
+    python -mjson.tool | pygmentize -l json;
   fi;
 }

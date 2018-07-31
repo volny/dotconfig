@@ -56,22 +56,28 @@ let g:deoplete#enable_at_startup = 1
 " colorscheme
 " Plug 'morhetz/gruvbox'
 " Plug 'nanotech/jellybeans.vim'
-Plug 'whatyouhide/vim-gotham'
+" Plug 'whatyouhide/vim-gotham'
+Plug 'jacoborus/tender.vim'
 
 " syntax
-Plug 'othree/yajs.vim'
-Plug 'othree/es.next.syntax.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-" Plug 'neoclide/vim-jsx-improve'
-let g:vim_jsx_pretty_colorful_config = 1
-Plug 'jelera/vim-javascript-syntax'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'Quramy/vim-js-pretty-template'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
+" "  don't use yajs, latest version is messed up (july 2018)
+" " Plug 'othree/yajs.vim'
+" " Plug 'othree/es.next.syntax.vim'
+" " Plug 'maxmellon/vim-jsx-pretty'
+" " Plug 'neoclide/vim-jsx-improve'
+" let g:vim_jsx_pretty_colorful_config = 1
+" " Plug 'jelera/vim-javascript-syntax'
+" " Plug 'othree/javascript-libraries-syntax.vim'
+" " Plug 'Quramy/vim-js-pretty-template'
+
 Plug 'moll/vim-node'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'alexlafroscia/postcss-syntax.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'jparise/vim-graphql'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'jparise/vim-graphql'
 " this is an unmaintained fork of vim-jsx-pretty - better options for tsx highlighing?
 " Plug 'aanari/vim-tsx-pretty'
 
@@ -334,10 +340,13 @@ call plug#end()
 " truecolor - only works on iterm2 > 3.0 & neovim >= 0.15
 set termguicolors
 set background=dark
+" set background=light
 
 " TODO colorscheme gruvbox
 " colorscheme jellybeans
-colorscheme gotham
+" colorscheme gotham
+colorscheme tender
+
 "visual selection: reverse colors rather than change bg
 hi Visual gui=reverse
 

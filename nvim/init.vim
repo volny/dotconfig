@@ -308,6 +308,8 @@ nnoremap <Space>wd :Goyo<CR>
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " toggle NerdTree with ctrl-n
 nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-m> :NERDTreeFind<CR>
+
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = " " " <-- (just the right) invisible space
 let g:NERDTreeDirArrowCollapsible= " " " <-- (just the right) invisible space

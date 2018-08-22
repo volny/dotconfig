@@ -22,26 +22,28 @@ let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 " BUFFER / WINDOW
 " ==================================================
 
-nnoremap <Space>w <C-w>
+nnoremap <Leader>w <C-w>
 
 " Toggle between last buffer
 nnoremap <Tab> :b#<CR>
 
 " open a new empty buffer (replaces `:tabnew`)
-nnoremap <Space>bn :enew<CR>
+nnoremap <Leader>bn :enew<CR>
 " Close the current buffer and move to the previous one
 " TODO if there's only one buffer I want to leave vim
 nnoremap Q :bp<BAR>bd#<CR>
 "nnoremap q :q<CR>
-nnoremap <Space>qQ :qall<CR>
+nnoremap <Leader>qQ :qall<CR>
 
 " next and previous buffer
-nnoremap <Space>[ :bp<CR>
-nnoremap <Space>] :bn<CR>
+" nnoremap <Leader>[ :bp<CR>
+" nnoremap <Leader>] :bn<CR>
+nnoremap H :bp<CR>
+nnoremap L :bn<CR>
 
 " a new buffer without filetype (:enew) is assumed to be markdown (disabled because of too many wrong positives)
 " autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
-nnoremap <Space>md :set ft=markdown<CR>
+nnoremap <Leader>md :set ft=markdown<CR>
 
 " ==================================================
 " PLUGINS
@@ -129,9 +131,9 @@ let g:ale_sign_warning = '➜'
 let g:airline#extensions#ale#enabled = 1
 " NOTE some of these keybindings are overridden in ftplugin/js because we're using LanguageClient instead of Ale
 " for some reason `nnoremap` doesn't work with these
-nmap <silent> <Space>an <Plug>(ale_next_wrap)
-nmap <silent> <Space>aN <Plug>(ale_previous_wrap)
-nmap <silent> <Space>af <Plug>(ale_fix)
+nmap <silent> <Leader>an <Plug>(ale_next_wrap)
+nmap <silent> <Leader>aN <Plug>(ale_previous_wrap)
+nmap <silent> <Leader>af <Plug>(ale_fix)
 " toggle ale_fix_on_save
 function! ToggleFix()
   if g:ale_fix_on_save == 0
@@ -142,8 +144,8 @@ function! ToggleFix()
     echom('Ale fix-on-save turned off')
   endif
 endfunction
-nmap <silent> <Space>aF ;call ToggleFix()<CR>
-nmap <silent> <Space>ad <Plug>(ale_go_to_definition)
+nmap <silent> <Leader>aF ;call ToggleFix()<CR>
+nmap <silent> <Leader>ad <Plug>(ale_go_to_definition)
 
 let g:ale_fixers = {
       \  'javascript': ['prettier-eslint', 'prettier', 'eslint'],
@@ -183,9 +185,9 @@ Plug 'epilande/vim-react-snippets'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'ctrlpvim/ctrlp.vim'
-nnoremap <Space>j :CtrlP<CR>
+nnoremap <Leader>j :CtrlP<CR>
 " open buffers
-nnoremap <Space>f :CtrlPBuffer<CR>
+nnoremap <Leader>f :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore = {
    \ 'dir':  '\v[\/](\.git|_site|dist|node_modules)$',
    \ 'file': '\v\.(exe|so|dll)$',
@@ -303,7 +305,7 @@ Plug 'junegunn/goyo.vim'
 " autocmd! User GoyoLeave Limelight!
 " let g:limelight_conceal_guifg = '#757575'
 
-nnoremap <Space>wd :Goyo<CR>
+nnoremap <Leader>wd :Goyo<CR>
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " toggle NerdTree with ctrl-n
@@ -375,6 +377,9 @@ set fillchars+=vert:│
 " SETTINGS
 " ==================================================
 
+" remap <Leader> to space
+let mapleader = "\<Space>"
+
 set timeoutlen=1000 ttimeoutlen=0
 
 " Make tabs two spaces wide
@@ -408,7 +413,7 @@ nnoremap : ;
 vnoremap : ;
 
 " repeat last command
-nmap <Space>. :<C-P><CR>
+nmap <Leader>. :<C-P><CR>
 " indent lines with a single '<' or '>'
 " this requires unbinding of unimpaired `>p` in `after/plugin`
 nnoremap > >>_

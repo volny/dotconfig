@@ -18,6 +18,10 @@ let g:python_host_prog = '/usr/local/bin/python'
 " this is required for yarn install
 let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 
+" gotta be first so I can use it
+" remap <Leader> to space
+let mapleader = "\<Space>"
+
 " ==================================================
 " BUFFER / WINDOW
 " ==================================================
@@ -33,7 +37,7 @@ nnoremap <Leader>bn :enew<CR>
 " TODO if there's only one buffer I want to leave vim
 nnoremap Q :bp<BAR>bd#<CR>
 "nnoremap q :q<CR>
-nnoremap <Leader>qQ :qall<CR>
+" nnoremap <Leader>qQ :qall<CR>
 
 " next and previous buffer
 " nnoremap <Leader>[ :bp<CR>
@@ -43,7 +47,6 @@ nnoremap L :bn<CR>
 
 " a new buffer without filetype (:enew) is assumed to be markdown (disabled because of too many wrong positives)
 " autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
-nnoremap <Leader>md :set ft=markdown<CR>
 
 " ==================================================
 " PLUGINS
@@ -307,10 +310,10 @@ Plug 'junegunn/goyo.vim'
 
 nnoremap <Leader>wd :Goyo<CR>
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 " toggle NerdTree with ctrl-n
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-m> :NERDTreeFind<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
 
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = " " " <-- (just the right) invisible space
@@ -377,9 +380,6 @@ set fillchars+=vert:│
 " SETTINGS
 " ==================================================
 
-" remap <Leader> to space
-let mapleader = "\<Space>"
-
 set timeoutlen=1000 ttimeoutlen=0
 
 " Make tabs two spaces wide
@@ -420,6 +420,19 @@ nnoremap > >>_
 nnoremap < <<_
 
 inoremap jk <Esc>
+
+" unmap annoying visual u to lowercase selection
+vnoremap u hl
+
+" quick syntax setting
+nnoremap <Leader>sjs :set ft=javascript<CR>
+nnoremap <Leader>smd :set ft=markdown<CR>
+nnoremap <Leader>scss :set ft=css<CR>
+nnoremap <Leader>svim :set ft=vim<CR>
+nnoremap <Leader>sjson :set ft=json<CR>
+nnoremap <Leader>spython :set ft=python<CR>
+nnoremap <Leader>ssh :set ft=sh<CR>
+nnoremap <Leader>sts :set ft=typescript<CR>
 
 " save - W means w
 command! W :w

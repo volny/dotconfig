@@ -33,11 +33,15 @@ nnoremap <Tab> :b#<CR>
 
 " open a new empty buffer (replaces `:tabnew`)
 nnoremap <Leader>bn :enew<CR>
+
+
 " Close the current buffer and move to the previous one
 " TODO if there's only one buffer I want to leave vim
-nnoremap Q :bp<BAR>bd#<CR>
-"nnoremap q :q<CR>
-" nnoremap <Leader>qQ :qall<CR>
+nnoremap <Leader>x :bp<BAR>bd#<CR>
+nnoremap q :q<CR>
+nnoremap <Leader>Q :qall<CR>
+
+
 
 " next and previous buffer
 " nnoremap <Leader>[ :bp<CR>
@@ -47,6 +51,8 @@ nnoremap L :bn<CR>
 
 " a new buffer without filetype (:enew) is assumed to be markdown (disabled because of too many wrong positives)
 " autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
+
+nnoremap <Leader><Tab> :Startify<CR>
 
 " ==================================================
 " PLUGINS

@@ -1,13 +1,3 @@
-" TODO not working
-" let g:python3_host_prog = system('which python3')
-" let g:python_host_prog = system('which python')
-" let g:node_host_prog = system('which neovim-node-host')
-let g:python3_host_prog = '/usr/local/bin/python3'
-let g:python_host_prog = '/usr/local/bin/python'
-let g:node_host_prog = '/usr/local/bin/neovim-node-host'
-
-let mapleader = "\<Space>"
-
 " ==================================================
 " COSMETICS
 " ==================================================
@@ -17,7 +7,6 @@ set termguicolors
 set background=dark
 " set background=light
 
-" TODO colorscheme gruvbox
 " colorscheme jellybeans
 " colorscheme gotham
 colorscheme tender
@@ -45,14 +34,6 @@ set fillchars+=vert:│
 " SETTINGS
 " ==================================================
 
-set timeoutlen=1000 ttimeoutlen=0
-
-" Make tabs two spaces wide
-set tabstop=2
-set shiftwidth=2
-" Indent using spaces
-set expandtab
-
 " Save backups here
 set backupdir=$HOME/.config/nvim/backups
 " Save swaps here
@@ -61,13 +42,24 @@ set directory=$HOME/.config/nvim/swaps
 set undodir =$HOME/.config/nvim/undo
 set undofile
 
-" save session with timestamp
-" autocmd VimEnter * execute "Obsession" . "~/.config/nvim/sessions/" . strftime('%Y%m%d%H%M%S') . ".vim"
-" autocmd VimEnter * silent execute "Obsession" . "~/.config/nvim/sessions/"
+" let g:python3_host_prog = system('which python3')
+" let g:python_host_prog = system('which python')
+" let g:node_host_prog = system('which neovim-node-host')
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python'
+let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 
+" ==================================================
+" UI
+" ==================================================
 
+set timeoutlen=1000 ttimeoutlen=0
 
-
+" Make tabs two spaces wide
+set tabstop=2
+set shiftwidth=2
+" Indent using spaces
+set expandtab
 
 " make all file-related tasks search down subfolders
 set path+=**

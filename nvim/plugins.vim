@@ -11,8 +11,8 @@ let g:deoplete#enable_at_startup = 1
 Plug 'jacoborus/tender.vim'
 
 " syntax
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 
 " "  don't use yajs, latest version is messed up (july 2018)
 " " Plug 'othree/yajs.vim'
@@ -24,9 +24,9 @@ Plug 'mxw/vim-jsx'
 " " Plug 'othree/javascript-libraries-syntax.vim'
 " " Plug 'Quramy/vim-js-pretty-template'
 
-Plug 'moll/vim-node'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'alexlafroscia/postcss-syntax.vim'
+Plug 'moll/vim-node', { 'for': 'javascript' }
+Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+Plug 'alexlafroscia/postcss-syntax.vim', { 'for': 'css' }
 " Plug 'leafgarland/typescript-vim'
 " Plug 'jparise/vim-graphql'
 " this is an unmaintained fork of vim-jsx-pretty - better options for tsx highlighing?
@@ -41,20 +41,21 @@ Plug 'alexlafroscia/postcss-syntax.vim'
 
 Plug 'posva/vim-vue/', { 'for': 'vue' }
 
-" 🤯 🎉
+" TODO only for ts currently. Config for flow/js
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
+    \ 'for': ['typescript']
     \ }
 " https://github.com/flowtype/flow-language-server
 " requires `yarn global add flow-language-server` -> dockerize!
-let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['flow-language-server', '--stdio'],
-    \ }
+" let g:LanguageClient_serverCommands = {
+"     \ 'javascript': ['flow-language-server', '--stdio'],
+"     \ }
 
 Plug 'editorconfig/editorconfig-vim'
 
-Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " highlight markdown code blocks
 let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'scss', 'sh', 'vim', 'zsh']
 
@@ -130,8 +131,8 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 Plug 'honza/vim-snippets'
-Plug 'epilande/vim-es2015-snippets'
-Plug 'epilande/vim-react-snippets'
+Plug 'epilande/vim-es2015-snippets', { 'for': 'javascript' }
+Plug 'epilande/vim-react-snippets', { 'for': 'javascript' }
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -165,7 +166,7 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 Plug 'bling/vim-airline'
-" " Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
 " " Enable the list of buffers in Airline
 let g:airline#extensions#tabline#enabled = 1
 " " start counting buffers at 1
@@ -290,3 +291,4 @@ let g:NERDTreeIndicatorMapCustom = {
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
+

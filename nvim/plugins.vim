@@ -101,6 +101,7 @@ nmap <silent> <Leader>ad <Plug>(ale_go_to_definition)
 
 let g:ale_fixers = {
       \  'javascript': ['prettier-eslint', 'prettier', 'eslint'],
+      \  'vue': ['prettier'],
       \  'json': ['prettier'],
       \  'css': ['prettier'],
       \  'scss': ['prettier'],

@@ -1,4 +1,5 @@
 setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+set tabstop=2
 
 " autozimu/LanguageClient-neovim
 " for some reason `nnoremap` doesn't work here

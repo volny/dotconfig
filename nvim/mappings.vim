@@ -9,6 +9,9 @@ noremap <C-w> @
 noremap <C-a> qa
 noremap <C-s> @a
 
+" the 70s called
+nnoremap Q <Nop>
+
 nnoremap <Leader>w <C-w>
 " Toggle between last buffer
 nnoremap <Tab> :b#<CR>

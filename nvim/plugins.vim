@@ -219,26 +219,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " let g:indentLine_char = '│'
 " let g:indentLine_char = '┆'
 
-Plug 'ryanoasis/vim-devicons'
-let g:WebDevIconsOS = 'Darwin'
-
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
-
-let g:webdevicons_enable_ctrlp = 1
-
-
-" for concealing nerdtree brackets
-if exists('g:loaded_webdevicons')
-    call webdevicons#refresh()
-endif
-
 Plug 'haya14busa/incsearch.vim'
 " use incsearch.vim rather than built-in
 map /  <Plug>(incsearch-forward)
@@ -313,6 +293,26 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plug 'ryanoasis/vim-devicons'
+let g:WebDevIconsOS = 'Darwin'
+
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+
+let g:webdevicons_enable_ctrlp = 1
+
+
+" for concealing nerdtree brackets
+if exists('g:loaded_webdevicons')
+    call webdevicons#refresh()
+endif
 
 call plug#end()
 

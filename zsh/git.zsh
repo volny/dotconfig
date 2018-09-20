@@ -93,9 +93,14 @@ alias gur='git remote set-url origin'
 
 # ---------- RESET ----------
 alias gr='git reset'
+alias gr.='git reset .'
 # throw away changes since commit
 alias grh='git reset --hard'
 # throw away changes since commit on <path>
 alias grf='git checkout HEAD --'
 
+# ---------- CHERRY PICK ----------
+alias gcp='git cherry-pick'
+alias gcpc='git cherry-pick -- continue'
+alias gcpa='git cherry-pick --abort'
 

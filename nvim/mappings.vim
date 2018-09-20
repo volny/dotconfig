@@ -34,6 +34,8 @@ nnoremap <Leader><Tab> :Startify<CR>
 " CONVENIENCE
 " ==================================================
 
+inoremap jk <Esc>
+
 " no need for shift to enter command
 nnoremap ; :
 vnoremap ; :
@@ -50,8 +52,6 @@ nmap <Leader>. :<C-P><CR>
 nnoremap > >>_
 nnoremap < <<_
 
-inoremap jk <Esc>
-
 " unmap annoying visual u to lowercase selection
 vnoremap u hl
 
@@ -60,6 +60,7 @@ command! W :w
 
 " shell quick access
 noremap <silent> Z :suspend<CR>
+
 " eol means the same in visual as in normal mode
 vnoremap $ $h
 
@@ -72,9 +73,9 @@ nnoremap <Leader>shtml :set ft=html<CR>
 nnoremap <Leader>sjs :set ft=javascript<CR>
 nnoremap <Leader>sjson :set ft=json<CR>
 nnoremap <Leader>smd :set ft=markdown<CR>
-nnoremap <Leader>spython :set ft=python<CR>
+nnoremap <Leader>spy :set ft=python<CR>
 nnoremap <Leader>ssh :set ft=sh<CR>
 nnoremap <Leader>sts :set ft=typescript<CR>
 nnoremap <Leader>svim :set ft=vim<CR>
-nnoremap <Leader>svue :set ft=vue<CR>
+nnoremap <Leader>svue :syntax sync fromstart <bar> set ft=vue<CR>
 

@@ -19,3 +19,7 @@ bindkey '^f' forward-word
 bindkey -s '^s' 'jkddiclear^M'
 
 bindkey -M viins 'jk' vi-cmd-mode
+
+# dont unintentially kill my shell with ctrl-d
+set -o ignoreeof
+IGNOREEOF=10   # Shell only exists after the 10th consecutive Ctrl-d

@@ -1,2 +1,14 @@
-configstore
-hub
+*
+git
+iterm
+javascript
+nvim
+tmux
+yarn
+zsh
+.gitignore
+.gitmodules
+Brewfile
+LICENSE
+README
+install.sh

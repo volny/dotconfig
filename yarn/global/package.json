@@ -1,18 +1,20 @@
 {
   "dependencies": {
-    "create-react-app": "^1.5.2",
+    "create-react-app": "^2.0.2",
     "create-react-native-app": "^1.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-postcss": "^2.0.2",
     "eslint-config-prettier": "^2.9.0",
+    "eslint-config-with-prettier": "^4.2.0",
     "eslint-plugin-flowtype": "^2.46.3",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.8.2",
+    "less": "^3.8.1",
     "neovim": "^4.0.1",
     "prettier": "^1.12.1",
-    "serve": "^9.3.0"
+    "serve": "^10.0.2"
   }
 }

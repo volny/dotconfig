@@ -9,7 +9,8 @@ set background=dark
 
 " colorscheme jellybeans
 " colorscheme gotham
-colorscheme tender
+" colorscheme tender
+colorscheme tomorrow-night
 let g:airline_theme = 'tender'
 
 "visual selection: reverse colors rather than change bg

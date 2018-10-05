@@ -8,7 +8,9 @@ let g:deoplete#enable_at_startup = 1
 " Plug 'morhetz/gruvbox'
 " Plug 'nanotech/jellybeans.vim'
 " Plug 'whatyouhide/vim-gotham'
-Plug 'jacoborus/tender.vim'
+" Plug 'jacoborus/tender.vim'
+" all the colorschemes - https://github.com/flazz/vim-colorschemes
+Plug 'flazz/vim-colorschemes'
 
 " syntax
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -28,7 +30,6 @@ Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'alexlafroscia/postcss-syntax.vim', { 'for': 'css' }
 " Plug 'leafgarland/typescript-vim'
-" Plug 'jparise/vim-graphql'
 " this is an unmaintained fork of vim-jsx-pretty - better options for tsx highlighing?
 " Plug 'aanari/vim-tsx-pretty'
 
@@ -40,6 +41,8 @@ Plug 'alexlafroscia/postcss-syntax.vim', { 'for': 'css' }
 " let g:flow#autoclose = 1
 
 Plug 'posva/vim-vue/', { 'for': 'vue' }
+
+Plug 'jparise/vim-graphql'
 
 " TODO only for ts currently. Config for flow/js
 Plug 'autozimu/LanguageClient-neovim', {

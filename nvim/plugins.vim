@@ -193,7 +193,7 @@ function! NERDCommenter_after()
 endfunction
 
 Plug 'bling/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 " " Enable the list of buffers in Airline
 let g:airline#extensions#tabline#enabled = 1
 " " start counting buffers at 1

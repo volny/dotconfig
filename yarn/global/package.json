@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@vue/cli": "^3.0.4",
     "create-react-app": "^2.0.2",
     "create-react-native-app": "^1.0.0",
     "eslint": "^4.19.1",

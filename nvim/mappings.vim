@@ -34,7 +34,7 @@ nnoremap <Leader><Tab> :Startify<CR>
 " CONVENIENCE
 " ==================================================
 
-inoremap jk <Esc>
+" inoremap jk <Esc>
 
 " no need for shift to enter command
 nnoremap ; :

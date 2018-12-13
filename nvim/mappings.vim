@@ -64,6 +64,17 @@ noremap <silent> Z :suspend<CR>
 " eol means the same in visual as in normal mode
 vnoremap $ $h
 
+" TODO (work in progress) move blocks around
+" do :verbose <C-j> for find an appropriate shortcut
+" also, ryan florance has some voodoo magic to move blocks (vip) around, which is exactly what this should be
+" https://twitter.com/ryanflorence/status/1071267709453721600
+" nnoremap <C-k> [e
+" nnoremap <C-j> ]e
+" vnoremap <C-k> [egv
+" vnoremap <C-j> ]egv
+
+nnoremap <Leader>p :set nopaste<CR>
+
 " ==================================================
 " SYNTAX
 " ==================================================

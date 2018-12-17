@@ -10,7 +10,7 @@ let g:deoplete#enable_at_startup = 1
 " Plug 'whatyouhide/vim-gotham'
 " Plug 'jacoborus/tender.vim'
 " all the colorschemes - https://github.com/flazz/vim-colorschemes
-Plug 'flazz/vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
 
 " syntax
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -58,11 +58,12 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 Plug 'editorconfig/editorconfig-vim'
 
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-" highlight markdown code blocks
-let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'scss', 'sh', 'vim', 'zsh']
+" Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+" " highlight markdown code blocks
+" let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'scss', 'sh', 'vim', 'zsh']
+" let g:markdown_syntax_conceal = 0
 
-let g:markdown_syntax_conceal = 0
+Plug 'gabrielelana/vim-markdown'
 
 " tim pope
 Plug 'tpope/vim-repeat'

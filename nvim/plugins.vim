@@ -58,12 +58,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 Plug 'editorconfig/editorconfig-vim'
 
-" Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " " highlight markdown code blocks
-" let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'scss', 'sh', 'vim', 'zsh']
-" let g:markdown_syntax_conceal = 0
-
-Plug 'gabrielelana/vim-markdown'
+let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'scss', 'sh', 'vim', 'zsh']
+let g:markdown_syntax_conceal = 0
 
 " tim pope
 Plug 'tpope/vim-repeat'

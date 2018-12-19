@@ -1336,11 +1336,11 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>466 363 888 379 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>36 272 796 473 0 0 1440 900 </string>
+	<string>191 299 918 401 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>9 434 640 443 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-686 546 640 443 -1440 112 1440 900 </string>
+	<string>566 434 640 443 0 0 1440 900 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2077,6 +2077,8 @@
 			<integer>1</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
+			<key>Unicode Version</key>
+			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>

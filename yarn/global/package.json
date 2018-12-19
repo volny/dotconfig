@@ -16,7 +16,7 @@
     "eslint-plugin-react": "^7.8.2",
     "gatsby-cli": "^2.4.3",
     "less": "^3.8.1",
-    "neovim": "^4.0.1",
+    "neovim": "^4.2.1",
     "netlify-cli": "^2.0.0-beta.10",
     "now": "^12.1.3",
     "npm-check-updates": "^2.14.2",

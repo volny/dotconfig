@@ -2,7 +2,8 @@ HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
 
-setopt appendhistory autocd extendedglob nomatch notify
+# nosharehistory to keep history per-pane rather than per-window
+setopt appendhistory autocd extendedglob nomatch notify nosharehistory
 unsetopt beep
 
 zstyle :compinstall filename '~/.zshrc'

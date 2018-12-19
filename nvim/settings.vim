@@ -43,11 +43,8 @@ set directory=$HOME/.config/nvim/swaps
 set undodir =$HOME/.config/nvim/undo
 set undofile
 
-" let g:python3_host_prog = system('which python3')
-" let g:python_host_prog = system('which python')
-" let g:node_host_prog = system('which neovim-node-host')
-let g:python3_host_prog = '/usr/local/bin/python3'
-let g:python_host_prog = '/usr/local/bin/python'
+" let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python_host_prog = '/usr/local/bin/python'
 let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 
 " ==================================================

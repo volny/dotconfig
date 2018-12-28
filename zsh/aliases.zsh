@@ -32,3 +32,4 @@ alias trash='trash -a'
 alias chrome='open -a "Google Chrome" --args --auto-open-devtools-for-tabs'
 
 alias cat='bat'
+alias ping='prettyping --nolegend'

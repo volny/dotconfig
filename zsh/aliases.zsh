@@ -33,3 +33,4 @@ alias chrome='open -a "Google Chrome" --args --auto-open-devtools-for-tabs'
 
 alias cat='bat'
 alias ping='prettyping --nolegend'
+alias top="htop"

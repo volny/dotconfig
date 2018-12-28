@@ -26,3 +26,5 @@ source "${ZDOTDIR:-$HOME}/.config/zsh/functions.zsh"
 source "${ZDOTDIR:-$HOME}/.config/zsh/keybindings.zsh"
 source "${ZDOTDIR:-$HOME}/.config/zsh/git.zsh"
 source "${ZDOTDIR:-$HOME}/.config/zsh/docker.zsh"
+source "${ZDOTDIR:-$HOME}/.config/zsh/fzf.zsh"
+

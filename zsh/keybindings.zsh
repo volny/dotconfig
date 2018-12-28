@@ -14,6 +14,9 @@ bindkey '^e' end-of-line
 bindkey '^a' beginning-of-line
 bindkey '^f' forward-word
 
+# remove ctrl-r, we need it for fzf history search
+bindkey -r "^r"
+
 # bindkey '^s' clear-screen
 # ok, so that's a hack - use vi bindings
 bindkey -s '^s' 'jkddiclear^M'

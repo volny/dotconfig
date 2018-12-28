@@ -1,6 +1,7 @@
 brew "bat"
 brew "exiftool"
 brew "ffmpeg"
+brew "fzf"
 brew "gist"
 brew "git"
 brew "git-extras"

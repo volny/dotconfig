@@ -1,5 +1,6 @@
 brew "bat"
 brew "exiftool"
+brew "fd"
 brew "ffmpeg"
 brew "fzf"
 brew "gist"

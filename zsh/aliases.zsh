@@ -30,3 +30,5 @@ alias trash='trash -a'
 
 # as I'm switching to firefox for non-dev browsing I want chrome to always open with devtools
 alias chrome='open -a "Google Chrome" --args --auto-open-devtools-for-tabs'
+
+alias cat='bat'

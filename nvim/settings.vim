@@ -11,7 +11,7 @@ set background=dark
 " colorscheme gotham
 " colorscheme tender
 " colorscheme tomorrow-night
-let g:airline_theme = 'tomorrow'
+let g:airline_theme='minimalist'
 
 "visual selection: reverse colors rather than change bg
 hi Visual gui=reverse

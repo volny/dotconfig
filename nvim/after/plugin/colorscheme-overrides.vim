@@ -18,7 +18,7 @@ highlight clear SignColumn |
 highlight LineNR guifg=#585858 guibg=None |
 highlight CursorLineNR guifg=#f8f8f8 guibg=None |
 " vertical split separator - None
-" highlight VertSplit guibg=None guifg=#282828
+highlight VertSplit guibg=None guifg=#81a2be
 
 " no ugly Error highlighting
 " highlight Error NONE

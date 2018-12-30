@@ -17,7 +17,7 @@ function killonport() {
 
 function cd() {
   builtin cd "$@";
-  ls -a;
+  tree -L 1;
 }
 
 function v() {

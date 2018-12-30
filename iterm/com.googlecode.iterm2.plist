@@ -1336,9 +1336,11 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>466 363 888 379 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>191 299 918 401 0 0 1440 900 </string>
+	<string>191 352 918 512 0 0 1440 900 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>9 434 640 443 0 0 1440 900 </string>
+	<string>159 434 640 443 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>566 434 640 443 0 0 1440 900 </string>
 	<key>New Bookmarks</key>
@@ -1634,13 +1636,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.93333333730697632</real>
+				<real>0.95686274509803926</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.93333333730697632</real>
+				<real>0.80784313725490198</real>
 				<key>Red Component</key>
-				<real>0.93333333730697632</real>
+				<real>0.45098039215686275</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
@@ -2178,6 +2180,8 @@
 	<integer>0</integer>
 	<key>TerminalVMargin</key>
 	<integer>-2</integer>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1545293440</real>
 	<key>WordCharacters</key>
 	<string> </string>
 	<key>findIgnoreCase_iTerm</key>

@@ -218,6 +218,12 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " " use the patched font
 " let g:airline_powerline_fonts = 1
 
+" let g:airline_exclude_filenames = ['NERD_tree_1'] " see source for current list
+
+let g:airline_section_b = ''
+let g:airline_section_y = ''
+let g:airline_section_z = ''
+
 " Plug 'Yggdroot/indentLine'
 " let g:indentLine_char = '│'
 " let g:indentLine_char = '┆'

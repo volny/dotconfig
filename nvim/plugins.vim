@@ -29,9 +29,9 @@ Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'alexlafroscia/postcss-syntax.vim', { 'for': 'css' }
-" Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 " this is an unmaintained fork of vim-jsx-pretty - better options for tsx highlighing?
-" Plug 'aanari/vim-tsx-pretty'
+Plug 'aanari/vim-tsx-pretty'
 
 " this is the official plugin, but I don't see what it actually does for me - it provides neither lsp nor syntax
 " Plug 'flowtype/vim-flow'

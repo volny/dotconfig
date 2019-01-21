@@ -129,3 +129,5 @@ set showcmd
 " Start scrolling 2 lines before the horizontal window border
 set scrolloff=2
 
+" prisma files for written in graphql
+autocmd BufRead,BufNewFile *.prisma set filetype=graphql

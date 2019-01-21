@@ -91,5 +91,5 @@ nnoremap <Leader>spy :set ft=python<CR>
 nnoremap <Leader>ssh :set ft=sh<CR>
 nnoremap <Leader>sts :set ft=typescript<CR>
 nnoremap <Leader>svim :set ft=vim<CR>
-nnoremap <Leader>svue :syntax sync fromstart <bar> set ft=vue<CR>
+nnoremap <Leader>sgql :set ft=graphql<CR>
 

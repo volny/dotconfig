@@ -75,6 +75,9 @@ vnoremap $ $h
 
 nnoremap <Leader>p :set nopaste<CR>
 
+" correct a word with the first spell suggestion
+nnoremap <Leader>z z=1<CR>
+
 " ==================================================
 " SYNTAX
 " ==================================================

@@ -20,7 +20,8 @@ alias gpd="git push --delete"
 alias gpod="git push origin --delete"
 
 # ---------- PULL ----------
-alias gpl='git pull --all'
+alias gpl='git pull'
+alias gpla='git pull --all'
 alias gplo='git pull origin'
 alias gplr='git pull --rebase'
 alias gplro='git pull --rebase origin'

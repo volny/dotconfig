@@ -17,7 +17,7 @@ function killonport() {
 
 function cd() {
   builtin cd "$@";
-  tree -L 1;
+  tree -aC -L 1 -I '.git|node_modules' --dirsfirst . | less -FRNX;
 }
 
 function v() {
@@ -41,35 +41,24 @@ function mcd() {
   mkdir -p "$@" && cd "$_";
 }
 
-function tre() {
-  if [ $# -eq 2 ] ; then
-    tree -aC -L "$1" -I '.git|node_modules|bower_components' --dirsfirst "$2" | less -FRNX;
-  else
-    tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$1" | less -FRNX;
-  fi
-}
-
 # alias l is created by zpresto
 unalias l 2>/dev/null
+unalias ll 2>/dev/null
 function l() {
-  tree -aC -L 1 -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+  tree -aC -L 1 -I '.git|node_modules' --dirsfirst "$@" | less -FRNX;
 }
-
-# function tre() {
-#   tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
-# }
-#
-# function tre2() {
-#   tree -aC -L 2 -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
-# }
-#
-# function tre3() {
-#   tree -aC -L 3 -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
-# }
-#
-# function tre4() {
-#   tree -aC -L 4 -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
-# }
+function ll() {
+  tree -aC -L 2 -I '.git|node_modules' --dirsfirst "$@" | less -FRNX;
+}
+function lll() {
+  tree -aC -L 3 -I '.git|node_modules' --dirsfirst "$@" | less -FRNX;
+}
+function llll() {
+  tree -aC -L 4 -I '.git|node_modules' --dirsfirst "$@" | less -FRNX;
+}
+function lllll() {
+  tree -aC -L 5 -I '.git|node_modules' --dirsfirst "$@" | less -FRNX;
+}
 
 # Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`

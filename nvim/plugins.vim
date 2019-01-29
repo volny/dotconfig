@@ -143,7 +143,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 nnoremap <Leader>j :CtrlP<CR>
 " open buffers
-nnoremap <Leader>f :CtrlPBuffer<CR>
+nnoremap <Leader>k :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore = {
    \ 'dir':  '\v[\/](\.git|_site|dist|node_modules)$',
    \ 'file': '\v\.(exe|so|dll)$',

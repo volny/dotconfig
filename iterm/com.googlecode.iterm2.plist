@@ -1292,7 +1292,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSFontPanelAttributes</key>
-	<string>1, 0</string>
+	<string>1, 4</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/.config/iterm</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -1336,11 +1336,11 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>466 363 888 379 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>191 352 918 512 0 0 1440 900 </string>
+	<string>129 487 918 401 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>159 434 640 443 0 0 1440 900 </string>
+	<string>479 366 640 443 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>566 434 640 443 0 0 1440 900 </string>
 	<key>New Bookmarks</key>
@@ -2024,7 +2024,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>HackNerdFontComplete-Regular 14</string>
+			<string>FiraMonoForPowerline-Regular 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>

@@ -30,6 +30,9 @@ alias trash='trash -a'
 
 # as I'm switching to firefox for non-dev browsing I want chrome to always open with devtools
 alias chrome='open -a "Google Chrome" --args --auto-open-devtools-for-tabs'
+# for test purposes - disable CORS and any other cross-origin protection, and launch chrome in isolation
+alias chrome-insecure'open /Applications/Google\ Chrome.app --args --user-data-dir="/var/tmp/Chrome_dev_2" --disable-web-security --disable-site-isolation-trials'
+
 
 alias cat='bat'
 alias ping='prettyping --nolegend'

@@ -1,13 +1,5 @@
-HISTFILE=~/.histfile
-HISTSIZE=100000
-SAVEHIST=100000
-
-# nosharehistory to keep history per-pane rather than per-window
-setopt appendhistory autocd extendedglob nomatch notify nosharehistory
-unsetopt beep
-
+# https://github.com/zsh-users/zsh-completions
 zstyle :compinstall filename '~/.zshrc'
-
 autoload -Uz compinit
 compinit
 
@@ -28,4 +20,12 @@ source "${ZDOTDIR:-$HOME}/.config/zsh/git.zsh"
 source "${ZDOTDIR:-$HOME}/.config/zsh/docker.zsh"
 source "${ZDOTDIR:-$HOME}/.config/zsh/fzf.zsh"
 source "${ZDOTDIR:-$HOME}/.config/zsh/autojump.zsh"
+
+# override prezto and plugins here
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+
+setopt appendhistory autocd extendedglob nomatch notify nosharehistory incappendhistory
+unsetopt beep
 

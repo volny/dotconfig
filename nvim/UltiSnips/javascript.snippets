@@ -10,8 +10,24 @@ try {
 } catch (error) {
   console.error(error)
 }
-endsnippet 
+endsnippet
 
 snippet l
 console.log($0)
 endsnippet
+
+snippet fori
+for (let i = 0; i < $1.length; i += 1) {
+  $2
+}
+endsnippet
+
+snippet forij
+for (let i = 0; i < $1.length; i += 1) {
+  $2
+  for (let j = i + 1; j < $3.length; j += 1) {
+    $4
+  }
+}
+endsnippet
+

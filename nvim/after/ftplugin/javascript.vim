@@ -1,3 +1,9 @@
+setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+filetype plugin indent on
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
 " autozimu/LanguageClient-neovim
 " for some reason `nnoremap` doesn't work here
 " go to definition

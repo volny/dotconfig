@@ -27,3 +27,14 @@ highlight VertSplit guibg=None guifg=#81a2be
 " highlight SpellCap NONE
 highlight SpellBad guibg=#303030
 highlight SpellCap guibg=#303030
+
+" ------------------------------------------------
+" ------------------------------------------------
+
+" TEMP COLORSCHEME CHANGE
+" colorscheme afterglow
+colorscheme anderson
+hi EndOfBuffer guifg=bg
+hi VertSplit guibg=None
+
+

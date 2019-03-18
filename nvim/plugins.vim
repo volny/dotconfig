@@ -10,7 +10,7 @@ let g:deoplete#enable_at_startup = 1
 " Plug 'whatyouhide/vim-gotham'
 " Plug 'jacoborus/tender.vim'
 " all the colorschemes - https://github.com/flazz/vim-colorschemes
-" Plug 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 
 " syntax
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -29,9 +29,9 @@ Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'alexlafroscia/postcss-syntax.vim', { 'for': 'css' }
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 " this is an unmaintained fork of vim-jsx-pretty - better options for tsx highlighing?
-Plug 'aanari/vim-tsx-pretty'
+" Plug 'aanari/vim-tsx-pretty'
 
 " this is the official plugin, but I don't see what it actually does for me - it provides neither lsp nor syntax
 " Plug 'flowtype/vim-flow'
@@ -302,6 +302,9 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plug 'mattn/emmet-vim'
+let g:user_emmet_leader_key='<C-,>'
 
 Plug 'ryanoasis/vim-devicons'
 let g:WebDevIconsOS = 'Darwin'

@@ -18,7 +18,7 @@ highlight clear SignColumn |
 highlight LineNR guifg=#585858 guibg=None |
 highlight CursorLineNR guifg=#f8f8f8 guibg=None |
 " vertical split separator - None
-highlight VertSplit guibg=None guifg=#81a2be
+highlight VertSplit guibg=None guifg=bg
 
 " no ugly Error highlighting
 " highlight Error NONE
@@ -34,7 +34,8 @@ highlight SpellCap guibg=#303030
 " TEMP COLORSCHEME CHANGE
 " colorscheme afterglow
 colorscheme anderson
+:highlight Normal guibg=#1f2c24
 hi EndOfBuffer guifg=bg
-hi VertSplit guibg=None
+hi VertSplit guibg=None guifg=bg
 
 

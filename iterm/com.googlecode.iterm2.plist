@@ -1546,13 +1546,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>552 655 888 111 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>49 421 796 473 0 0 1440 900 </string>
+	<string>151 237 796 473 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 376 560 393 0 0 1440 900 </string>
+	<string>0 507 560 393 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>566 459 640 418 0 0 1440 900 </string>
+	<string>566 484 560 393 0 0 1440 900 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1621,12 +1621,16 @@
 			</dict>
 			<key>Ansi 13 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.74669855833053589</real>
+				<real>0.81568627450980391</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.77711665630340576</real>
+				<real>0.80000000000000004</real>
 				<key>Red Component</key>
-				<real>0.90397918224334717</real>
+				<real>0.71372549019607845</real>
 			</dict>
 			<key>Ansi 14 Color</key>
 			<dict>
@@ -1675,12 +1679,16 @@
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.59009367227554321</real>
+				<real>0.70196078431372544</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.6315230131149292</real>
+				<real>0.69411764705882351</real>
 				<key>Red Component</key>
-				<real>0.784598708152771</real>
+				<real>0.59999999999999998</real>
 			</dict>
 			<key>Ansi 6 Color</key>
 			<dict>
@@ -1711,12 +1719,16 @@
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.68752223253250122</real>
+				<real>0.30980392156862746</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.64297538995742798</real>
+				<real>0.396078431372549</real>
 				<key>Red Component</key>
-				<real>0.93931704759597778</real>
+				<real>0.79607843137254897</real>
 			</dict>
 			<key>BM Growl</key>
 			<false/>
@@ -1725,13 +1737,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.1539306640625</real>
+				<real>0.1542205810546875</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.1539306640625</real>
+				<real>0.1542205810546875</real>
 				<key>Red Component</key>
-				<real>0.1539306640625</real>
+				<real>0.1542205810546875</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -1778,13 +1790,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.5725490196078431</real>
+				<real>0.63921568627450975</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.69803921568627447</real>
+				<real>0.74509803921568629</real>
 				<key>Red Component</key>
-				<real>0.4823529411764706</real>
+				<real>0.5490196078431373</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>

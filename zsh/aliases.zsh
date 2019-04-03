@@ -41,3 +41,4 @@ alias top="htop"
 alias tmxu="tmux"
 alias tmus="tmux"
 
+alias deno="/Users/fnav/.deno/bin/deno"

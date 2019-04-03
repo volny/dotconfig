@@ -81,7 +81,8 @@ function gcl() {
 
 # ---------- LOG ----------
 alias glog='git log --graph -n 30'
-alias gl='git log --pretty=oneline -n 20 --graph --abbrev-commit'
+# alias gl='git log --pretty=oneline -n 20 --graph --abbrev-commit'
+alias gl='git log --graph -n 30'
 # show me all commits
 alias gla='git log --graph'
 # show me details
@@ -90,7 +91,7 @@ alias gld="git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(
 # ---------- REMOTE ----------
 alias grv='git remote -v'
 # git update remote
-alias gur='git remote set-url origin'
+alias gurl='git remote set-url origin'
 
 # ---------- RESET ----------
 alias gr='git reset'
@@ -105,3 +106,5 @@ alias gcp='git cherry-pick'
 alias gcpc='git cherry-pick -- continue'
 alias gcpa='git cherry-pick --abort'
 
+# ---------- BROWSE ----------
+alias gbr='git browse'

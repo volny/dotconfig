@@ -1,14 +1,24 @@
+# Ignore everything
 *
-git
-iterm
-javascript
-nvim
-tmux
-yarn
-zsh
-.gitignore
-.gitmodules
-Brewfile
-LICENSE
-README
-install.sh
+
+# But not these files...
+!git
+!iterm
+!javascript
+!nvim
+!tmux
+!yarn
+!zsh
+!.gitignore
+!.gitmodules
+!Brewfile
+!LICENSE
+!README
+!install.sh
+
+# ...even if they are in subdirectories
+#!*/
+
+# if the files to be tracked are in subdirectories
+#!*/a/b/file1.txt
+#!*/a/b/c/*

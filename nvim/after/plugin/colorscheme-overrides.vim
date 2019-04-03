@@ -34,7 +34,16 @@ highlight SpellCap guibg=#303030
 " TEMP COLORSCHEME CHANGE
 " colorscheme afterglow
 colorscheme anderson
-:highlight Normal guibg=#1f2c24
+highlight Normal guibg=#1f2c24
+
+" TODO would be nice if bg changed on focus like tmux
+" https://superuser.com/questions/385553/making-the-active-window-in-vim-more-obvious
+" augroup NrHighlight
+"   autocmd!
+"   autocmd WinEnter * highlight Normal guibg=#333333
+"   autocmd WinLeave * highlight Normal guibg=#1f2c24
+" augroup END
+
 hi EndOfBuffer guifg=bg
 hi VertSplit guibg=None guifg=bg
 

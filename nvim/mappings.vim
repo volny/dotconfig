@@ -12,7 +12,7 @@ noremap <C-s> @a
 " the 70s called
 nnoremap Q <Nop>
 
-nnoremap <Leader>w <C-w>
+" nnoremap <Leader>w <C-w>
 " Toggle between last buffer
 nnoremap <Tab> :b#<CR>
 " open a new empty buffer (replaces `:tabnew`)
@@ -77,6 +77,12 @@ nnoremap <Leader>p :set nopaste<CR>
 
 " correct a word with the first spell suggestion
 nnoremap <Leader>z z=1<CR>
+
+nnoremap <CR> o<Esc>
+nnoremap , O<Esc>
+
+nnoremap <Leader>v :vsplit<CR>
+nnoremap <Leader>h :split<CR>
 
 " ==================================================
 " SYNTAX

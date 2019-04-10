@@ -78,8 +78,15 @@ nnoremap <Leader>p :set nopaste<CR>
 " correct a word with the first spell suggestion
 nnoremap <Leader>z z=1<CR>
 
+" enter empty line above or below
 nnoremap <CR> o<Esc>
-nnoremap , O<Esc>
+nnoremap ,    O<Esc>
+" move selection up or down
+vnoremap ,    :<C-u>silent! '<,'>move-2<CR>gv=gv
+vnoremap <CR> :<C-u>silent! '<,'>move'>+<CR>gv=gv
+" move current line up or down
+" nnoremap <C-CR> :<C-u>silent! move+<CR>==
+" nnoremap <C,>   :<C-u>silent! move-2<CR>==
 
 nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader>h :split<CR>

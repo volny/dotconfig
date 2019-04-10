@@ -12,6 +12,21 @@ let g:deoplete#enable_at_startup = 1
 " all the colorschemes - https://github.com/flazz/vim-colorschemes
 Plug 'flazz/vim-colorschemes'
 
+
+Plug 'reasonml-editor/vim-reason-plus'
+
+" scribble
+Plug 'wlangstroth/vim-racket', { 'for': 'scribble' }
+Plug 'vim-scripts/scribble.vim', { 'for': 'scribble' }
+
+" ctrl-c ctrl-c to 'send' line to repl♥️
+Plug 'jpalardy/vim-slime'
+let g:slime_target = "tmux"
+let g:slime_paste_file = "$HOME/.slime_paste"
+" NOTE
+" run :Slimeconfig, select default
+" the tmux pane number do <prefix>q
+
 " syntax
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
@@ -33,28 +48,24 @@ Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 " this is an unmaintained fork of vim-jsx-pretty - better options for tsx highlighing?
 " Plug 'aanari/vim-tsx-pretty'
 
-" this is the official plugin, but I don't see what it actually does for me - it provides neither lsp nor syntax
-" Plug 'flowtype/vim-flow'
-" don't show quickfix
-" let g:flow#showquickfix = 0
-" dont' show quickfix if there's no errors
-" let g:flow#autoclose = 1
-
 Plug 'posva/vim-vue/', { 'for': 'vue' }
 
 Plug 'jparise/vim-graphql'
 
 " TODO only for ts currently. Config for flow/js
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ 'for': ['typescript']
-    \ }
-" https://github.com/flowtype/flow-language-server
-" requires `yarn global add flow-language-server` -> dockerize!
-" let g:LanguageClient_serverCommands = {
-"     \ 'javascript': ['flow-language-server', '--stdio'],
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ 'for': ['typescript', 'javascript']
 "     \ }
+" nnoremap <Leader>l :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -270,8 +281,6 @@ Plug 'junegunn/goyo.vim'
 " autocmd! User GoyoLeave Limelight!
 " let g:limelight_conceal_guifg = '#757575'
 
-nnoremap <Leader>wd :Goyo<CR>
-
 Plug 'scrooloose/nerdtree'
 " toggle NerdTree with ctrl-n
 nnoremap <C-n> :NERDTreeToggle<CR>
@@ -295,7 +304,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Renamed"   : "",
     \ "Unmerged"  : "",
     \ "Deleted"   : "",
-    \ "Dirty"     : "➜",
+    \ "Dirty"     : "↛",
     \ "Clean"     : "✔︎",
     \ 'Ignored'   : '',
     \ "Unknown"   : ""
@@ -328,3 +337,8 @@ endif
 
 call plug#end()
 
+" turn off ugly first line of nerdtree (must be outside the call)
+augroup nerdtreehidecwd
+	autocmd!
+	autocmd FileType nerdtree setlocal conceallevel=3 | syntax match NERDTreeHideCWD #^[</].*$# conceal
+augroup end

@@ -44,7 +44,7 @@ highlight Normal guibg=#1f2c24
 "   autocmd WinLeave * highlight Normal guibg=#1f2c24
 " augroup END
 
-hi EndOfBuffer guifg=bg
-hi VertSplit guibg=None guifg=bg
+highlight EndOfBuffer guifg=bg
+highlight VertSplit guibg=None guifg=bg
 
-
+highlight ColorColumn guifg=bg guibg=bg

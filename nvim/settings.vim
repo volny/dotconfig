@@ -131,3 +131,6 @@ set scrolloff=0
 
 " prisma files for written in graphql
 autocmd BufRead,BufNewFile *.prisma set filetype=graphql
+
+" racket - scribble
+autocmd BufRead,BufNewFile *.scrbl  set filetype=scribble

@@ -42,3 +42,8 @@ alias tmxu="tmux"
 alias tmus="tmux"
 
 alias deno="/Users/fnav/.deno/bin/deno"
+
+# converts ocaml to reason
+alias mlre="pbpaste | refmt --parse ml --print re --interface false | pbcopy"
+# converts reason code into ocaml
+alias reml="pbpaste | refmt --parse re --print ml --interface false | pbcopy"

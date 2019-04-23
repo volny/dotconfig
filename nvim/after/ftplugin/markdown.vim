@@ -14,3 +14,6 @@ setlocal spell
 "
 "autocmd BufEnter * call s:auto_goyo()
 
+" https://thoughtbot.com/blog/align-github-flavored-markdown-tables-in-vim
+" https://github.com/junegunn/vim-easy-align
+noremap <Leader><Bslash> :EasyAlign*<Bar><Enter>

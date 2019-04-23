@@ -19,13 +19,15 @@ Plug 'reasonml-editor/vim-reason-plus'
 Plug 'wlangstroth/vim-racket', { 'for': 'scribble' }
 Plug 'vim-scripts/scribble.vim', { 'for': 'scribble' }
 
-" ctrl-c ctrl-c to 'send' line to repl♥️
-Plug 'jpalardy/vim-slime'
+" ctrl-c ctrl-c to 'send' line to repl
 let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste"
 " NOTE
 " run :Slimeconfig, select default
 " the tmux pane number do <prefix>q
+
+" alignment (for markdown tables etc) - https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
 
 " syntax
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }

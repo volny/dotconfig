@@ -28,7 +28,7 @@
     "npm-upgrade": "^1.4.1",
     "npx": "^10.2.0",
     "prettier": "^1.16.1",
-    "prisma": "^1.25.4",
+    "prisma": "^1.31.1",
     "reason-cli": "^3.3.3-macos-1",
     "serve": "^10.1.1"
   }

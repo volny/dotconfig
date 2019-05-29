@@ -2,6 +2,35 @@
 " BUFFER / WINDOW
 " ==================================================
 
+nnoremap <Leader>w <C-w>
+" Toggle between last buffer
+
+" Resize pane splits
+" TODO - vim cant' map those - use iTerm magic instead
+noremap <Up> <C-w>+
+noremap <Down> <C-w>-
+noremap <Left> <C-w>>
+noremap <Right> <C-w><
+" https://stackoverflow.com/questions/8033779/is-there-a-way-to-map-ctrl-period-and-ctrl-comma-in-vim
+" nnoremap <C-.> <C-w>>
+" nnoremap <C-,> <C-w><
+
+nnoremap <Tab> :b#<CR>
+" open a new empty buffer (replaces `:tabnew`)
+nnoremap <Leader>bn :enew<CR>
+" Close the current buffer and move to the previous one
+" TODO if there's only one buffer I want to leave vim
+nnoremap <Leader>x :bp<BAR>bd#<CR>
+" nnoremap q :q<CR>
+nnoremap <Leader>X :q!<CR>
+nnoremap <Leader>Q :qall<CR>
+
+" next and previous buffer
+nnoremap H :bp<CR>
+nnoremap L :bn<CR>
+
+nnoremap <Leader><Tab> :Startify<CR>
+
 " macros
 noremap <C-q> q
 noremap <C-w> @
@@ -11,24 +40,6 @@ noremap <C-s> @a
 
 " the 70s called
 nnoremap Q <Nop>
-
-" nnoremap <Leader>w <C-w>
-" Toggle between last buffer
-nnoremap <Tab> :b#<CR>
-" open a new empty buffer (replaces `:tabnew`)
-nnoremap <Leader>bn :enew<CR>
-" Close the current buffer and move to the previous one
-" TODO if there's only one buffer I want to leave vim
-nnoremap <Leader>x :bp<BAR>bd#<CR>
-nnoremap q :q<CR>
-nnoremap <Leader>X :q!<CR>
-nnoremap <Leader>Q :qall<CR>
-
-" next and previous buffer
-nnoremap H :bp<CR>
-nnoremap L :bn<CR>
-
-nnoremap <Leader><Tab> :Startify<CR>
 
 " ==================================================
 " CONVENIENCE
@@ -68,8 +79,8 @@ vnoremap $ $h
 " do :verbose <C-j> for find an appropriate shortcut
 " also, ryan florance has some voodoo magic to move blocks (vip) around, which is exactly what this should be
 " https://twitter.com/ryanflorence/status/1071267709453721600
-" nnoremap <C-k> [e
-" nnoremap <C-j> ]e
+" TODO - one day - [e also moves blocks, via tpope's unimpaired - apparently with g it keeps the selection or something
+" probably needs to be loaded after unimpaired though
 " vnoremap <C-k> [egv
 " vnoremap <C-j> ]egv
 
@@ -84,6 +95,9 @@ nnoremap ,    O<Esc>
 " move selection up or down
 vnoremap ,    :<C-u>silent! '<,'>move-2<CR>gv=gv
 vnoremap <CR> :<C-u>silent! '<,'>move'>+<CR>gv=gv
+" vnoremap , [egv
+" vnoremap <CR> ]egv
+
 " move current line up or down
 " nnoremap <C-CR> :<C-u>silent! move+<CR>==
 " nnoremap <C,>   :<C-u>silent! move-2<CR>==
@@ -91,18 +105,19 @@ vnoremap <CR> :<C-u>silent! '<,'>move'>+<CR>gv=gv
 nnoremap <Leader>v :vsplit<CR>
 nnoremap <Leader>h :split<CR>
 
+" save buffers
+nnoremap <Leader>s :w<CR>
+
 " ==================================================
 " SYNTAX
 " ==================================================
-
-nnoremap <Leader>scss :set ft=css<CR>
-nnoremap <Leader>shtml :set ft=html<CR>
-nnoremap <Leader>sjs :set ft=javascript<CR>
-nnoremap <Leader>sjson :set ft=json<CR>
-nnoremap <Leader>smd :set ft=markdown<CR>
-nnoremap <Leader>spy :set ft=python<CR>
-nnoremap <Leader>ssh :set ft=sh<CR>
-nnoremap <Leader>sts :set ft=typescript<CR>
-nnoremap <Leader>svim :set ft=vim<CR>
-nnoremap <Leader>sgql :set ft=graphql<CR>
+nnoremap <Leader>fhtml :set ft=html<CR>
+nnoremap <Leader>fjs :set ft=javascript<CR>
+nnoremap <Leader>fjson :set ft=json<CR>
+nnoremap <Leader>fmd :set ft=markdown<CR>
+nnoremap <Leader>fpy :set ft=python<CR>
+nnoremap <Leader>fsh :set ft=sh<CR>
+nnoremap <Leader>fts :set ft=typescript<CR>
+nnoremap <Leader>fvim :set ft=vim<CR>
+nnoremap <Leader>fgql :set ft=graphql<CR>
 

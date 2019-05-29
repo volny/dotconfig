@@ -134,3 +134,10 @@ autocmd BufRead,BufNewFile *.prisma set filetype=graphql
 
 " racket - scribble
 autocmd BufRead,BufNewFile *.scrbl  set filetype=scribble
+
+" hide all statusline / status / statusbar / airline etc ⚔️
+set noshowmode
+set noruler
+set laststatus=0
+set noshowcmd
+

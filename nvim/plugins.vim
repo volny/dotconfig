@@ -214,33 +214,39 @@ function! NERDCommenter_after()
   endif
 endfunction
 
-"  Plug 'bling/vim-airline'
-"  Plug 'vim-airline/vim-airline-themes'
-"  " " Enable the list of buffers in Airline
-"  let g:airline#extensions#tabline#enabled = 1
-"  " " start counting buffers at 1
-"  let g:airline#extensions#tabline#buffer_nr_show = 1
-"  " " only show bufferline if more than 1 open buffer
-"  " let g:airline#extensions#tabline#buffer_min_count = 2
-"  let airline#extensions#tabline#tabs_label = 0
-"  let airline#extensions#tabline#show_splits = 0
-"  let g:airline#extensions#tabline#show_close_button = 0
-"  " let g:airline#extensions#tabline#show_tab_nr = 0
-"  let g:airline#extensions#tabline#fnamecollapse = 1
-"  " let g:airline#extensions#tabline#show_tab_type = 0
-"  " let g:airline#extensions#tabline#buffers_label = ''
-"  " let g:airline#extensions#tabline#tabs_label = ''
-"  " " Just show the file name
-"  let g:airline#extensions#tabline#fnamemod = ':t'
-"  " " show that little number in front
-"  " let g:airline#extensions#tabline#buffer_idx_mode = 1
-"  " " don't show the buffer number (that :ls number)
-"  " let g:airline#extensions#tabline#buffer_nr_show = 0
-"  let g:airline#extensions#tabline#buffer_nr_show = 1
-"  " " use the patched font
-"  " let g:airline_powerline_fonts = 1
-"
-"  " let g:airline_exclude_filenames = ['NERD_tree_1'] " see source for current list
+" crap - lives in the command line or something - configuration nightmare
+" Plug 'bling/vim-bufferline'
+
+" ♥ this is the one 😘
+Plug 'ap/vim-buftabline'
+
+"Plug 'bling/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"" Enable the list of buffers in Airline
+"let g:airline#extensions#tabline#enabled = 1
+"" start counting buffers at 1
+"let g:airline#extensions#tabline#buffer_nr_show = 1
+"" only show bufferline if more than 1 open buffer
+"" let g:airline#extensions#tabline#buffer_min_count = 2
+"let airline#extensions#tabline#tabs_label = 0
+"let airline#extensions#tabline#show_splits = 0
+"let g:airline#extensions#tabline#show_close_button = 0
+"" let g:airline#extensions#tabline#show_tab_nr = 0
+"let g:airline#extensions#tabline#fnamecollapse = 1
+"" let g:airline#extensions#tabline#show_tab_type = 0
+"" let g:airline#extensions#tabline#buffers_label = ''
+"" let g:airline#extensions#tabline#tabs_label = ''
+"" " Just show the file name
+"let g:airline#extensions#tabline#fnamemod = ':t'
+"" show that little number in front
+"" let g:airline#extensions#tabline#buffer_idx_mode = 1
+"" don't show the buffer number (that :ls number)
+"" let g:airline#extensions#tabline#buffer_nr_show = 0
+"let g:airline#extensions#tabline#buffer_nr_show = 1
+"" use the patched font
+"" let g:airline_powerline_fonts = 1
+
+"" let g:airline_exclude_filenames = ['NERD_tree_1'] " see source for current list
 "
 "  let g:airline_section_b = ''
 "  let g:airline_section_y = ''
@@ -300,6 +306,15 @@ Plug 'junegunn/goyo.vim'
 
 " TODO use this instead of Nerdtree. Sadly ZERO documentation for now
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+Plug 'https://github.com/Alok/notational-fzf-vim'
+let g:nv_search_paths = ['~/Notes:Plaintext', '~/Notational']
+
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 
 Plug 'scrooloose/nerdtree'
 " toggle NerdTree with ctrl-n

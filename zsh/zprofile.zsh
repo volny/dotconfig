@@ -40,8 +40,6 @@ path=(
   $path
 )
 
-export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
@@ -61,3 +59,11 @@ fi
 if [[ ! -d "${TMPDIR}" ]]; then
   mkdir -m 700 "${TMPDIR}"
 fi
+
+
+# add yarn/npm to path 😅
+export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# add pip to path
+export PATH=/Users/fnav/Library/Python/3.7/bin:$PATH
+export PATH=Users/fnav/Library/Python/2.7/bin:$PATH

@@ -26,7 +26,7 @@ alias e='exit'
 alias cl='clear'
 
 # don't use finder to trash files bc it will leave DS_Store files everywhere
-alias trash='trash -a'
+# alias trash='trash -a'
 
 # as I'm switching to firefox for non-dev browsing I want chrome to always open with devtools
 alias chrome='open -a "Google Chrome" --args --auto-open-devtools-for-tabs'

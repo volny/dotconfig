@@ -82,7 +82,7 @@ nvim -E -c UpdateRemotePlugins -c qall
 # NOTE needs `gem`, `python@2` and `python@3` from brew, `neovim` from yarn
 pip2 install --user --upgrade neovim
 pip3 install --user --upgrade neovim
-gem install neovim
+sudo gem install neovim
 # yarn global add neovim
 
 # ITERM2
@@ -91,3 +91,8 @@ gem install neovim
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.config/iterm"
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
+# OTHER STUFF
+
+# make the notational directory in iCloud drive thats expected by my 'notational' package and vim
+mkdir ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/NOTATIONAL

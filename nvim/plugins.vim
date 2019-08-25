@@ -311,8 +311,8 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 Plug 'https://github.com/Alok/notational-fzf-vim'
-let g:nv_search_paths = ['~/Notes:Plaintext', '~/Notational']
-
+" This is the path to iCloud Drive *shrug
+let g:nv_search_paths = ['~/Library/Mobile\ Documents/com\~apple\~CloudDocs/NOTATIONAL']
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 

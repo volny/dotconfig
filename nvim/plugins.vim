@@ -3,6 +3,10 @@ call plug#begin('~/.config/nvim/plugged')
 " code completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
+" Use ALE and also some plugin 'foobar' as completion sources for all code.
+" call deoplete#custom#option('sources', {
+" \ '_': ['ale'],
+" \})
 
 " colorscheme
 " Plug 'morhetz/gruvbox'
@@ -57,21 +61,6 @@ Plug 'posva/vim-vue/', { 'for': 'vue' }
 
 Plug 'jparise/vim-graphql'
 
-" TODO only for ts currently. Config for flow/js
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ 'for': ['typescript', 'javascript']
-"     \ }
-" nnoremap <Leader>l :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-" https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim
-" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
@@ -118,6 +107,7 @@ endfunction
 nmap <silent> <Leader>aF ;call ToggleFix()<CR>
 nmap <silent> <Leader>ad <Plug>(ale_go_to_definition)
 
+" TODO both fixers and linter ignore my local .eslintrc
 let g:ale_fixers = {
       \  'javascript': ['prettier-eslint', 'prettier', 'eslint'],
       \  'css': ['prettier'],
@@ -143,6 +133,27 @@ let g:ale_statusline_format = ['X %d', '? %d', '']
 " %linter% is the name of the linter that provided the message
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says %s'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['~/.config/yarn/global/node_modules/.bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['~/.config/yarn/global/node_modules/.bin/javascript-typescript-stdio'],
+    \ }
+
+" I'm reserving <Leader>d for lsp stuff
+nnoremap <Leader>d :call LanguageClient_contextMenu()<CR>
+nnoremap <Leader>dm :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> <Leader>dh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <Leader>dd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <Leader>dr :call LanguageClient#textDocument_rename()<CR>
+
+" https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " snippets
 Plug 'SirVer/ultisnips'

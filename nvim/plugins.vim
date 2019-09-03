@@ -3,6 +3,9 @@ call plug#begin('~/.config/nvim/plugged')
 " code completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
+
+Plug 'Shougo/denite.nvim'
+
 " Use ALE and also some plugin 'foobar' as completion sources for all code.
 " call deoplete#custom#option('sources', {
 " \ '_': ['ale'],
@@ -14,8 +17,8 @@ let g:deoplete#enable_at_startup = 1
 " Plug 'whatyouhide/vim-gotham'
 " Plug 'jacoborus/tender.vim'
 " all the colorschemes - https://github.com/flazz/vim-colorschemes
-Plug 'flazz/vim-colorschemes'
-
+" Plug 'flazz/vim-colorschemes'
+Plug 'mhartington/oceanic-next'
 
 Plug 'reasonml-editor/vim-reason-plus'
 
@@ -53,15 +56,25 @@ Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'alexlafroscia/postcss-syntax.vim', { 'for': 'css' }
+
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 " this is an unmaintained fork of vim-jsx-pretty - better options for tsx highlighing?
 " Plug 'aanari/vim-tsx-pretty'
+Plug 'ianks/vim-tsx', { 'for': 'typescript' }
+
+Plug 'HerringtonDarkholme/yats.vim'
+
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
+Plug 'styled-components/vim-styled-components'
 
 Plug 'posva/vim-vue/', { 'for': 'vue' }
 
 Plug 'jparise/vim-graphql'
 
 Plug 'editorconfig/editorconfig-vim'
+
+Plug 'ekalinin/Dockerfile.vim'
 
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " " highlight markdown code blocks
@@ -110,6 +123,7 @@ nmap <silent> <Leader>ad <Plug>(ale_go_to_definition)
 " TODO both fixers and linter ignore my local .eslintrc
 let g:ale_fixers = {
       \  'javascript': ['prettier-eslint', 'prettier', 'eslint'],
+      \    'typescript': ['prettier'],
       \  'css': ['prettier'],
       \  'graphql': ['prettier'],
       \  'html': ['prettier'],
@@ -117,16 +131,19 @@ let g:ale_fixers = {
       \  'less': ['prettier'],
       \  'markdown': ['prettier'],
       \  'scss': ['prettier'],
-      \  'typescript': ['prettier'],
       \  'vue': ['prettier'],
       \  'python': ['black'],
 \}
+" \  'typescript': ['prettier'],
 
 " try prettier-eslint first, as `prettier` ignores my eslintrc
 let g:ale_linters = {
-      \  'javascript': ['flow', 'prettier-eslint', 'prettier', 'eslint'],
+      \  'javascript': ['prettier-eslint', 'prettier', 'eslint'],
+      \  'typescript': ['tsserver', 'tslint'],
       \  'python': ['flake8', 'bandit'],
+      \   'vue': ['eslint']
 \}
+
 let g:ale_completion_enabled = 1
 
 let g:ale_statusline_format = ['X %d', '? %d', '']
@@ -134,15 +151,35 @@ let g:ale_statusline_format = ['X %d', '? %d', '']
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says %s'
 
+
+" TODO - issues:
+" - leave quickfix list alone
+" - don't scan over node_modules, making replace unusable
+
 Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+\ }
 
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['~/.config/yarn/global/node_modules/.bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['~/.config/yarn/global/node_modules/.bin/javascript-typescript-stdio'],
-    \ }
+  \ 'javascript': ['~/.config/yarn/global/node_modules/.bin/javascript-typescript-stdio'],
+  \ 'javascript.jsx': ['~/.config/yarn/global/node_modules/.bin/javascript-typescript-stdio'],
+\ }
+
+"let g:LanguageClient_serverCommands = {
+"  \ 'javascript': ['flow-language-server', '--stdio'],
+"  \ 'javascript.jsx': ['flow-language-server', '--stdio'],
+"\ }
+
+" use fzf instead of populating quickfix - no effect
+let g:LanguageClient_selectionUI = 'fzf'
+
+" disable logging - works to keep quickfix clean, but also removes the useful inline hints
+let g:LanguageClient_diagnosticsEnable = 0
+
+" TODO - this is the thing I want - doesn't work even though it's in the docs
+" call g:LanguageClient#setDiagnosticsList('Quickfix')
+" call LanguageClient#setDiagnosticsList('Disabled');
 
 " I'm reserving <Leader>d for lsp stuff
 nnoremap <Leader>d :call LanguageClient_contextMenu()<CR>
@@ -150,10 +187,7 @@ nnoremap <Leader>dm :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <silent> <Leader>dh :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <Leader>dd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <Leader>dr :call LanguageClient#textDocument_rename()<CR>
-
-" https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim
-" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" nnoremap <silent> <Leader>dr :call LanguageClient#textDocument_rename()<CR>
 
 " snippets
 Plug 'SirVer/ultisnips'

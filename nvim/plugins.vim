@@ -6,11 +6,6 @@ let g:deoplete#enable_at_startup = 1
 
 Plug 'Shougo/denite.nvim'
 
-" Use ALE and also some plugin 'foobar' as completion sources for all code.
-" call deoplete#custom#option('sources', {
-" \ '_': ['ale'],
-" \})
-
 " colorscheme
 " Plug 'morhetz/gruvbox'
 " Plug 'nanotech/jellybeans.vim'
@@ -20,24 +15,23 @@ Plug 'Shougo/denite.nvim'
 " Plug 'flazz/vim-colorschemes'
 Plug 'mhartington/oceanic-next'
 
-Plug 'reasonml-editor/vim-reason-plus'
-
 " scribble
-Plug 'wlangstroth/vim-racket', { 'for': 'scribble' }
-Plug 'vim-scripts/scribble.vim', { 'for': 'scribble' }
+" Plug 'wlangstroth/vim-racket', { 'for': 'scribble' }
+" Plug 'vim-scripts/scribble.vim', { 'for': 'scribble' }
 
+" Plug 'jpalardy/vim-slime'
 " ctrl-c ctrl-c to 'send' line to repl
-let g:slime_target = "tmux"
-let g:slime_paste_file = "$HOME/.slime_paste"
+" let g:slime_target = "tmux"
+" let g:slime_paste_file = "$HOME/.slime_paste"
 " NOTE
 " run :Slimeconfig, select default
 " the tmux pane number do <prefix>q
 
 " alignment (for markdown tables etc) - https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
+" Plug 'junegunn/vim-easy-align', { 'for': 'markdown' }
 " ga is reserved for easy align
-xnoremap ga <Plug>(EasyAlign)
-noremap ga <Plug>(EasyAlign)
+" xnoremap ga <Plug>(EasyAlign)
+" noremap ga <Plug>(EasyAlign)
 
 " syntax
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -58,23 +52,21 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'alexlafroscia/postcss-syntax.vim', { 'for': 'css' }
 
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-" this is an unmaintained fork of vim-jsx-pretty - better options for tsx highlighing?
-" Plug 'aanari/vim-tsx-pretty'
 Plug 'ianks/vim-tsx', { 'for': 'typescript' }
-
-Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
-Plug 'styled-components/vim-styled-components'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main', 'for': 'javascript' }
 
-Plug 'posva/vim-vue/', { 'for': 'vue' }
+" Plug 'posva/vim-vue/', { 'for': 'vue' }
 
 Plug 'jparise/vim-graphql'
 
+" Plug 'reasonml-editor/vim-reason-plus', { 'for': 'reason' }
+
 Plug 'editorconfig/editorconfig-vim'
 
-Plug 'ekalinin/Dockerfile.vim'
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " " highlight markdown code blocks
@@ -89,11 +81,17 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 " needed for tmux-resurrect to (poorly) resurrect vim sessions
-Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-obsession'
 
 Plug 'airblade/vim-gitgutter'
 " leave the signcolumn styling alone
 let g:gitgutter_override_sign_column_highlight = 0
+
+let g:gitgutter_sign_added = '│'
+let g:gitgutter_sign_modified = '│'
+let g:gitgutter_sign_removed = '│'
+let g:gitgutter_sign_removed_first_line = '│'
+let g:gitgutter_sign_modified_removed = '│'
 
 Plug 'w0rp/ale'
 " keep the sign gutter open
@@ -101,29 +99,29 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '➜'
 " Set this. Airline will handle the rest.
-" let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 " NOTE some of these keybindings are overridden in ftplugin/js because we're using LanguageClient instead of Ale
 " for some reason `nnoremap` doesn't work with these
+nmap <silent> <Leader>ad <Plug>(ale_go_to_definition)
 nmap <silent> <Leader>an <Plug>(ale_next_wrap)
 nmap <silent> <Leader>aN <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>af <Plug>(ale_fix)
 " toggle ale_fix_on_save
-function! ToggleFix()
-  if g:ale_fix_on_save == 0
-    let g:ale_fix_on_save = 1
-    echom('Ale fix-on-save turned on')
-  else
-    let g:ale_fix_on_save = 0
-    echom('Ale fix-on-save turned off')
-  endif
-endfunction
-nmap <silent> <Leader>aF ;call ToggleFix()<CR>
-nmap <silent> <Leader>ad <Plug>(ale_go_to_definition)
+" function! ToggleFix()
+"   if g:ale_fix_on_save == 0
+"     let g:ale_fix_on_save = 1
+"     echom('Ale fix-on-save turned on')
+"   else
+"     let g:ale_fix_on_save = 0
+"     echom('Ale fix-on-save turned off')
+"   endif
+" endfunction
+" nmap <silent> <Leader>aF ;call ToggleFix()<CR>
 
 " TODO both fixers and linter ignore my local .eslintrc
 let g:ale_fixers = {
       \  'javascript': ['prettier-eslint', 'prettier', 'eslint'],
-      \    'typescript': ['prettier'],
+      \  'typescript': ['prettier'],
       \  'css': ['prettier'],
       \  'graphql': ['prettier'],
       \  'html': ['prettier'],
@@ -134,7 +132,6 @@ let g:ale_fixers = {
       \  'vue': ['prettier'],
       \  'python': ['black'],
 \}
-" \  'typescript': ['prettier'],
 
 " try prettier-eslint first, as `prettier` ignores my eslintrc
 let g:ale_linters = {
@@ -144,13 +141,10 @@ let g:ale_linters = {
       \   'vue': ['eslint']
 \}
 
-let g:ale_completion_enabled = 1
-
 let g:ale_statusline_format = ['X %d', '? %d', '']
 " %linter% is the name of the linter that provided the message
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says %s'
-
 
 " TODO - issues:
 " - leave quickfix list alone
@@ -164,12 +158,9 @@ Plug 'autozimu/LanguageClient-neovim', {
 let g:LanguageClient_serverCommands = {
   \ 'javascript': ['~/.config/yarn/global/node_modules/.bin/javascript-typescript-stdio'],
   \ 'javascript.jsx': ['~/.config/yarn/global/node_modules/.bin/javascript-typescript-stdio'],
+  \ 'typescript': ['~/.config/yarn/global/node_modules/.bin/tsserver'],
+  \ 'typescript.tsx': ['~/.config/yarn/global/node_modules/.bin/tsserver'],
 \ }
-
-"let g:LanguageClient_serverCommands = {
-"  \ 'javascript': ['flow-language-server', '--stdio'],
-"  \ 'javascript.jsx': ['flow-language-server', '--stdio'],
-"\ }
 
 " use fzf instead of populating quickfix - no effect
 let g:LanguageClient_selectionUI = 'fzf'
@@ -201,7 +192,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 Plug 'honza/vim-snippets'
-Plug 'epilande/vim-es2015-snippets', { 'for': 'javascript' }
+" Plug 'epilande/vim-es2015-snippets', { 'for': 'javascript' }
 Plug 'epilande/vim-react-snippets', { 'for': 'javascript' }
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -263,39 +254,40 @@ endfunction
 " Plug 'bling/vim-bufferline'
 
 " ♥ this is the one 😘
-Plug 'ap/vim-buftabline'
+" Plug 'ap/vim-buftabline'
 
-"Plug 'bling/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"" Enable the list of buffers in Airline
-"let g:airline#extensions#tabline#enabled = 1
-"" start counting buffers at 1
-"let g:airline#extensions#tabline#buffer_nr_show = 1
-"" only show bufferline if more than 1 open buffer
-"" let g:airline#extensions#tabline#buffer_min_count = 2
-"let airline#extensions#tabline#tabs_label = 0
-"let airline#extensions#tabline#show_splits = 0
-"let g:airline#extensions#tabline#show_close_button = 0
-"" let g:airline#extensions#tabline#show_tab_nr = 0
-"let g:airline#extensions#tabline#fnamecollapse = 1
-"" let g:airline#extensions#tabline#show_tab_type = 0
-"" let g:airline#extensions#tabline#buffers_label = ''
-"" let g:airline#extensions#tabline#tabs_label = ''
-"" " Just show the file name
-"let g:airline#extensions#tabline#fnamemod = ':t'
-"" show that little number in front
-"" let g:airline#extensions#tabline#buffer_idx_mode = 1
-"" don't show the buffer number (that :ls number)
-"" let g:airline#extensions#tabline#buffer_nr_show = 0
-"let g:airline#extensions#tabline#buffer_nr_show = 1
-"" use the patched font
-"" let g:airline_powerline_fonts = 1
+Plug 'bling/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" Enable the list of buffers in Airline
+let g:airline#extensions#tabline#enabled = 1
+" start counting buffers at 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" only show bufferline if more than 1 open buffer
+" let g:airline#extensions#tabline#buffer_min_count = 2
+let airline#extensions#tabline#tabs_label = 0
+let airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_close_button = 0
+" let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#fnamecollapse = 1
+" let g:airline#extensions#tabline#show_tab_type = 0
+" let g:airline#extensions#tabline#buffers_label = ''
+" let g:airline#extensions#tabline#tabs_label = ''
+" " Just show the file name
+let g:airline#extensions#tabline#fnamemod = ':t'
+" show that little number in front
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
+" don't show the buffer number (that :ls number)
+" let g:airline#extensions#tabline#buffer_nr_show = 0
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" use the patched font
+let g:airline_powerline_fonts = 1
 
-"" let g:airline_exclude_filenames = ['NERD_tree_1'] " see source for current list
-"
-"  let g:airline_section_b = ''
-"  let g:airline_section_y = ''
-"  let g:airline_section_z = ''
+" let g:airline_exclude_filenames = ['NERD_tree_1'] " see source for current list
+
+ let g:airline_section_b = ''
+ let g:airline_section_x = ''
+ let g:airline_section_y = ''
+ let g:airline_section_z = ''
 
 " Plug 'Yggdroot/indentLine'
 " let g:indentLine_char = '│'
@@ -378,22 +370,22 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " those symbols need a nerdfont to display (http://nerdfonts.com/?set=nf-oct-#cheat-sheet)
 
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✗",
-    \ "Staged"    : "",
-    \ "Untracked" : "六",
-    \ "Renamed"   : "",
-    \ "Unmerged"  : "",
-    \ "Deleted"   : "",
-    \ "Dirty"     : "↛",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '',
-    \ "Unknown"   : ""
+    \ "Modified"  : '│',
+    \ "Staged"    : '│',
+    \ "Untracked" : '│',
+    \ "Renamed"   : '│',
+    \ "Unmerged"  : '│',
+    \ "Deleted"   : '│',
+    \ "Dirty"     : '│',
+    \ "Clean"     : '│',
+    \ 'Ignored'   : '│',
+    \ "Unknown"   : '│',
     \ }
 
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-Plug 'mattn/emmet-vim'
-let g:user_emmet_leader_key='<C-,>'
+"Plug 'mattn/emmet-vim'
+"let g:user_emmet_leader_key='<C-,>'
 
 Plug 'ryanoasis/vim-devicons'
 let g:WebDevIconsOS = 'Darwin'
@@ -416,9 +408,3 @@ if exists('g:loaded_webdevicons')
 endif
 
 call plug#end()
-
-" turn off ugly first line of nerdtree (must be outside the call)
-augroup nerdtreehidecwd
-	autocmd!
-	autocmd FileType nerdtree setlocal conceallevel=3 | syntax match NERDTreeHideCWD #^[</].*$# conceal
-augroup end

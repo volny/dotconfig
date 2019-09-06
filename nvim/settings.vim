@@ -36,6 +36,9 @@ set fillchars+=vert:│
 " use no separator (the empty space at EOL is significant, obviously)
 " set fillchars+=vert:\
 
+set cursorline
+highlight CursorLine guibg=#203039
+
 " ==================================================
 " SETTINGS
 " ==================================================

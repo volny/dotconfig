@@ -24,15 +24,16 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 zstyle ':prezto:module:git:info:context:subcontext' format 'string'
 
 zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
   'completion' \
-  'prompt'
+  'directory' \
+  'docker' \
+  'editor' \
+  'environment' \
+  'history' \
+  'prompt' \
+  'spectrum' \
+  'terminal' \
+  'utility' \
 
 # Auto start a session when Zsh is launched in a local terminal.
 zstyle ':prezto:module:tmux:auto-start' local 'yes'
@@ -45,3 +46,5 @@ zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 
 # Set the default session name:
 zstyle ':prezto:module:tmux:session' name 'dev'
+
+zstyle :prezto:module:prompt theme powerlevel10k

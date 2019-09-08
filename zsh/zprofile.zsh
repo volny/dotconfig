@@ -67,3 +67,5 @@ export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # add pip to path
 export PATH=/Users/fnav/Library/Python/3.7/bin:$PATH
 export PATH=Users/fnav/Library/Python/2.7/bin:$PATH
+
+export PATH="$HOME/.cargo/bin:$PATH"

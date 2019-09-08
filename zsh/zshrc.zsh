@@ -28,3 +28,8 @@ SAVEHIST=100000
 
 setopt appendhistory autocd extendedglob nomatch notify nosharehistory incappendhistory
 unsetopt beep
+
+# to be able to use the same configuration from a terminal without true color support
+if [[ $COLORTERM != (24bit|truecolor) && ${terminfo[colors]} -ne 16777216 ]]; then
+  zmodload zsh/nearcolor
+fi

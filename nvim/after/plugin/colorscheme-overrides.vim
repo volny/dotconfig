@@ -1,31 +1,56 @@
-" remove background color
-" highlight Normal guibg=None
+" oceanic-next colors
+" #1b2b34
+" #343d46
+" #4f5b66
+" #65737e
+" #a7adba
+" #c0c5ce
+" #cdd3de
+" #d8dee9
+" #ec5f67
+" #f99157
+" #fac863
+" #99c794
+" #62b3b2
+" #6699cc
+" #c594c5
+" #ab7967
+" #ffffff
+
+" notice there's no `#` before the color. why? because vim! for guibg it should be without `#`, for guifg with. obviously!
+highlight Normal guibg=16242c
+
 " remove it from gitgutter too
 highlight GitGutterAdd guibg=None
 highlight GitGutterChange guibg=None
 highlight GitGutterDelete guibg=None
 highlight GitGutterChangeDelete guibg=None
 " nicer symbol colors for Ale
-highlight ALEErrorSign guifg=#ab4642 guibg=None |
-highlight ALEWarningSign guifg=#f7ca88 guibg=None |
+highlight ALEErrorSign guifg=#ec5f67 guibg=None
+highlight ALEWarningSign guifg=#f99157 guibg=None
 " autocmd VimEnter * highlight EndOfBuffer guibg=None guifg=#282828
 
 " nice line numbers and sign-column
-highlight clear LineNr |
-highlight clear SignColumn |
+" highlight clear LineNr |
+" highlight clear SignColumn |
+highlight SignColumn guibg=None
+
 " relative and current line number colors
-highlight LineNR guifg=#585858 guibg=None |
-highlight CursorLineNR guifg=#f8f8f8 guibg=None |
+highlight LineNR guifg=#585858 guibg=None
+highlight CursorLineNR guifg=white guibg=None
+
 " vertical split separator - None
-highlight VertSplit guibg=None guifg=bg
+highlight VertSplit guibg=#1b2b34 guifg=#1b2b34
+
+highlight ColorColumn guibg=1b2b34 guifg=#1b2b34
 
 " no ugly Error highlighting
 " highlight Error NONE
 " highlight ErrorMsg NONE
 " highlight SpellBad NONE
 " highlight SpellCap NONE
-highlight SpellBad guibg=#303030
-highlight SpellCap guibg=#303030
+highlight SpellBad guibg=1b2b34
+highlight SpellCap guibg=1b2b34
 
 " ------------------------------------------------
 " ------------------------------------------------
@@ -41,10 +66,7 @@ highlight SpellCap guibg=#303030
 " augroup END
 
 " no tilde at EOF end of file
-highlight EndOfBuffer guifg=bg
-highlight VertSplit guibg=None guifg=bg
-
-highlight ColorColumn guifg=bg guibg=bg
+highlight EndOfBuffer guibg=1b2b34 guifg=#1b2b34
 
 " hide top line (path) from nerdtree
 augroup nerdtreehidecwd
@@ -54,6 +76,8 @@ augroup end
 
 " NOTE to change airline background color, swap these lines in ~/.config/nvim/plugged/oceanic-next/autoload/airline/themes/oceanicnext.vim
 " might fork in the future, also to extend markdown and jsx tags, but not now
+"  let s:base00=['1b2b34', '235']
+" THEN
 " let s:normal1   = [s:base10[0], s:base0C[0], s:base10[1], s:base0C[1]]
 " let s:normal2   = [s:base07[0], s:base03[0], s:base07[1], s:base03[1]]
 " let s:normal3   = [s:base07[0], s:base00[0], s:base07[1], s:base00[1]]

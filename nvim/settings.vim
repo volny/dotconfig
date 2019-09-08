@@ -23,7 +23,7 @@ hi Visual gui=reverse
 
 " highlight current Line
 " set cursorline
-" highlight CursorLine guibg=#0d0d0d guifg=None
+" highlight CursorLine guibg=#1b2b34
 
 " nvim supports mode-dependent cursor shape built-in
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
@@ -32,12 +32,9 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 set list lcs=tab:▸\ ,trail:·,nbsp:_
 
 " use the *real* full-height vertical bar to make solid lines ✨
-set fillchars+=vert:│
+" set fillchars+=vert:│
 " use no separator (the empty space at EOL is significant, obviously)
 " set fillchars+=vert:\
-
-set cursorline
-highlight CursorLine guibg=#203039
 
 " ==================================================
 " SETTINGS
@@ -148,4 +145,3 @@ set noshowmode
 set noruler
 set laststatus=0
 set noshowcmd
-

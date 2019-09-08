@@ -537,7 +537,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>469 235 650 452 0 0 1440 900 </string>
+	<string>0 0 1440 900 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>165 59 730 527 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1154,6 +1154,8 @@
 				<key>Red Component</key>
 				<real>0.0</real>
 			</dict>
+			<key>Minimum Contrast</key>
+			<real>0.0</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -1838,7 +1840,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{159, 707}</string>
+		<string>{91, 512}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>AC77A07E-291F-45F8-9B8B-45E91CE0A2B3</string>

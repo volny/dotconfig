@@ -99,3 +99,5 @@ augroup end
 " let s:warning   = [s:base09[0], s:base01[0], s:base09[1], s:base01[1]]
 " let s:error     = [s:base08[0], s:base01[0], s:base08[1], s:base01[1]]
 
+" need to initiate norcalli/nvim-colorizer *shrug
+lua require'colorizer'.setup()

@@ -74,6 +74,9 @@ let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json
 let g:markdown_syntax_conceal = 0
 let g:markdown_minlines = 100
 
+" show hex/rgb colors in bg
+Plug 'norcalli/nvim-colorizer.lua'
+
 " tim pope
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -341,6 +344,10 @@ Plug 'junegunn/goyo.vim'
 " autocmd! User GoyoLeave Limelight!
 " let g:limelight_conceal_guifg = '#757575'
 
+let g:goyo_width = 80
+let g:goyo_height = '95%'
+let g:goyo_linenr = 1
+
 " TODO use this instead of Nerdtree. Sadly ZERO documentation for now
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -401,6 +408,8 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 let g:webdevicons_enable_ctrlp = 1
 
+" needed only to create the tmux status line once, then run `:TmuxlineSnapshot [file]` to get configuration and put into tmux.conf
+" Plug 'edkolev/tmuxline.vim'
 
 " for concealing nerdtree brackets
 if exists('g:loaded_webdevicons')

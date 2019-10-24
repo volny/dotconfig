@@ -51,6 +51,8 @@ cask "flux"
 cask "font-firacode-nerd-font-mono"
 cask "font-hack-nerd-font"
 cask "font-inter"
+cask "font-iosevka"
+cask "font-iosevka-slab"
 cask "font-profont-nerd-font"
 cask "font-ubuntumono-nerd-font"
 cask "google-chrome"
@@ -70,5 +72,5 @@ cask "vlc"
 mas "Bear", id: 1091189122
 mas "Magnet", id: 441258766
 mas "Things", id: 904280696
-tap "caskroom/fonts"
+tap "homebrew/cask-fonts"
 tap "prisma/prisma"

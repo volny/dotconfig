@@ -27,7 +27,9 @@ ln -sf ~/.config/git/gitignore ~/.gitignore
 # AG
 
 # agignore = gitignore
-ln -sf ~/.config/git/gitignore ~/.agignore
+touch ~/.agignore
+cat ~/.config/git/agignore >> ~/.agignore
+cat ~/.config/git/gitignore >> ~/.agignore
 
 # ZSH
 

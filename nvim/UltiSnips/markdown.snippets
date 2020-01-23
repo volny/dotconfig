@@ -4,3 +4,33 @@ $0
 \`\`\`
 endsnippet
 
+snippet time
+`date +%H:%M`
+endsnippet
+
+snippet w
+• [$1] `date +%H:%M`.- ** - $2
+endsnippet
+
+snippet wow
+${1:Text}`!p snip.rv = (75-2*len(t[1]))*' '+t[1].upper()`
+endsnippet
+
+snippet "be(gin)?( (\S+))?" "begin{} / end{}" br
+\begin{${1:`!p
+snip.rv = match.group(3) if match.group(2) is not None else "something"`}}
+    ${2:${VISUAL}}
+\end{$1}$0
+endsnippet
+
+snippet *
+• ${1}
+endsnippet
+
+snippet +
+✔ ${1}
+endsnippet
+
+snippet -
+○ ${1}
+endsnippet

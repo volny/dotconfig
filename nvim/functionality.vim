@@ -2,18 +2,18 @@
 " OS dependent config
 " ==================================================
 
-function! GetRunningOS()
-  if has("win32")
-return "win"
-  endif
-  if has("unix")
-    if system('uname')=~'Darwin'
-      return "mac"
-    else
-      return "linux"
-    endif
-  endif
-endfunction
+" function! GetRunningOS()
+"   if has("win32")
+" return "win"
+"   endif
+"   if has("unix")
+"     if system('uname')=~'Darwin'
+"       return "mac"
+"     else
+"       return "linux"
+"     endif
+"   endif
+" endfunction
 
 " let hostOS = GetRunningOS()
 
@@ -24,9 +24,6 @@ endfunction
 function! JSON()
   %!python -m json.tool
   setlocal ft=json
-  " TODO
-  " want: gg=G
-  " how to execute command over every line?
 endfunction
 
 command! Json call JSON()

@@ -1,5 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
+source $HOME/.config/nvim/lsp.vim
+
 " code completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
@@ -19,13 +21,21 @@ Plug 'mhartington/oceanic-next'
 " Plug 'wlangstroth/vim-racket', { 'for': 'scribble' }
 " Plug 'vim-scripts/scribble.vim', { 'for': 'scribble' }
 
-" Plug 'jpalardy/vim-slime'
-" ctrl-c ctrl-c to 'send' line to repl
-" let g:slime_target = "tmux"
-" let g:slime_paste_file = "$HOME/.slime_paste"
+"Plug 'jpalardy/vim-slime'
+"" ctrl-c ctrl-c to 'send' line to repl
+"let g:slime_target = "tmux"
+"let g:slime_paste_file = "$HOME/.slime_paste"
 " NOTE
 " run :Slimeconfig, select default
 " the tmux pane number do <prefix>q
+" for selecting tmux targetpane:
+" ":"       means current window, current pane (a reasonable default)
+" ":i"      means the ith window, current pane
+" ":i.j"    means the ith window, jth pane
+" "h:i.j"   means the tmux session where h is the session identifier
+"           (either session name or number), the ith window and the jth pane
+" "%i"      means i refers the pane's unique id
+" "{token}" one of tmux's supported special tokens, like "{right-of}"
 
 " alignment (for markdown tables etc) - https://github.com/junegunn/vim-easy-align
 " Plug 'junegunn/vim-easy-align', { 'for': 'markdown' }
@@ -35,15 +45,14 @@ Plug 'mhartington/oceanic-next'
 
 " syntax
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascript.jsx' }
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
 
 " "  don't use yajs, latest version is messed up (july 2018)
 " Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
-" Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascript' }
 " Plug 'neoclide/vim-jsx-improve', { 'for': 'javascript' }
-" let g:vim_jsx_pretty_colorful_config = 1
-" " Plug 'jelera/vim-javascript-syntax'
+" Plug 'jelera/vim-javascript-syntax'
 " Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 " Plug 'Quramy/vim-js-pretty-template', { 'for': 'javascript' }
 
@@ -124,6 +133,7 @@ nmap <silent> <Leader>af <Plug>(ale_fix)
 " TODO both fixers and linter ignore my local .eslintrc
 let g:ale_fixers = {
       \  'javascript': ['prettier-eslint', 'prettier', 'eslint'],
+      \  'javascriptreact': ['prettier-eslint', 'prettier', 'eslint'],
       \  'typescript': ['prettier'],
       \  'css': ['prettier'],
       \  'graphql': ['prettier'],
@@ -148,40 +158,6 @@ let g:ale_statusline_format = ['X %d', '? %d', '']
 " %linter% is the name of the linter that provided the message
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says %s'
-
-" TODO - issues:
-" - leave quickfix list alone
-" - don't scan over node_modules, making replace unusable
-
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh',
-\ }
-
-let g:LanguageClient_serverCommands = {
-  \ 'javascript': ['~/.config/yarn/global/node_modules/.bin/javascript-typescript-stdio'],
-  \ 'javascript.jsx': ['~/.config/yarn/global/node_modules/.bin/javascript-typescript-stdio'],
-  \ 'typescript': ['~/.config/yarn/global/node_modules/.bin/tsserver'],
-  \ 'typescript.tsx': ['~/.config/yarn/global/node_modules/.bin/tsserver'],
-\ }
-
-" use fzf instead of populating quickfix - no effect
-let g:LanguageClient_selectionUI = 'fzf'
-
-" disable logging - works to keep quickfix clean, but also removes the useful inline hints
-let g:LanguageClient_diagnosticsEnable = 0
-
-" TODO - this is the thing I want - doesn't work even though it's in the docs
-" call g:LanguageClient#setDiagnosticsList('Quickfix')
-" call LanguageClient#setDiagnosticsList('Disabled');
-
-" I'm reserving <Leader>d for lsp stuff
-nnoremap <Leader>d :call LanguageClient_contextMenu()<CR>
-nnoremap <Leader>dm :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> <Leader>dh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <Leader>dd :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <silent> <Leader>dr :call LanguageClient#textDocument_rename()<CR>
 
 " snippets
 Plug 'SirVer/ultisnips'
@@ -343,10 +319,12 @@ Plug 'junegunn/goyo.vim'
 " autocmd! User GoyoEnter Limelight
 " autocmd! User GoyoLeave Limelight!
 " let g:limelight_conceal_guifg = '#757575'
-
-let g:goyo_width = 80
-let g:goyo_height = '95%'
+" show line numbers in goyo
 let g:goyo_linenr = 1
+
+let g:goyo_width = 120
+let g:goyo_height = '95%'
+" let g:goyo_linenr = 1
 
 " TODO use this instead of Nerdtree. Sadly ZERO documentation for now
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -370,6 +348,9 @@ let g:NERDTreeDirArrowExpandable = " " " <-- (just the right) invisible space
 let g:NERDTreeDirArrowCollapsible= " " " <-- (just the right) invisible space
 " no help string
 let NERDTreeMinimalUI=1
+" use trash instead of rm to remove files 🎉
+let NERDTreeRemoveFileCmd = 'trash '
+let NERDTreeRemoveDirCmd = 'trash '
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " show ignored paths in nerdtree (-> should actually be greyed out)

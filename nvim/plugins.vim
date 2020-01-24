@@ -1,7 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
 
-source $HOME/.config/nvim/lsp.vim
-
 " code completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1

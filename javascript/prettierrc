@@ -1,0 +1,20 @@
+printWidth: 110
+tabWidth: 2
+useTabs: false
+semi: false
+singleQuote: true
+trailingComma: "es5"
+bracketSpacing: true
+overrides:
+- files: "*.js"
+  parser: flow
+- files: "*.css"
+  options:
+    parser: css
+    singleQuote: false
+- files: "*.md"
+  options:
+    parser: markdown
+- files: ".babelrc,.eslintrc"
+  options:
+    parser: json

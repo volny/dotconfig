@@ -8,58 +8,58 @@ snippet time
 `date +%H:%M`
 endsnippet
 
-snippet i
-• [$1] `date +%H:%M`.- ** - $2
-endsnippet
+# snippet i
+# • [$1] `date +%H:%M`.- ** - $2
+# endsnippet
 
 snippet *
 • $1
 endsnippet
 
-snippet +
-✔ $1
-endsnippet
-
-snippet -
-○ $1
-endsnippet
-
-snippet X
-✘ $1
-endsnippet
+# snippet +
+# ✔ $1
+# endsnippet
+#
+# snippet -
+# ○ $1
+# endsnippet
+#
+# snippet X
+# ✘ $1
+# endsnippet
 
 # task item `done`
-snippet
-• [$1](✔) - $2
+snippet d
+[$1](✔) - $2
 endsnippet
 # task item `todo`
 snippet t
-• [$1](○) - $2
+[$1](○) - $2
 endsnippet
 # task item `won't do`
 snippet w
-• [$1](✘) - $2
+[$1](✘) - $2
 endsnippet
 # task item `blocked`
 snippet b
-• [$1](∇) - $2
+[$1](∇) - $2
 endsnippet
 
 # task item `done` with time
 snippet dt
-• [$1](✔) - $[`date +%H:%M`][$2] - $3
+[$1](✔) - $[`date +%H:%M`][$2] - $3
 endsnippet
 # task item `todo` with time
 snippet tt
-• [$1](○) - [`date +%H:%M`][$2] - $3
+[$1](○) - [`date +%H:%M`][$2] - $3
 endsnippet
 # task item `won't do` with time
 snippet wt
-• [$1](✘) - [`date +%H:%M`][$2] - $3
+[$1](✘) - [`date +%H:%M`][$2] - $3
 endsnippet
 # task item `blocked` with time
 snippet bt
-• [$1](∇) - $[`date +%H:%M`][$2] - 3
+[$1](∇) - $[`date +%H:%M`][$2] - 3
 endsnippet
 
 # TODO
@@ -75,4 +75,20 @@ $0
 **Next Tasks**
 
 **Open Tasks**
+endsnippet
+
+
+snippet tmr
+`date -v +1d +%a` `date -v +1d +%b` `date -v +1d +%d`
+---
+
+**Log**
+$0
+
+**Next Tasks**
+$1
+
+**Open Tasks**
+$2
+
 endsnippet

@@ -108,6 +108,15 @@ nnoremap <Leader>h :split<CR>
 " save buffers
 nnoremap <Leader>s :w<CR>
 
+" delete without yanking
+nnoremap <C-x> "_d
+vnoremap <C-x> "_d
+
+" replace currently selected text with default register without yanking it
+vnoremap <C-p> "_dP
+" replace word under curser with default register without yanking it
+nnoremap <C-p> viw"_dP
+
 " ==================================================
 " SYNTAX
 " ==================================================

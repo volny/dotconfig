@@ -158,24 +158,39 @@ let g:ale_statusline_format = ['X %d', '? %d', '']
 let g:ale_echo_msg_format = '%linter% says %s'
 
 " snippets
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-let g:UltiSnipsEditSplit="vertical"
+Plug 'Shougo/neosnippet.vim'
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<c-j>" : "\<tab>"
+smap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 
-Plug 'honza/vim-snippets'
+Plug 'Shougo/neosnippet-snippets'
+
+" Plug 'SirVer/ultisnips'
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-n>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+" let g:UltiSnipsEditSplit="vertical"
+"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Plug 'honza/vim-snippets'
 " Plug 'epilande/vim-es2015-snippets', { 'for': 'javascript' }
-Plug 'epilande/vim-react-snippets', { 'for': 'javascript' }
+" Plug 'epilande/vim-react-snippets', { 'for': 'javascript' }
+Plug 'grvcoelho/vim-javascript-snippets', { 'for': 'javascript' }
+Plug 'mlaursen/vim-react-snippets', { 'for': 'javascript' }
 
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'ctrlpvim/ctrlp.vim'
-nnoremap <Leader>j :CtrlP<CR>
+let g:ctrlp_map = '<Leader>j'
+
 " open buffers
 nnoremap <Leader>k :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore = {

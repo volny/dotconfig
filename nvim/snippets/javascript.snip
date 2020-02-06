@@ -1,0 +1,73 @@
+# Proptypes for React Class
+snippet rcpt
+	static propTypes = {
+		${1}: PropTypes.${0},
+	}
+
+
+snippet iife
+	;((${1}) => {
+		}${2}
+	})()
+
+snippet try
+	try {
+	  ${0}
+	} catch (error) {
+	  console.error(error)
+	}
+
+snippet l
+	console.log(${0})
+
+snippet fori
+	for (let i = 0; i < ${1}.length; i += 1) {
+	  ${2}
+	}
+
+snippet forij
+	for (let i = 0; i < ${1}.length; i += 1) {
+	  ${2}
+	  for (let j = i + 1; j < ${3}.length; j += 1) {
+	    ${4}
+	  }
+	}
+
+snippet f
+	(${1}) => ${2}
+
+snippet fr
+	(${1}) => {
+	  ${2}
+	  return (
+	    ${3}
+	  )
+	}
+
+snippet nf
+	const ${1} = (${2}) => {
+	  ${3}
+	}
+
+snippet nfr
+	const ${1} = (${2}) => {
+	  ${3}
+	  return (
+	    ${4}
+	  )
+	}
+
+snippet uf
+	() => undefined
+
+snippet rc "React functional component"
+	import React from 'react'
+
+	const ${1} = ({ ${2} }) => {
+	  ${3}
+	  return (
+	    <${4}>${5}</$4>
+	  )
+	}
+
+	export default ${1}

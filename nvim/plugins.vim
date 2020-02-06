@@ -1,4 +1,4 @@
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.config/nvim/lib')
 
 " code completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -157,33 +157,33 @@ let g:ale_statusline_format = ['X %d', '? %d', '']
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says %s'
 
-" snippets
-Plug 'Shougo/neosnippet.vim'
-" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>     <Plug>(neosnippet_expand_target)
-imap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<c-j>" : "\<tab>"
-smap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-
+" neosnippet doesn't support expanding values in expressions (e.g. `useState(xxx, setXxx)`) - dealbreaker
+" Plug 'Shougo/neosnippet.vim'
+" imap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<c-j>" : "\<tab>"
+" smap <expr><tab> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+" let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+" Note: To enable context-filetype feature, you must install context_filetype.vim. This allows you to use snippets not only depend on the current 'filetype' of the file, but also depends on the cursor location, such as javascript inside html, or lua inside Vim scripts.
+" Plug 'Shougo/context_filetype.vim'
+" Plug 'Shougo/neosnippet-snippets'
+" Plug 'grvcoelho/vim-javascript-snippets', { 'for': 'javascript' }
 
-Plug 'Shougo/neosnippet-snippets'
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsEditSplit="vertical"
 
-" Plug 'SirVer/ultisnips'
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-n>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-" let g:UltiSnipsEditSplit="vertical"
-"
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" > No entry in this list must be "snippets"
+let g:UltiSnipsSnippetDirectories = ['./ultisnips']
+
+" overkill - way too many useless snippets that get in the way
 " Plug 'honza/vim-snippets'
-" Plug 'epilande/vim-es2015-snippets', { 'for': 'javascript' }
-" Plug 'epilande/vim-react-snippets', { 'for': 'javascript' }
-Plug 'grvcoelho/vim-javascript-snippets', { 'for': 'javascript' }
+" react snippets - the best one, only for Ultisnips
 Plug 'mlaursen/vim-react-snippets', { 'for': 'javascript' }
 
 Plug 'christoomey/vim-tmux-navigator'

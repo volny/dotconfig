@@ -1,7 +1,3 @@
-hub
-htop
-yarn/global/yarn.lock
-
 # Ignore everything
 # *
 
@@ -26,3 +22,9 @@ yarn/global/yarn.lock
 # if the files to be tracked are in subdirectories
 #!*/a/b/file1.txt
 #!*/a/b/c/*
+
+hub
+htop
+yarn.lock
+node_modules/
+configstore

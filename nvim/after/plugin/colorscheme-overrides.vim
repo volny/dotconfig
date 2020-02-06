@@ -74,7 +74,7 @@ augroup nerdtreehidecwd
   autocmd FileType nerdtree syntax match NERDTreeHideCWD #^[</].*$# conceal
 augroup end
 
-" NOTE to change airline background color, swap these lines in ~/.config/nvim/plugged/oceanic-next/autoload/airline/themes/oceanicnext.vim
+" NOTE to change airline background color, swap these lines in ~/.config/nvim/lib/oceanic-next/autoload/airline/themes/oceanicnext.vim
 " might fork in the future, also to extend markdown and jsx tags, but not now
 "  let s:base00=['1b2b34', '235']
 " THEN

@@ -1,4 +1,34 @@
 " ==================================================
+" WORKLOG
+" ==================================================
+
+" bump up work item to next
+function! BumpItem()
+    let symbols = ['○', '✔', '✘', '∇']
+    " Get current line:
+    let l:line = getline('.')
+
+    " Get the char to test with the help of a pattern \zs and \ze lets you retrieve only the part between themselves:
+    " let l:char = matchstr(l:line, '\[\zs✔|○|✘|∇\ze]')
+    let l:char = matchstr(l:line, '(\zs\W\ze)')
+
+    if l:char == symbols[0]
+        let l:char =  symbols[1]
+    elseif l:char ==  symbols[1]
+        let l:char = symbols[2]
+    elseif l:char == symbols[2]
+        let l:char = symbols[3]
+    elseif l:char == symbols[3]
+        let l:char = symbols[0]
+    endif
+
+    " Replace the current line with a new one, with the right char substituted:
+    call setline(line('.'), substitute(l:line, '(\zs\W\ze)', l:char, ''))
+endfunction
+
+nnoremap <C-b> :call BumpItem()<CR>
+
+" ==================================================
 " BUFFER / WINDOW
 " ==================================================
 

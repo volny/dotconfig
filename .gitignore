@@ -1,20 +1,24 @@
+hub
+htop
+yarn/global/yarn.lock
+
 # Ignore everything
-*
+# *
 
 # But not these files...
-!git
-!iterm
-!javascript
-!nvim
-!tmux
-!yarn
-!zsh
-!.gitignore
-!.gitmodules
-!Brewfile
-!LICENSE
-!README
-!install.sh
+# !git
+# !iterm
+# !javascript
+# !nvim
+# !tmux
+# !yarn
+# !zsh
+# !.gitignore
+# !.gitmodules
+# !Brewfile
+# !LICENSE
+# !README
+# !install.sh
 
 # ...even if they are in subdirectories
 #!*/

@@ -1,3 +1,5 @@
+tap "homebrew/cask-fonts"
+tap "prisma/prisma"
 brew "autojump"
 brew "awscli"
 brew "bat"
@@ -75,5 +77,3 @@ cask "vlc"
 mas "Bear", id: 1091189122
 mas "Magnet", id: 441258766
 mas "Things", id: 904280696
-tap "homebrew/cask-fonts"
-tap "prisma/prisma"

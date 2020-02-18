@@ -17,9 +17,7 @@ bindkey '^f' forward-word
 # remove ctrl-r, we need it for fzf history search
 bindkey -r "^r"
 
-# bindkey '^s' clear-screen
-# ok, so that's a hack - use vi bindings
-bindkey -s '^s' 'jkddiclear^M'
+bindkey '^s' clear-screen
 
 bindkey -M viins 'jk' vi-cmd-mode
 

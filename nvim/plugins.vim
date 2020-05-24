@@ -7,13 +7,13 @@ let g:deoplete#enable_at_startup = 1
 Plug 'Shougo/denite.nvim'
 
 " colorscheme
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 " Plug 'nanotech/jellybeans.vim'
 " Plug 'whatyouhide/vim-gotham'
 " Plug 'jacoborus/tender.vim'
 " all the colorschemes - https://github.com/flazz/vim-colorschemes
 " Plug 'flazz/vim-colorschemes'
-Plug 'mhartington/oceanic-next'
+" Plug 'mhartington/oceanic-next'
 
 " scribble
 " Plug 'wlangstroth/vim-racket', { 'for': 'scribble' }
@@ -59,17 +59,19 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'alexlafroscia/postcss-syntax.vim', { 'for': 'css' }
 
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'ianks/vim-tsx', { 'for': 'typescript' }
+" Plug 'ianks/vim-tsx', { 'for': 'typescript' }
 
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" this is another typescript stack that works fine from what I can tell. YATS syntax highlighting is a bit 'over the top'
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 Plug 'styled-components/vim-styled-components', { 'branch': 'main', 'for': 'javascript' }
-
-" Plug 'posva/vim-vue/', { 'for': 'vue' }
 
 Plug 'jparise/vim-graphql'
 
 " Plug 'reasonml-editor/vim-reason-plus', { 'for': 'reason' }
+
+
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -77,7 +79,7 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " " highlight markdown code blocks
-let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'scss', 'sh', 'vim', 'zsh']
+let g:markdown_fenced_languages = ['bash=sh', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'scss', 'sh', 'vim', 'zsh', 'yaml', 'ruby', 'ocaml']
 let g:markdown_syntax_conceal = 0
 let g:markdown_minlines = 100
 
@@ -115,7 +117,7 @@ let g:airline#extensions#ale#enabled = 1
 nmap <silent> <Leader>ad <Plug>(ale_go_to_definition)
 nmap <silent> <Leader>an <Plug>(ale_next_wrap)
 nmap <silent> <Leader>aN <Plug>(ale_previous_wrap)
-nmap <silent> <Leader>af <Plug>(ale_fix)
+nmap <silent> <Leader>d <Plug>(ale_fix)
 " toggle ale_fix_on_save
 " function! ToggleFix()
 "   if g:ale_fix_on_save == 0
@@ -142,6 +144,7 @@ let g:ale_fixers = {
       \  'scss': ['prettier'],
       \  'vue': ['prettier'],
       \  'python': ['black'],
+      \  'sql': ['pgformatter']
 \}
 
 " try prettier-eslint first, as `prettier` ignores my eslintrc
@@ -345,16 +348,31 @@ let g:goyo_height = '95%'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
-Plug 'https://github.com/Alok/notational-fzf-vim'
-" This is the path to iCloud Drive *shrug
-let g:nv_search_paths = ['~/Library/Mobile\ Documents/com\~apple\~CloudDocs/NOTATIONAL']
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
+"Plug 'https://github.com/Alok/notational-fzf-vim'
+"" This is the path to iCloud Drive *shrug
+"let g:nv_search_paths = ['~/Library/Mobile\ Documents/com\~apple\~CloudDocs/NOTATIONAL']
+"Plug 'xolox/vim-misc'
+"Plug 'xolox/vim-notes'
+
+"Plug 'mcchrish/nnn.vim'
+"let g:nnn#command = 'NNN_TRASH=1 nnn'
+"" Disable default mappings
+"let g:nnn#set_default_mappings = 0
+"" Then set your own
+"nnoremap <silent> <C-n> :NnnPicker<CR>
+"" Start nnn in the current file's directory
+"nnoremap <C-f> :NnnPicker '%:p:h'<CR>
+"" Opens the nnn window in a split
+"" let g:nnn#layout = 'new' " or vnew, tabnew etc.
+"" Or pass a dictionary with window size
+"let g:nnn#layout = { 'left': '~80' } " or right, up, down
 
 Plug 'scrooloose/nerdtree'
 " toggle NerdTree with ctrl-n
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+let g:NERDTreeWinSize=40
 
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = " " " <-- (just the right) invisible space

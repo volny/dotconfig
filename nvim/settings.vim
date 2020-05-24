@@ -13,17 +13,21 @@ set background=dark
 " colorscheme tomorrow-night
 " let g:airline_theme='minimalist'
 syntax enable
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
-let g:airline_theme='oceanicnext'
+
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+" colorscheme OceanicNext
+" let g:airline_theme='oceanicnext'
+
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 
 "visual selection: reverse colors rather than change bg
 hi Visual gui=reverse
 
 " highlight current Line
 " set cursorline
-" highlight CursorLine guibg=#1b2b34
+" highlight CursorLine guibg=#3c3836
 
 " nvim supports mode-dependent cursor shape built-in
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
@@ -48,9 +52,9 @@ set directory=$HOME/.config/nvim/swaps
 set undodir =$HOME/.config/nvim/undo
 set undofile
 
-" let g:python3_host_prog = '/usr/local/bin/python3'
-" let g:python_host_prog = '/usr/local/bin/python'
-let g:node_host_prog = '/usr/local/bin/neovim-node-host'
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/bin/python'
+let g:node_host_prog = '$HOME/.config/yarn/global/node_modules/.bin/neovim-node-host'
 
 " ==================================================
 " UI

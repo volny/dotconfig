@@ -1,5 +1,5 @@
 " oceanic-next colors
-" #1b2b34
+" #3c3836
 " #343d46
 " #4f5b66
 " #65737e
@@ -18,7 +18,7 @@
 " #ffffff
 
 " notice there's no `#` before the color. why? because vim! for guibg it should be without `#`, for guifg with. obviously!
-highlight Normal guibg=16242c
+" highlight Normal guibg=16242c
 
 " remove it from gitgutter too
 highlight GitGutterAdd guibg=None
@@ -40,17 +40,17 @@ highlight LineNR guifg=#585858 guibg=None
 highlight CursorLineNR guifg=white guibg=None
 
 " vertical split separator - None
-highlight VertSplit guibg=#1b2b34 guifg=#1b2b34
+highlight VertSplit guibg=#3c3836 guifg=#1b2b34
 
-highlight ColorColumn guibg=1b2b34 guifg=#1b2b34
+highlight ColorColumn guibg=3c3836 guifg=#1b2b34
 
 " no ugly Error highlighting
 " highlight Error NONE
 " highlight ErrorMsg NONE
 " highlight SpellBad NONE
 " highlight SpellCap NONE
-highlight SpellBad guibg=1b2b34
-highlight SpellCap guibg=1b2b34
+highlight SpellBad guibg=3c3836
+highlight SpellCap guibg=3c3836
 
 " ------------------------------------------------
 " ------------------------------------------------
@@ -66,7 +66,7 @@ highlight SpellCap guibg=1b2b34
 " augroup END
 
 " no tilde at EOF end of file
-highlight EndOfBuffer guibg=1b2b34 guifg=#1b2b34
+highlight EndOfBuffer guibg=3c3836 guifg=#1b2b34
 
 " hide top line (path) from nerdtree
 augroup nerdtreehidecwd
@@ -76,7 +76,7 @@ augroup end
 
 " NOTE to change airline background color, swap these lines in ~/.config/nvim/lib/oceanic-next/autoload/airline/themes/oceanicnext.vim
 " might fork in the future, also to extend markdown and jsx tags, but not now
-"  let s:base00=['1b2b34', '235']
+"  let s:base00=['3c3836', '235']
 " THEN
 " let s:normal1   = [s:base10[0], s:base0C[0], s:base10[1], s:base0C[1]]
 " let s:normal2   = [s:base07[0], s:base03[0], s:base07[1], s:base03[1]]

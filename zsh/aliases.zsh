@@ -1,3 +1,7 @@
+# -e to open text files in $VISUAL
+# To copy selected file paths to system clipboard and show notis on cp, mv, rm completion use option -x
+alias nnn='nnn -e -x'
+
 alias '.=cd .'
 alias '..=cd ..'
 alias '...=cd ../..'

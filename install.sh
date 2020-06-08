@@ -1,4 +1,5 @@
 # ask for password upfront
+
 sudo -v
 
 # HOMEBREW
@@ -72,6 +73,13 @@ tmux kill-server
 
 # NVIM
 
+# dependencies for nvim (confirm with `nvim -c checkhealth` that all is ok)
+# NOTE needs `gem`, `python@2` and `python@3` from brew, `neovim` from yarn
+pip2 install --user --upgrade neovim
+pip3 install --user --upgrade neovim
+sudo gem install neovim
+# yarn global add neovim
+
 # install vim-plug
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -80,12 +88,6 @@ nvim -E -c PlugInstall -c qall
 # vim needs to restart and run UpdateRemotePlugins
 nvim -E -c UpdateRemotePlugins -c qall
 
-# dependencies for nvim (confirm with `nvim -c checkhealth` that all is ok)
-# NOTE needs `gem`, `python@2` and `python@3` from brew, `neovim` from yarn
-pip2 install --user --upgrade neovim
-pip3 install --user --upgrade neovim
-sudo gem install neovim
-# yarn global add neovim
 
 # ITERM2
 
@@ -94,7 +96,3 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.config/
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
-# OTHER STUFF
-
-# make the notational directory in iCloud drive thats expected by my 'notational' package and vim
-mkdir ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/NOTATIONAL

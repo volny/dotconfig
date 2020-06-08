@@ -28,3 +28,10 @@ htop
 yarn.lock
 node_modules/
 configstore
+
+gatsby/
+karabiner/
+neofetch/
+nnn/
+qBittorrent/
+wireshark/

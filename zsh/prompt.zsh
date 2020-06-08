@@ -166,8 +166,9 @@ fi
     typeset -g POWERLEVEL9K_EMPTY_LINE_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='%{%}'
   fi
 
+
   # Default background color.
-  typeset -g POWERLEVEL9K_BACKGROUND='#1b2b34'
+  typeset -g POWERLEVEL9K_BACKGROUND='#282828'
 
   # Separator between same-color segments on the left.
   typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='%250F\uE0B1'

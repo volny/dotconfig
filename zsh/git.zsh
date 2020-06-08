@@ -103,7 +103,7 @@ alias grf='git checkout HEAD --'
 
 # ---------- CHERRY PICK ----------
 alias gcp='git cherry-pick'
-alias gcpc='git cherry-pick -- continue'
+alias gcpc='git cherry-pick --continue'
 alias gcpa='git cherry-pick --abort'
 
 # ---------- BROWSE ----------

@@ -1,3 +1,6 @@
 # on smart terminals (iterm2) bind shift-space to ặ
 set -g prefix ặ
 bind ặ send-prefix
+
+# start iTerm instead of Terminal.app, fullscreen <https://github.com/tmux-plugins/tmux-continuum/blob/master/docs/automatic_start.mauto-i)->
+set -g @continuum-boot-options 'iterm,fullscreen'

@@ -34,7 +34,6 @@
     "prisma": "^1.34.8",
     "reason-cli": "^3.3.3-macos-1",
     "tern": "^0.24.1",
-    "typescript": "^3.8.3",
-    "yarn": "1"
+    "typescript": "^3.8.3"
   }
 }

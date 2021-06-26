@@ -28,6 +28,7 @@ htop
 yarn.lock
 node_modules/
 configstore
+coc/
 
 gatsby/
 karabiner/

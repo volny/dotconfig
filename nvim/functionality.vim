@@ -21,33 +21,38 @@
 " format and highlight JSON, HTML, JS, CSS
 " ==================================================
 
-function! JSON()
-  %!python -m json.tool
-  setlocal ft=json
+function! JSON() range
+    if a:firstline == 1 && a:lastline == line('$')
+        setlocal filetype=json
+    endif
+    " execute a:firstline . ',' . a:lastline . '!python -m json.tool'
+    execute a:firstline . ',' . a:lastline . '!jq'
 endfunction
+command! -range=% Json <line1>,<line2>call JSON()
 
-command! -range Json call JSON()
-
-function! HTML()
-  %!js-beautify  -f - --type html
-  setlocal ft=html
+function! HTML() range
+    if a:firstline == 1 && a:lastline == line('$')
+        setlocal filetype=html
+    endif
+    execute a:firstline . ',' . a:lastline . '!js-beautify  -f - --type html'
 endfunction
+command! -range=% Html <line1>,<line2>call HTML()
 
-command! -range Html call HTML()
-
-function! JS()
-  %!js-beautify  -f - --type js
-  setlocal ft=javascript
+function! JS() range
+    if a:firstline == 1 && a:lastline == line('$')
+        setlocal filetype=javascript
+    endif
+    execute a:firstline . ',' . a:lastline . '!js-beautify  -f - --type js'
 endfunction
+command! -range=% Js <line1>,<line2>call JS()
 
-command! -range Js call JS()
-
-function! CSS()
-  %!js-beautify  -f - --type css
-  setlocal ft=css
+function! CSS() range
+    if a:firstline == 1 && a:lastline == line('$')
+        setlocal filetype=css
+    endif
+    execute a:firstline . ',' . a:lastline . '!js-beautify  -f - --type css'
 endfunction
-
-command! -range Css call CSS()
+command! -range=% Css <line1>,<line2>call CSS()
 
 " ==================================================
 " toggle quickfix and location lists with <Leader>q/l

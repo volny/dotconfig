@@ -1,0 +1,88 @@
+snippet dis
+// eslint-disable-next-line
+endsnippet
+
+
+# invisible charactar
+snippet inv
+
+endsnippet
+
+snippet iscss
+import cls from './index.module.scss'
+endsnippet
+
+snippet cls
+className={cls.$1}
+endsnippet
+
+snippet iife
+;(($1) => {
+	$2
+})()
+endsnippet
+
+snippet try
+try {
+	$0
+} catch (error) {
+	console.error(error)
+}
+endsnippet
+
+snippet l
+console.log($0)
+endsnippet
+
+snippet fori
+for (let i = 0; i < $1.length; i += 1) {
+	$2
+}
+endsnippet
+
+snippet forij
+for (let i = 0; i < $1.length; i += 1) {
+	$2
+	for (let j = i + 1; j < $3.length; j += 1) {
+		$4
+	}
+}
+endsnippet
+
+snippet f
+($1) => $2
+endsnippet
+
+snippet r
+return {
+	$0
+}
+endsnippet
+
+snippet fr
+($1) => {
+	$2
+	return (
+		$3
+	)
+}
+endsnippet
+
+snippet nf
+const $1 = ($2) => {
+	$3
+}
+endsnippet
+
+snippet nfr
+const $1 = ($2) => {
+	$3
+	return (
+		$4
+	)
+}
+endsnippet
+
+snippet uf
+() => undefined
+endsnippet
